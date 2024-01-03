@@ -167,7 +167,7 @@ const PortfolioPage = ( { data: { allPosts }, pageContext } ) => {
     const id = `${ makeSlug( e.target.innerText ) }`;
     console.log(id)
     if ( id === "thunder-island-code" ) {
-      window.location.href = "https://github.com/AlexS2106/thunder-island-with-gatsby/tree/production"
+      window.location.href = "https://github.com/AlexS2106/thunder_island.git";
     } else {
       scrollTo( `#${ id }` );
     }

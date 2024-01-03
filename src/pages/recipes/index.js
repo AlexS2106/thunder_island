@@ -22,7 +22,7 @@ import Spacer from "../../components/layout/spacing/Spacer";
 import StandardGrid from "../../components/layout/grids/StandardGrid";
 import UserChoiceFilter from "../../components/user-interactive/userChoiceFilter/UserChoiceFilter";
 
-import { differentFoodCoursesImg, foodIngredientsImg, rawFoodsImg, platesOfFoodImg, foodOnPlatesImg, writtenRecipesOnPaperImg } from "../../support/functions/staticImgFunctions";
+import { differentFoodCoursesImg, foodIngredientsImg, rawFoodsImg, foodOnPlatesImg } from "../../support/functions/staticImgFunctions";
 import { filterList, makeTitle } from "../../support/functions/utility";
 import useRecipes from "../../support/hooks/useRecipes.query";
 import useHealths from "../../support/hooks/useHealths.query";
