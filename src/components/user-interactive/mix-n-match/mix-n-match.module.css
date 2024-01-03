@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.grid > div div {
+  font-size: 1.6rem;
+  cursor: move;
+  padding: 1rem;
+  border: 1px solid var(--color-dark);
+}
+.is-correct {
+  text-shadow: 0 1px var(--color-correct);
+}
+.is-incorrect {
+  text-shadow: none;
+}

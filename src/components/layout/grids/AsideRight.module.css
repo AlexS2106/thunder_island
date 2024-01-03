@@ -1,0 +1,7 @@
+@media screen and (min-width: 900px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 72.5% 25%;
+    gap: 2.5%;
+  }
+}

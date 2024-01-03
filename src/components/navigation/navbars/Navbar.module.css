@@ -1,0 +1,48 @@
+.navbar {
+  box-shadow: 0px 1px 10px var(--color-light);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+.navbar > ul {
+    display: flex;
+    flex: 1;
+    padding: .5rem;
+    padding-left: 1rem;
+}
+.navbar a:hover, .navbar button:hover {
+  border-bottom: 1px dotted var(--color-accent-dark);
+}
+.hamburger-closed {
+  height: 5rem;
+}
+.hamburger-closed a,
+.hamburger-closed form {
+  display: none;
+}
+.hamburger > ul {
+  flex-direction: column;
+}
+.hamburger > ul > a {
+  width: 7rem;
+  padding: .5rem;
+}
+.hamburger > ul button {
+   align-self: flex-end;
+}
+.hamburger > ul:last-child div {
+ align-self: center;
+}
+.hamburger button:hover {
+  border-bottom: none;
+}
+.displayed > ul {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.displayed button:hover {
+   display: none;
+}
+

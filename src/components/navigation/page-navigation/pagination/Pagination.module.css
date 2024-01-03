@@ -1,0 +1,19 @@
+.pagination {
+  padding: 3rem;
+}
+.pagination ul {
+  font-size: 2rem;
+  justify-content: center;
+  cursor: pointer;
+}
+.pagination ul li {
+  padding: 1rem 2rem;
+  background-color: var(--color-light);
+  border-top: 3px solid var(--color-mid);
+  border-bottom: 3px solid var(--color-mid);
+  border-radius: 10px;
+  margin-left: .5rem;
+}
+.arrow svg {
+  color: var(--color-accent-dark);
+}

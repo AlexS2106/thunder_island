@@ -1,0 +1,21 @@
+.carousel {
+  padding-bottom: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+.spaced {
+  justify-content: space-evenly;
+  align-items: center;
+}
+.spaced div {
+  align-items: center;
+}
+.color-padding {
+  color: var(--color-accent-dark);
+  padding-left: .5rem;
+  padding-right: 1rem;
+}

@@ -1,0 +1,22 @@
+.list {
+  padding: 2rem;
+  background-color: var(--color-mid);
+  width: 90%;
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+  margin: auto;
+}
+@media screen and (min-width: 650px) {
+  .list {
+     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 900px) {
+  .list {
+  grid-template-columns: repeat(3, 1fr);
+  }
+}
+.list article {
+  height: calc(100% - 5rem);
+}

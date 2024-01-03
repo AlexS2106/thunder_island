@@ -1,0 +1,23 @@
+.cloud header {
+  text-align: center;
+  padding: 1rem;
+}
+.cloud ul {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 2;
+}
+.btn {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .1rem;
+  padding: .5rem;
+}
+.btn:hover {
+border-bottom: 1px dotted var(--color-accent-dark);
+}
+.btn:active,
+.btn-active {
+  border-bottom: 1px solid var(--color-accent-dark);
+}

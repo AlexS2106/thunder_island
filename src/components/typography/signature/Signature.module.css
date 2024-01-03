@@ -1,0 +1,25 @@
+.signature {
+  max-inline-size: fit-content;
+  margin-left: 25%;
+}
+.signed {
+  font-family: var(--font-handwritten);
+  font-size: 7rem;
+  font-weight: bolder;
+  letter-spacing: .2rem;
+  line-height: 4rem;
+}
+.strike {
+  background-color: var(--color-accent-dark);
+  height: 2px;
+  border: none;
+  margin: 1rem auto;
+}
+/*extra classes for customisation*/
+.rotate {
+  transform: rotate(-15deg);
+}
+.end {
+  padding: 1rem 6rem 3rem 3rem;
+  align-self: end;
+}

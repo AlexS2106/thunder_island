@@ -1,0 +1,4 @@
+.wrapper-light header {
+  background-color: var(--color-accent-light);
+  border-bottom: 1px solid var(--color-accent-light);
+}

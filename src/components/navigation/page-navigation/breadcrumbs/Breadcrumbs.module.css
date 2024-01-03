@@ -1,0 +1,14 @@
+.breadcrumbs {
+  justify-content: space-around;
+  margin: auto;
+}
+.breadcrumbs div svg {
+  color: var(--color-accent-dark);
+}
+.breadcrumbs div button span {
+  padding-left: .5rem;
+  padding-right: 1rem;
+}
+.breadcrumbs div button span:hover {
+  border-bottom: 1px dotted var(--color-accent-dark);
+}

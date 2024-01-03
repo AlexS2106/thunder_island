@@ -1,0 +1,14 @@
+.link {
+  letter-spacing: 1px;
+  background-color: var(--color-light);
+  border-top: 3px solid var(--color-accent-light);
+  border-bottom: 3px solid var(--color-accent-light);
+  border-radius: 10px;
+}
+
+.link:hover,
+.link:active {
+  font-weight: bold;
+  border-top: 3px solid var(--color-accent-dark);
+  border-bottom: 3px solid var(--color-accent-dark);
+}

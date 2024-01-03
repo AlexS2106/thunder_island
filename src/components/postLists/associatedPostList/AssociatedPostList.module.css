@@ -1,0 +1,8 @@
+.list {
+  padding: 3rem;
+  justify-self: center;
+}
+.list-item{
+  padding: 3rem;
+  margin-bottom: 3rem;
+}

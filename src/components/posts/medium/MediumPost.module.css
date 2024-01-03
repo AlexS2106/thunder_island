@@ -1,0 +1,27 @@
+.post {
+  padding: 1rem;
+  border-radius: 5px;
+  display: grid;
+}
+.post h4,
+.post h5,
+.post time,
+.post address {
+  padding-top: 0rem;
+}
+.image-wrapper {
+  padding: 1rem;
+  max-width: 30%;
+  justify-content: center;
+}
+.image-wrapper cite {
+  font-size: 1rem;
+}
+.text-wrapper {
+  padding: 1rem;
+  justify-content: space-evenly;
+}
+.btn-wrapper {
+  justify-content: flex-end;
+  align-items: center;
+}

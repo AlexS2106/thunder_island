@@ -1,0 +1,49 @@
+.mdxLinks {
+  font-style: italic;
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+}
+.mdxLinks:hover,
+.mdxLinks:focus {
+  border-bottom: 1px dotted var(--color-accent-dark);
+}
+.mdxLinks:active {
+  border-top: 1px solid var(--color-accent-dark);
+  border-bottom: 1px solid var(--color-accent-dark);
+}
+.ingredients, 
+.instructions,
+.recipeContent,
+.articleContent, 
+.poemContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.ingredients, 
+.instructions,
+.recipeContent {
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+.ingredients ul,
+.recipeContent ul {
+  list-style-type: disc;
+  padding-left: 5rem;
+}
+.instructions ul {
+  list-style-type: none;
+  padding-left: 5rem;
+}
+.ingredients ul li, 
+.instructions ul li,
+.recipeContent ul li {
+  font-size: 1.5rem;
+}
+.instructions ul ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+.articleContent h2,
+.articleContent h3 {
+  padding: 3rem 0 .5rem 1rem;
+}

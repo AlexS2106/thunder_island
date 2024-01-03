@@ -1,0 +1,50 @@
+.footer {
+  font-family: "Alegreya", serif;
+  width: 100%;
+}
+.footer div {
+  text-align: center;
+}
+.footer > div {
+  padding: 1rem;
+  padding-top: 2rem;
+  justify-content: center;
+}
+.footer > div > div {
+  margin: auto;
+}
+.credits {
+  background-color: var(--color-mid);
+}
+.credits > div {
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+.credits > div div {
+  text-align: center;
+  align-items: center;
+  max-width: 25%;
+}
+.credits p {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.8rem;
+}
+@media screen and (min-width: 450px) {
+  .footer > div {
+  padding: 4rem;
+  justify-content: center;
+}
+  .credits > p {
+  padding: 2rem;
+}
+.credits > div {
+  justify-content: space-around;
+  align-items: center;
+}
+.credits p {
+  font-size: 1.4rem;
+  letter-spacing: .05rem;
+  line-height: 2.8rem;
+}
+}

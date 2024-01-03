@@ -1,0 +1,43 @@
+@media screen and (min-width: 650px) {
+  .grid {
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  }
+}
+.grid {
+  padding: 1rem;
+  background-color: var(--color-mid);
+}
+
+.innerGrid {
+  display: grid;
+  grid-template-rows: max-content min-content min-content;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-light);
+}
+.innerGrid dl dt {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: 'Alegreya', serif;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.innerGrid dl dd {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+.innerGrid ol {
+  list-style-type: circle;
+  margin-left: 2rem;
+}
+.innerGrid ol:first-of-type {
+  list-style-type: disc;
+}
+.innerGrid ol li { 
+  font-size: 1.2rem;
+  letter-spacing: normal;
+  line-height: normal;
+}

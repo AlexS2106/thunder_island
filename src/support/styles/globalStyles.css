@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
+/*breakpoints:
+320px
+450px
+650px
+900px
+*/
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  font-size: 62.5%;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  box-sizing: inherit;
+  --color-dark: #000000;
+  --color-accent-dark: #ff6117;
+  --color-mid: #e4d5ce;
+  --color-accent-light: #fff31e;
+  --color-light: #fdfdfd;
+  
+  --color-correct: green;
+  --color-incorrect: red;
+
+  --font-handwritten: 'Square Peg', cursive;
+  
+  padding: 0;
+  margin: 0;
+}
+p, li {
+  font-size: 1.6rem;
+  color: var(--color-dark);
+  letter-spacing: .05rem;
+  line-height: 2.4rem;
+ }
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+a, 
+button {
+  font-family: 'Alegreya', serif;
+ }
+cite {
+  text-align: end;
+}
+ h1 {
+  font-size: 3rem;
+ }
+ h2 {
+  font-size: 2.6rem
+ }
+ h3 {
+  font-size: 2.3rem
+ }
+ h4 {
+   font-size: 1.8rem;
+ }
+ h5,
+ h6 {
+   font-size: 1.7rem;
+ }
+ address,
+ time {
+   font-size: 1.4rem;
+   font-style: italic;
+ }
+ a,
+ button {
+   color: var(--color-dark);
+   font-size: 1.6rem;
+   text-decoration: none;
+   cursor: pointer;
+   border: 1px solid transparent;
+ }
+ button {
+   text-align: center;
+   background-color: inherit;
+ }
+ ol, ul {   
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.isActive {
+  border-top: 1px solid var(--color-accent-dark);
+  border-bottom: 1px solid var(--color-accent-dark);
+}
+.sideBorderDark {
+  border-left: 1px solid var(--color-accent-dark);
+}
+.sideBorderLight {
+  border-left: 1px solid var(--color-accent-light);
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  flex: 1; 
+}
+.sideBorderPad {
+  padding-left: .5rem;
+}
+.pad1 {
+  padding: 1rem;
+}
+.bgLight {
+  background-color: var(--color-light);
+}
+.bgMedium {
+  background-color: var(--color-mid); 
+}
+.bgGradient {
+  background: linear-gradient(to right bottom, var(--color-light), var(--color-mid));
+}
+.textCenter {
+  text-align: center;
+}
+.shadowText {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .3rem;
+}
+.accentText {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-dark);
+  padding: 0.25rem;
+}
+.accentText:hover {
+  text-decoration: dotted underline;
+  text-decoration-color: var(--color-accent-dark);
+}
+ 

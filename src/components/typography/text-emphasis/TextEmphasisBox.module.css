@@ -1,0 +1,11 @@
+.emphasis {
+  padding: 0.5rem;
+  width: 65%;
+  margin: auto;
+  border: 1px solid var(--color-accent-dark);
+}
+.emphasis p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}

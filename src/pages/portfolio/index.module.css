@@ -1,0 +1,86 @@
+@media screen and (max-width: 900px) {
+  .portfolio > main {
+  width: 100%;
+}
+}
+.group-menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.group {
+  padding: 3rem;
+}
+.group-menu h4 {
+  border: 1px solid var(--color-accent-light);
+  box-shadow: 0px 1px 3px var(--color-accent-light);
+  padding: .5rem;
+  margin: 1rem;
+}
+.group-menu h4:hover {
+  border: 1px solid var(--color-accent-dark);
+  box-shadow: 0px 1px 3px var(--color-accent-dark);
+}
+.group-item {
+  border: 1px solid var(--color-light);
+  box-shadow: -2px -2px 5px var(--color-light), 2px 2px 5px var(--color-light);
+  margin-top: 3rem;
+}
+.group-item h4 {
+  letter-spacing: .3rem;
+}
+.group-item-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.group-item-body {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+} 
+.bg1 {
+  background-color: var(--color-accent-dark);
+}
+.bg1 h4 {
+    text-shadow: 0px 1px 1px var(--color-accent-light);
+}
+.bg2 {
+  background-color: var(--color-dark);
+}
+.bg2 h4,
+.bg2 p {
+  color: var(--color-light);
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+}
+.bg3 {
+  background-color: var(--color-mid);
+}
+.bg3 h4 {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+}
+.bg4 {
+  background-color: var(--color-accent-light);
+}
+.bg4 h4 {
+    text-shadow: 0px 1px 1px var(--color-mid);
+}
+/*@media*/
+@media screen and (min-width: 450px) {
+.group-menu {
+  margin: auto;
+  flex-direction: row;
+}
+.group-menu {
+  margin: auto;
+  flex-direction: row;
+}
+.group-item-container {
+  flex-direction: row;
+}
+.group-item-container-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  flex: 1;
+}
+}

@@ -1,0 +1,20 @@
+.chat {
+  margin: auto;
+}
+.wide {
+  max-width: 90%;
+}
+.medium {
+  max-width: 75%;
+}
+.narrow {
+  max-width: 60%;
+}
+.chat p {
+  font-family: var(--font-handwritten);
+  font-size: 2.5rem;
+  font-weight: bolder;
+  letter-spacing: .2rem;
+  line-height: 3rem;
+  text-align: left;
+}

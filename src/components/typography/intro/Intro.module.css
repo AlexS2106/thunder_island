@@ -1,0 +1,8 @@
+.intro {
+   font-size: 1.8rem;
+   letter-spacing: 0.1rem;
+   line-height: 2.8rem;
+   max-inline-size: fit-content; 
+   max-width: 60%;
+   margin: auto;
+}

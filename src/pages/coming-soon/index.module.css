@@ -1,0 +1,10 @@
+.greeting {
+  color: var(--color-accent-dark);
+  font-family: var(--font-handwritten);
+  letter-spacing: .3rem;
+  font-size: 4.5rem;
+  background-color: transparent;
+}
+.rotated {
+  transform: rotate(-15°);
+}
