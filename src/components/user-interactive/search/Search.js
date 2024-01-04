@@ -20,8 +20,8 @@ const Search = () => {
   //Initial state for the index.
   const slugs = useSlugs();
 
-  const _slugs = slugs.map( node => node.frontmatter.mainCategories[ 0 ].concat( node.frontmatter.slug ) );
- 
+  const _slugs = slugs.map( node => `${node.frontmatter.mainCategories[ 0 ]}/${node.frontmatter.slug}`);
+ console.log(_slugs);
   //State for the index and user query
   const [ index, setIndex ] = useState( () => {
      const initialState = _slugs.concat(mainCategories);

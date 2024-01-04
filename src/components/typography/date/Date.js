@@ -62,9 +62,7 @@ const prettyDay = prettifyDay( date );
     <time
       dateTime={ date }
       className={ prettyDate }>
-      <span>{ prettyDay }</span>
-      <span>{ prettyMonth }</span>
-      <span>{ prettyYear }</span>
+      <span>{`${ prettyDay } ${ prettyMonth } ${ prettyYear }`}</span>
     </time>
   );
 }
