@@ -25,7 +25,6 @@
     "gatsby-plugin-mdx": "^5.13.0",
     "gatsby-plugin-sharp": "^5.13.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",
-    "gatsby-remark-images": "^7.13.0",
     "gatsby-source-filesystem": "^5.13.0",
     "gatsby-transformer-sharp": "^5.13.0",
     "prop-types": "^15.8.1",

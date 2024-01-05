@@ -30,15 +30,6 @@ module.exports = {
           remarkPlugins: [],
           rehypePlugins: [],
         },
-         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1500,
-              sizeByPixelDensity: true,
-            },
-          },
-        ],
       },
     },
     {
