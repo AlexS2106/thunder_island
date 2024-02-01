@@ -1,49 +1,47 @@
 import React from "react";
 
-import {
-  footer,
-  credits
-} from "./Footer.module.css";
+import { footer, credits } from "./Footer.module.css";
 
 import useMetadata from "../../support/hooks/useMetadata.query";
 import { smallLogo } from "../../support/functions/staticImgFunctions";
 
 const Footer = () => {
-
   ////** GRAPHQL DATA **////
   const { title, author, stack, techs } = useMetadata();
 
   ////** VARIABLES **////
   const logo = smallLogo();
-  
+
   ////** FUNCTIONS **////
-  const techList = techs.map( ( tech, index ) => index === techs.length - 1 ? `with ${ tech }` : `${ tech }, ` );
-  const generateCopyright = `@Copyright ${ title } ${ new Date().getFullYear() }`
+  const techList = techs.map((tech, index) =>
+    index === techs.length - 1 ? `with ${tech}` : `${tech}, `,
+  );
+  const generateCopyright = `@Copyright ${title} ${new Date().getFullYear()}`;
 
   return (
-    <footer className={ footer }>
-      <div className="flexColumn">
-        { logo }
-      </div>
-      <div className={ credits }>
-        <p>{ generateCopyright} </p>
+    <footer className={footer}>
+      <div className="flexColumn">{logo}</div>
+      <div className={credits}>
+        <p>{generateCopyright} </p>
         <div className="flexRow">
           <div className="flexColumn">
-            <p>A { stack } Website</p>
-            <p>{ techList }</p>
+            <p>A {stack} Website</p>
+            <p>{techList}</p>
           </div>
           <div className="flexColumn">
             <p>Logo Design</p>
             <p>by Claire Murray</p>
-            <address>@ClairesWebsite</address>
           </div>
           <div className="flexColumn">
-            <p>All the design, coding and content of Thunder Island is the result of the interests, hobbies and dabblings of { author }.</p>
+            <p>
+              All the design, coding and content of Thunder Island is the result
+              of the interests, hobbies and dabblings of {author}.
+            </p>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

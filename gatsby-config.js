@@ -1,21 +1,22 @@
 module.exports = {
-   flags: {
-    DEV_SSR: false
+  flags: {
+    DEV_SSR: false,
   },
   siteMetadata: {
     siteUrl: "http://localhost:8000",
     title: "Thunder Island",
     image: "./src/images/logo-favicon.png",
-    description: "A personal coding and design project containing recipes, english points of grammar, writing examples and photographs.",
+    description:
+      "A personal coding and design project containing recipes, english points of grammar, writing examples and photographs.",
     author: "Alex",
     stack: "JAMstack",
-    techs: [ "MDX", "React", "Gatsby" ]
+    techs: ["MDX", "React", "Gatsby"],
   },
   plugins: [
     {
       resolve: "gatsby-plugin-breadcrumb",
       options: {
-        useAutoGen: true
+        useAutoGen: true,
       },
     },
     "gatsby-plugin-smoothscroll",
@@ -25,11 +26,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [ `.md`, `.mdx` ],
-        mdxOptions: {
-          remarkPlugins: [],
-          rehypePlugins: [],
-        },
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
     {
@@ -51,29 +56,28 @@ module.exports = {
       options: {
         name: "about",
         path: `${__dirname}/content/about/`,
-      }
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "recipes",
         path: `${__dirname}/content/recipes/`,
-      }
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "portfolio",
         path: `${__dirname}/content/portfolio/`,
-      }
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "english",
         path: `${__dirname}/content/english/`,
-      }
+      },
     },
   ],
 };
-
