@@ -124,7 +124,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
   //Navigates from the options box to the user clicked page
   const handleBoxClick = (e) => {
     const _clicked = _options.filter(
-      (item) => item.name === e.target.innerText
+      (item) => item.name === e.target.innerText,
     );
     navigate(`${_clicked[0].link}`);
   };
@@ -134,7 +134,10 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
     <Layout>
       <Spacer size={3} />
       <Div size={1}>
-        <OptionBoxes menu={_options} onClick={handleBoxClick} />
+        <OptionBoxes
+          menu={_options}
+          onClick={handleBoxClick}
+        />
         <Spacer size={3} />
         <StandardGrid size={1}>
           <Main size={1}>
@@ -154,7 +157,10 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
               showSubCategories={showSubcategories}
               innerText={mainPostsInnerText}
             />
-            <Pagination pageLink={pageLink} pageInfo={pageInfo} />
+            <Pagination
+              pageLink={pageLink}
+              pageInfo={pageInfo}
+            />
           </Main>
           <aside>
             <div className="sideBorderDark sideBorderPad">
@@ -169,32 +175,56 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                 <div className={`pad1 ${authorImage}`}>{image}</div>
                 <Chat size={1}>
                   <p className="pad1">
-                    I'm Alex and Thunder Island is my creative corner.
+                    I'm Alex, and Thunder Island is my creative corner.
                   </p>
                   <p className="pad1">
                     This space is a passionate mix of everything great and
-                    nothing important.
+                    nothing important that is expected to go unnoticed by the
+                    rest of the world.
                   </p>
                   <p className="pad1">
-                    Looking for recipe ideas for your diet? Keto, Atkins or low
-                    calorie? Paleo, carnivore or vegetarian? Do you just want to
-                    feed the family or eat something damn delicious?
+                    But, just in case some random kindly stranger stops by -
+                    that would be you! - and wishes to look around, let me give
+                    you a quick idea of what you will find.
                   </p>
                   <p className="pad1">
-                    Do you need to learn or practice some points of English?
+                    I post my family recipes here - every dish has passed a
+                    taste test by someone in the family, whether an adult or a
+                    child, so expect to find a variety. There are more than a
+                    few from the various diets we have delved into over the
+                    years and others that are more budget, easy-cook, decadently
+                    delicious or fit in no particular category. It's our
+                    personalised family recipe book: stuff we like to eat that
+                    has no boundaries.
                   </p>
                   <p className="pad1">
-                    Do you feel like passing some time with a short read or
-                    seeing a bit of the island of Malta?
+                    There is a section on English lessons for foreigners (work
+                    from a job I dabbled in) and a few practice pages (where I
+                    felt the need to experiment with my computer coding skills -
+                    Reactjs forms specifically) for those who wish.
                   </p>
                   <p className="pad1">
-                    Or, do you just want a recipe for the most delicious peach
-                    meringue roulade you've ever tasted and a great book
-                    recommendation while you eat it?
+                    And lastly, a portfolio showcasing two hobbies I cannot
+                    display around my home: coding and writing. This website is
+                    all mine, my very own design and my very own code, and I
+                    regularly practice new things by changing and expanding the
+                    code here. I also like to write - although please be aware I
+                    have never produced anything worth printing. And so,
+                    stories, poems, real-experiences, and short blog posts on
+                    books I have read, authors I like or health matters I am
+                    interested in have found their homes here, along with a few
+                    real-life experiences.
                   </p>
-                  <p className="pad1">Whatever it is - poke about and enjoy!</p>
+                  <p className="pad1">
+                    So, now that you, the kindly stranger, are aware that this
+                    website is no great masterpiece, also know that you are very
+                    welcome. Please feel free to poke about and enjoy!
+                  </p>
                 </Chat>
-                <Signature signedBy="Alex" rotate />
+                <Signature
+                  signedBy="Alex"
+                  rotate
+                />
               </div>
             </div>
           </aside>

@@ -14,7 +14,7 @@ const Footer = () => {
 
   ////** FUNCTIONS **////
   const techList = techs.map((tech, index) =>
-    index === techs.length - 1 ? `with ${tech}` : `${tech}, `,
+    index === techs.length - 1 ? `and ${tech}` : `${tech}, `,
   );
   const generateCopyright = `@Copyright ${title} ${new Date().getFullYear()}`;
 
@@ -34,8 +34,9 @@ const Footer = () => {
           </div>
           <div className="flexColumn">
             <p>
-              All the design, coding and content of Thunder Island is the result
-              of the interests, hobbies and dabblings of {author}.
+              All the design, coding and content (with the exception of the
+              nicest photographs - credit given where known) of Thunder Island
+              is the result of the interests, hobbies and dabblings of {author}.
             </p>
           </div>
         </div>

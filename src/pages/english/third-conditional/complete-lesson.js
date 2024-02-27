@@ -132,7 +132,7 @@ const AdvancedLesson = ( { pageContext } ) => {
                 </ul>
                 <Spacer size={ 4 } />
                 <h6>When the If clause Is Not Said.</h6>
-                <p>Occassionally the if clause is implied.</p>
+                <p>Occasionally the if clause is implied.</p>
                 <ul className={ list }>
                   <li><Arrow type="x1" direction="right" color="dark" /> I would have helped, if you have asked me. <Arrow type="x2" direction="right" color="dark" /> I would have helped.</li>
                 </ul>

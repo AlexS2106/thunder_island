@@ -10,7 +10,7 @@ module.exports = {
       "A personal coding and design project containing recipes, english points of grammar, writing examples and photographs.",
     author: "Alex",
     stack: "JAMstack",
-    techs: ["MDX", "React", "Gatsby"],
+    techs: ["MDX", "React", "Gatsby", "Netlify"],
   },
   plugins: [
     {
