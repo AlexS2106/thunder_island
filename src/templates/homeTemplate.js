@@ -193,7 +193,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                     child, so expect to find a variety. There are more than a
                     few from the various diets we have delved into over the
                     years and others that are more budget, easy-cook, decadently
-                    delicious or fit in no particular category. It's our
+                    delicious or fit in no particular category. This is our
                     personalised family recipe book: stuff we like to eat that
                     has no boundaries.
                   </p>
@@ -208,12 +208,12 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                     display around my home: coding and writing. This website is
                     all mine, my very own design and my very own code, and I
                     regularly practice new things by changing and expanding the
-                    code here. I also like to write - although please be aware I
-                    have never produced anything worth printing. And so,
-                    stories, poems, real-experiences, and short blog posts on
-                    books I have read, authors I like or health matters I am
-                    interested in have found their homes here, along with a few
-                    real-life experiences.
+                    code here. I also like to write - although be aware I have
+                    never produced anything worth printing. And so, stories,
+                    poems, real-experiences, and short blog posts on books I
+                    have read, authors I like or health matters I am interested
+                    in have found their homes here, along with a few real-life
+                    experiences.
                   </p>
                   <p className="pad1">
                     So, now that you, the kindly stranger, are aware that this
