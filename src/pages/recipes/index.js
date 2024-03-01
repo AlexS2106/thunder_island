@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
-import { v4 as uuid } from "uuid";
 
 import { wrapperLight } from "./index.module.css";
 
@@ -18,6 +16,7 @@ import Seo from "../../components/seo/seo";
 import SmallPostList from "../../components/postLists/smallPostList/SmallPostList";
 import Spacer from "../../components/layout/spacing/Spacer";
 import StandardGrid from "../../components/layout/grids/StandardGrid";
+import TileList from "../../components/postLists/tileList/TileList";
 import UserChoiceFilter from "../../components/user-interactive/userChoiceFilter/UserChoiceFilter";
 
 import {
@@ -67,8 +66,6 @@ const RecipesPage = ({ pageContext }) => {
     return initialState;
   });
 
-  const topOfShowingRecipesRef = useRef();
-
   const [mainCount, setMainCount] = useState(0);
 
   const [selectedTag, setSelectedTag] = useState(() => {
@@ -82,27 +79,15 @@ const RecipesPage = ({ pageContext }) => {
     return initialState;
   });
 
-  const topOfShowingTagRecipesRef = useRef();
-
   const [asideCount, setAsideCount] = useState(0);
-
-  useEffect(() => {
-    topOfShowingRecipesRef.current.scrollIntoView();
-  }, [mainCount]);
-
-  useEffect(() => {
-    topOfShowingTagRecipesRef.current.scrollIntoView();
-  }, [asideCount]);
 
   ////** VARIABLES **////
   //PageTitle - title text
   const pageTitle = "Recipes";
   //Number of recipes to show at one time (via onclick function -> MediumPostList & via onclick function -> TagCloud -> SmallPostList)
-  const mediumPostListNumDisplayedRecipes = 7;
-  const showRecipeDetails = "Show More.";
-  const moveOnButtonText = "Nothing yet, let's keep looking.";
-  const moveBackButtonText = "On second thought, let's go back.";
-  const smallPostListNumDisplayedRecipes = 6;
+  const mediumPostListNumDisplayedRecipes = 10;
+  const showRecipeDetails = "Show next";
+  const smallPostListNumDisplayedRecipes = 8;
   //MediumPostList - button text, max-length of description text, boolean variables of extra data to show
   const mainPostsInnerText = "Continue...";
   const excerptLength = 150;
@@ -114,7 +99,7 @@ const RecipesPage = ({ pageContext }) => {
   const asidePostsInnerText = "Read More";
   //1st Carousel - title, button text
   const carouselTodayRecipesTitle = "Today's Suggestions";
-  const carouselTodayRecipesBtnText = "See More";
+  const carouselTodayRecipesBtnText = "See More.";
   //2nd Carousel - title, button text
   const carouselHealthPostsTitle = "Read Articles About Your Health";
   const carouselHealthPostsBtnText = "Read more";
@@ -215,39 +200,9 @@ const RecipesPage = ({ pageContext }) => {
       <StandardGrid size={1}>
         <Main size={1}>
           <PageTitle title={`${selectedCategory} Recipes`} />
-          {mainCount > 0 ? (
-            <>
-              <ul className="sideBorderPad">
-                {shownRecipes.slice(0, mainCount).map((item) => (
-                  <li key={uuid()}>
-                    <Link
-                      to={`recipes/${item.frontmatter.slug}`}
-                      className="accentText"
-                      activeClassName="isActive">
-                      {item.frontmatter.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                innerText={moveBackButtonText}
-                onClick={() => {
-                  mainCount - mediumPostListNumDisplayedRecipes < 0
-                    ? setMainCount(0)
-                    : setMainCount(
-                        mainCount - mediumPostListNumDisplayedRecipes,
-                      );
-                }}
-              />
-            </>
-          ) : null}
-          <span
-            role="none"
-            ref={topOfShowingRecipesRef}
-          />
           <MediumPostList
             postData={shownRecipes.slice(
-              mainCount,
+              0,
               mainCount + mediumPostListNumDisplayedRecipes,
             )}
             excerptLength={excerptLength}
@@ -267,29 +222,11 @@ const RecipesPage = ({ pageContext }) => {
                 }
               />
               <Spacer size={3} />
-              <ul>
-                {shownRecipes
-                  .slice(
-                    mainCount + mediumPostListNumDisplayedRecipes,
-                    mainCount + mediumPostListNumDisplayedRecipes + 25,
-                  )
-                  .map((item) => (
-                    <li key={uuid()}>
-                      <Link
-                        to={`/recipes/${item.frontmatter.slug}`}
-                        className="accentText"
-                        activeClassName="isActive">
-                        {item.frontmatter.title}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-              <Spacer size={3} />
-              <Button
-                innerText={moveOnButtonText}
-                onClick={() =>
-                  setMainCount(mainCount + mediumPostListNumDisplayedRecipes)
-                }
+              <TileList
+                tileListData={shownRecipes.slice(
+                  mainCount + mediumPostListNumDisplayedRecipes,
+                  shownRecipes.length,
+                )}
               />
             </>
           ) : null}
@@ -306,42 +243,10 @@ const RecipesPage = ({ pageContext }) => {
           <section className="sideBorderPad flexColumn bgLight">
             <h3 className="textCenter pad1 shadowText">{`${selectedTag} Recipes `}</h3>
             <Spacer size={3} />
-            {asideCount > 0 ? (
-              <>
-                <ul className="pad1">
-                  {shownTagRecipes.slice(0, asideCount).map((item) => (
-                    <li key={uuid()}>
-                      <Link
-                        to={`/recipes${item.frontmatter.slug}`}
-                        className="accentText"
-                        activeClassName="isActive">
-                        {item.frontmatter.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Spacer size={3} />
-                <Button
-                  innerText={moveBackButtonText}
-                  onClick={() => {
-                    asideCount - smallPostListNumDisplayedRecipes < 0
-                      ? setAsideCount(0)
-                      : setAsideCount(
-                          asideCount - smallPostListNumDisplayedRecipes,
-                        );
-                  }}
-                />
-                <Spacer size={3} />
-              </>
-            ) : null}
-            <span
-              role="none"
-              ref={topOfShowingTagRecipesRef}
-            />
             <SmallPostList
               postData={shownTagRecipes.slice(
                 0,
-                smallPostListNumDisplayedRecipes,
+                asideCount + smallPostListNumDisplayedRecipes,
               )}
               onClick={handleCloudClick}
               innerText={asidePostsInnerText}
@@ -356,37 +261,12 @@ const RecipesPage = ({ pageContext }) => {
                   }
                 />
                 <Spacer size={3} />
-                <ul>
-                  {shownTagRecipes
-                    .slice(
-                      asideCount + smallPostListNumDisplayedRecipes,
-                      asideCount + smallPostListNumDisplayedRecipes + 10,
-                    )
-                    .map((item) => (
-                      <li key={uuid()}>
-                        <Link
-                          to={`/recipes/${item.frontmatter.slug}`}
-                          className="accentText"
-                          activeClassName="isActive">
-                          {item.frontmatter.title}
-                        </Link>
-                      </li>
-                    ))}
-                </ul>
-                {asideCount + smallPostListNumDisplayedRecipes + 10 <
-                shownTagRecipes.length ? (
-                  <>
-                    <Spacer size={3} />
-                    <Button
-                      innerText={moveOnButtonText}
-                      onClick={() =>
-                        setAsideCount(
-                          asideCount + smallPostListNumDisplayedRecipes,
-                        )
-                      }
-                    />
-                  </>
-                ) : null}
+                <TileList
+                  tileListData={shownTagRecipes.slice(
+                    asideCount + smallPostListNumDisplayedRecipes,
+                    shownRecipes.length,
+                  )}
+                />
               </>
             ) : null}
           </section>
