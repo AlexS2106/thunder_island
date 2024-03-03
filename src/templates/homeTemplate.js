@@ -180,39 +180,31 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                   <p className="pad1">
                     This space is a passionate mix of everything great and
                     nothing important that is expected to go unnoticed by the
-                    rest of the world.
+                    rest of the world. But, just in case some random kindly
+                    stranger stops by - that would be you! - and wishes to look
+                    around, let me give you a quick idea of what you will find.
                   </p>
                   <p className="pad1">
-                    But, just in case some random kindly stranger stops by -
-                    that would be you! - and wishes to look around, let me give
-                    you a quick idea of what you will find.
+                    I post my family recipes here and every dish has passed a
+                    taste test by at least one family member, whether an adult
+                    or a child. More than a few of the recipes from diets delved
+                    into over the years while others are more budget, easy-cook,
+                    decadently delicious or of no particular category. This is
+                    our personalised family recipe book. a.k.a. stuff we like.
                   </p>
                   <p className="pad1">
-                    I post my family recipes here - every dish has passed a
-                    taste test by someone in the family, whether an adult or a
-                    child, so expect to find a variety. There are more than a
-                    few from the various diets we have delved into over the
-                    years and others that are more budget, easy-cook, decadently
-                    delicious or fit in no particular category. This is our
-                    personalised family recipe book: stuff we like to eat that
-                    has no boundaries.
+                    There is a section on English lessons for foreigners and a
+                    few practice pages for those who wish.
                   </p>
                   <p className="pad1">
-                    There is a section on English lessons for foreigners (work
-                    from a job I dabbled in) and a few practice pages (where I
-                    felt the need to experiment with my computer coding skills -
-                    Reactjs forms specifically) for those who wish.
-                  </p>
-                  <p className="pad1">
-                    And lastly, a portfolio showcasing two hobbies I cannot
-                    display around my home: coding and writing. This website is
-                    all mine, my very own design and my very own code, and I
-                    regularly practice new things by changing and expanding the
-                    code here. I also like to write - although be aware I have
-                    never produced anything worth printing. And so, stories,
-                    poems, real-experiences, and short blog posts on books I
-                    have read, authors I like or health matters I am interested
-                    in have found their homes here, along with a few real-life
+                    And lastly, a portfolio showcasing two of my hobbies: coding
+                    and writing. This website is all mine: my design, code and
+                    content. I often practice by tinkering with the design,
+                    expanding the code and adding to the content. Although I
+                    have never produced anything print-worthy, I enjoy writing -
+                    and so, stories, poems and short blog posts on books I have
+                    read, authors I like or health matters I am interested in
+                    have found their homes here, along with a few real-life
                     experiences.
                   </p>
                   <p className="pad1">

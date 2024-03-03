@@ -102,7 +102,7 @@ module.exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = postList.data.allMdx.nodes;
-  const postsPerPage = 5;
+  const postsPerPage = 8;
   const postsNumPages = Math.ceil(posts.length / postsPerPage);
 
   Array.from({ length: postsNumPages }).forEach((_, index) => {

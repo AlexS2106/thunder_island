@@ -97,6 +97,9 @@ const RecipesPage = ({ pageContext }) => {
   const showSubcategories = true;
   //SmallPostList - button text
   const asidePostsInnerText = "Read More";
+  //TileLists
+  const mainTileListBorder = true;
+  const asideTileListBorder = false;
   //1st Carousel - title, button text
   const carouselTodayRecipesTitle = "Today's Suggestions";
   const carouselTodayRecipesBtnText = "See More.";
@@ -227,6 +230,7 @@ const RecipesPage = ({ pageContext }) => {
                   mainCount + mediumPostListNumDisplayedRecipes,
                   shownRecipes.length,
                 )}
+                withBorder={mainTileListBorder}
               />
             </>
           ) : null}
@@ -266,6 +270,7 @@ const RecipesPage = ({ pageContext }) => {
                     asideCount + smallPostListNumDisplayedRecipes,
                     shownRecipes.length,
                   )}
+                  withBorder={asideTileListBorder}
                 />
               </>
             ) : null}
