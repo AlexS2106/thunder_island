@@ -7,10 +7,10 @@ import { tileList, border } from "./TileList.module.css";
 import Tile from "../../posts/tile/Tile";
 
 const TileList = ({ tileListData, withBorder }) => {
-  const classes = withBorder ? `${tileList} ${border}` : `${tileList}`;
+  const addedClasses = withBorder ? `${border}` : ``;
 
   return (
-    <ul className={classes}>
+    <ul className={`${tileList} ${addedClasses}`}>
       {tileListData.map((item) => (
         <li key={uuid()}>
           <Tile tileData={item} />
@@ -22,6 +22,7 @@ const TileList = ({ tileListData, withBorder }) => {
 
 TileList.propTypes = {
   tileListData: propTypes.array.isRequired,
+  withBorder: propTypes.bool.isRequired,
 };
 
 export default TileList;

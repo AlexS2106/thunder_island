@@ -102,10 +102,10 @@ const RecipesPage = ({ pageContext }) => {
   const asideTileListBorder = false;
   //1st Carousel - title, button text
   const carouselTodayRecipesTitle = "Today's Suggestions";
-  const carouselTodayRecipesBtnText = "See More.";
+  const carouselTodayRecipesBtnText = "Expand More";
   //2nd Carousel - title, button text
   const carouselHealthPostsTitle = "Read Articles About Your Health";
-  const carouselHealthPostsBtnText = "Read more";
+  const carouselHealthPostsBtnText = "Expand More";
   //Menuboxes (bg image, categories and their groupings)
   const _categories = [
     {
