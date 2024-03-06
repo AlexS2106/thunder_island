@@ -185,12 +185,18 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                     around, let me give you a quick idea of what you will find.
                   </p>
                   <p className="pad1">
+                    But, just in case some random kindly stranger stops by -
+                    that would be you! - and wishes to look around, let me give
+                    you a quick idea of what you will find.
+                  </p>
+                  <p className="pad1">
                     I post my family recipes here and every dish has passed a
-                    taste test by at least one family member, whether an adult
-                    or a child. More than a few of the recipes from diets delved
-                    into over the years while others are more budget, easy-cook,
-                    decadently delicious or of no particular category. This is
-                    our personalised family recipe book. a.k.a. stuff we like.
+                    taste test by at least one family member, whether by adult
+                    or child. More than a few of the recipes are from diets
+                    delved into over the years while others are more budget,
+                    easy-cook, decadently delicious or of no particular
+                    category. This is our personalised family recipe book.
+                    a.k.a. stuff we like.
                   </p>
                   <p className="pad1">
                     There is a section on English lessons for foreigners and a
@@ -200,12 +206,14 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                     And lastly, a portfolio showcasing two of my hobbies: coding
                     and writing. This website is all mine: my design, code and
                     content. I often practice by tinkering with the design,
-                    expanding the code and adding to the content. Although I
-                    have never produced anything print-worthy, I enjoy writing -
-                    and so, stories, poems and short blog posts on books I have
-                    read, authors I like or health matters I am interested in
-                    have found their homes here, along with a few real-life
-                    experiences.
+                    expanding the code and adding to the content.
+                  </p>
+                  <p className="pad1">
+                    Although I have never produced anything print-worthy, I
+                    enjoy writing - and so, stories, poems and short blog posts
+                    on books I have read, authors I like or health matters I am
+                    interested in have found their homes here, along with a few
+                    real-life experiences.
                   </p>
                   <p className="pad1">
                     So, now that you, the kindly stranger, are aware that this
