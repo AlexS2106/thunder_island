@@ -86,7 +86,7 @@ const RecipesPage = ({ pageContext }) => {
   const pageTitle = "Recipes";
   //Number of recipes to show at one time (via onclick function -> MediumPostList & via onclick function -> TagCloud -> SmallPostList)
   const mediumPostListNumDisplayedRecipes = 10;
-  const showRecipeDetails = "Show next";
+  const showRecipeDetails = "Expand more recipes";
   const smallPostListNumDisplayedRecipes = 8;
   //MediumPostList - button text, max-length of description text, boolean variables of extra data to show
   const mainPostsInnerText = "Continue...";
@@ -100,12 +100,14 @@ const RecipesPage = ({ pageContext }) => {
   //TileLists
   const mainTileListBorder = true;
   const asideTileListBorder = false;
+  const mainTileListSize = "medium";
+  const asideTileListSize = "small";
   //1st Carousel - title, button text
   const carouselTodayRecipesTitle = "Today's Suggestions";
-  const carouselTodayRecipesBtnText = "Expand More";
+  const carouselTodayRecipesBtnText = "Read more";
   //2nd Carousel - title, button text
   const carouselHealthPostsTitle = "Read Articles About Your Health";
-  const carouselHealthPostsBtnText = "Expand More";
+  const carouselHealthPostsBtnText = "Read more";
   //Menuboxes (bg image, categories and their groupings)
   const _categories = [
     {
@@ -231,6 +233,7 @@ const RecipesPage = ({ pageContext }) => {
                   shownRecipes.length,
                 )}
                 withBorder={mainTileListBorder}
+                size={mainTileListSize}
               />
             </>
           ) : null}
@@ -271,6 +274,7 @@ const RecipesPage = ({ pageContext }) => {
                     shownRecipes.length,
                   )}
                   withBorder={asideTileListBorder}
+                  size={asideTileListSize}
                 />
               </>
             ) : null}

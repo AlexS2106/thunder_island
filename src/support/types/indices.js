@@ -1,16 +1,25 @@
-export const topLevelPages = [
-  "about",
-  "english",
-  "recipes",
-  "portfolio",
-  "coming-soon",
+export const topLevelPages = ["english", "recipes", "portfolio", "coming-soon"];
+
+export const siteMenu = [
+  {
+    link: "/",
+    name: "Home",
+  },
+  {
+    link: "/recipes",
+    name: "Recipes",
+  },
+  {
+    link: "/english",
+    name: "English",
+  },
+  {
+    link: "/portfolio",
+    name: "Portfolio",
+  },
 ];
 
-export const mainCategories = ["about", "english", "recipes", "portfolio"];
-
-//About subcategories
-export const aboutSubcategories = ["authors"];
-export const aboutTags = ["alex"];
+export const mainCategories = ["english", "recipes", "portfolio"];
 
 //English subcategories
 export const englishSubcategories = [

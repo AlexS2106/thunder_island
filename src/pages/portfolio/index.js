@@ -198,7 +198,6 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
 
   const handleMenuClick = (e) => {
     const id = `${makeSlug(e.target.innerText)}`;
-    console.log(id);
     if (id === "thunder-island-code") {
       window.location.href = "https://github.com/AlexS2106/thunder_island.git";
     } else {

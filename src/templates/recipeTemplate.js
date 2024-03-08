@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 
 import {
   innerWrapper,
   btnWrapper,
   card,
   cardHeading,
-  cardFooter
+  cardFooter,
 } from "./templates.module.css";
 
 import Breadcrumbs from "../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
@@ -29,18 +29,29 @@ import { listSubcategories, makeTitle } from "../support/functions/utility";
 
 import MDX from "../support/providers/MDX";
 
-
 ////** COMPONENT **////
-const RecipeTemplate = ( { data: { post, associatedPosts }, children, pageContext } ) => {
-
+const RecipeTemplate = ({
+  data: { post, associatedPosts },
+  children,
+  pageContext,
+}) => {
   ////** STATE **////
   const {
-    breadcrumb: { crumbs }
+    breadcrumb: { crumbs },
   } = pageContext;
-  
+
   ////** GRAPHQL DATA **////
   const { frontmatter } = post;
-  const { title, dates, author, landscapeImage, alt, photographer, description } = frontmatter;
+  const {
+    title,
+    dates,
+    author,
+    landscapeImage,
+    alt,
+    photographer,
+    description,
+  } = frontmatter;
+
   const _associatedPosts = associatedPosts.nodes;
 
   ////** VARIABLES **////
@@ -49,57 +60,75 @@ const RecipeTemplate = ( { data: { post, associatedPosts }, children, pageContex
   //Buttons - button inner text
   const endButtonInnerText = "Go Back";
   //SmallPostList - [] of {}, title text, button text
-  const asidePostsData = [ ..._associatedPosts ];
+  const asidePostsData = [..._associatedPosts];
   const asidePostsHeaderText = "Add another recipe?";
   const asidePostsInnerText = "Read More";
 
   ////** FUNCTIONS **////
   //Checks for subcategories int he frontmatter and generates a list
-  const subcats = listSubcategories( frontmatter );
-  const generateSubcats = <h6 className="textCenter">{ subcats.map( ( tag, index ) => {
-    if ( index === 0 ) {
-      return <span key={ uuid() } > | { makeTitle( tag ) } | </span>
-    } else if ( index === subcats.length - 1 ) {
-      return <span key={ uuid() }>{ makeTitle( tag ) } | </span>
-    } else {
-      return <span key={ uuid() } >{ makeTitle( tag ) } | </span>
-    }
-  } ) } </h6>;
+  const subcats = listSubcategories(frontmatter);
+  const generateSubcats = (
+    <h6 className="textCenter">
+      {subcats.map((tag, index) => {
+        if (index === 0) {
+          return <span key={uuid()}> | {makeTitle(tag)} | </span>;
+        } else if (index === subcats.length - 1) {
+          return <span key={uuid()}>{makeTitle(tag)} | </span>;
+        } else {
+          return <span key={uuid()}>{makeTitle(tag)} | </span>;
+        }
+      })}{" "}
+    </h6>
+  );
   //MDX - transforms children
-  const MDXContent = MDX( children );
-  
-   ////** MARK UP **////
+  const MDXContent = MDX(children);
+
+  ////** MARK UP **////
   return (
     <Layout>
-      <Spacer size={ 3 } />
-      <PageTitle title={ pageTitle } />
-      <Spacer size={ 3 } />
-      <Breadcrumbs crumbs={ crumbs } />
-      <Spacer size={ 2 } />
-      <StandardGrid size={ 1 }>
-        <Main size={ 1 } >
-          <article className="bgLight" >
-            <div className={ `flexColumn textCenter ${ innerWrapper }` }>
-              <Spacer size={ 3 } />
-              { dates && dates.map( date => <Date key={ date } date={date} />) }
-              <GatsbyImage image={ getImage( landscapeImage ) } alt={ alt } />
-              { photographer && <cite>photo by { photographer }</cite> }
-              <Spacer size={ 3 } />
-              <Chat size={ 2 }>
-                <p className="sideBorderDark sideBorderPad">{ description }
-                </p>
+      <Spacer size={3} />
+      <PageTitle title={pageTitle} />
+      <Spacer size={3} />
+      <Breadcrumbs crumbs={crumbs} />
+      <Spacer size={2} />
+      <StandardGrid size={1}>
+        <Main size={1}>
+          <article className="bgLight">
+            <div className={`flexColumn textCenter ${innerWrapper}`}>
+              <Spacer size={3} />
+              {dates &&
+                dates.map((date) => (
+                  <Date
+                    key={date}
+                    date={date}
+                  />
+                ))}
+              <GatsbyImage
+                image={getImage(landscapeImage)}
+                alt={alt}
+              />
+              {photographer && <cite>photo by {photographer}</cite>}
+              <Spacer size={3} />
+              <Chat size={2}>
+                <p className="sideBorderDark sideBorderPad">{description}</p>
               </Chat>
             </div>
-            <Spacer size={ 1 } />
-            <div className={ `flexColumn pad1 ${ card }` }>
-              <header className={ `flexColumn ${ cardHeading }` }>
-                <GatsbyImage image={ getImage( landscapeImage ) } alt={ alt } ></GatsbyImage>
-                <h2 className="textCenter shadowText">{ title }</h2>
-                { generateSubcats }
+            <Spacer size={1} />
+            <div className={`flexColumn pad1 ${card}`}>
+              <header className={`flexColumn ${cardHeading}`}>
+                <GatsbyImage
+                  image={getImage(landscapeImage)}
+                  alt={alt}></GatsbyImage>
+                <h2 className="textCenter shadowText">{title}</h2>
+                {generateSubcats}
               </header>
-              { MDXContent }
-              <Signature rotate end signedBy={ author } />
-              <div className={ cardFooter }>
+              {MDXContent}
+              <Signature
+                rotate
+                end
+                signedBy={author}
+              />
+              <div className={cardFooter}>
                 <p>Nutrition... I'm working on it! It's coming soon!</p>
               </div>
             </div>
@@ -109,30 +138,32 @@ const RecipeTemplate = ( { data: { post, associatedPosts }, children, pageContex
           <section className="sideBorderDark flexColumn bgLight">
             <header>
               <h3 className="textCenter pad1 shadowText">
-                { asidePostsHeaderText }
+                {asidePostsHeaderText}
               </h3>
             </header>
             <SmallPostList
-              postData={ asidePostsData }
-              innerText={ asidePostsInnerText }
+              postData={asidePostsData}
+              innerText={asidePostsInnerText}
             />
           </section>
         </aside>
-        <div className={ `flexRow ${ btnWrapper }` }>
+        <div className={`flexRow ${btnWrapper}`}>
           <Button
-            onClick={ () => { navigate( -1 ); } }
-            innerText={ endButtonInnerText }>
-          </Button>
+            onClick={() => {
+              navigate(-1);
+            }}
+            innerText={endButtonInnerText}></Button>
         </div>
       </StandardGrid>
     </Layout>
   );
-}
+};
 
-export const Head = ( { data: { post } } ) => (
+export const Head = ({ data: { post } }) => (
   <Seo
-    title={`Thunder Island | Recipe: ${post.title}` }
-    description={ post.description } />
+    title={`Thunder Island | Recipe: ${post.frontmatter.title}`}
+    description={post.description}
+  />
 );
 
 ////** PROP TYPES **////
@@ -140,47 +171,21 @@ RecipeTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   children: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
-}
+};
 
 export default RecipeTemplate;
 
 ////** PAGE QUERY **////
 export const data = graphql`
-query recipeQuery($id: String, $associated: [String]) {
-  post:  mdx(id: {eq: $id} ) {
-    frontmatter {
-      title
-      type
-      by_course
-      by_ingredient
-      by_diet
-      by_option
-      dates
-      author
-      landscapeImage {
-        childImageSharp {
-          gatsbyImageData(placeholder: BLURRED)
-        }
-      }
-      alt
-      photographer
-      description
-    }
-  }
-   associatedPosts: allMdx(
-    filter: {frontmatter: {slug: {in: $associated}}}
-  ) {
-    nodes {
-      id
+  query recipeQuery($id: String, $associated: [String]) {
+    post: mdx(id: { eq: $id }) {
       frontmatter {
         title
         type
-        slug
-        mainCategories
-        subcategories
         by_course
         by_ingredient
         by_diet
+        by_option
         dates
         author
         landscapeImage {
@@ -190,10 +195,36 @@ query recipeQuery($id: String, $associated: [String]) {
         }
         alt
         photographer
-        associated
         description
       }
     }
+    associatedPosts: allMdx(
+      filter: { frontmatter: { slug: { in: $associated } } }
+    ) {
+      nodes {
+        id
+        frontmatter {
+          title
+          type
+          slug
+          mainCategories
+          subcategories
+          by_course
+          by_ingredient
+          by_diet
+          dates
+          author
+          landscapeImage {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
+          alt
+          photographer
+          associated
+          description
+        }
+      }
+    }
   }
-}
 `;
