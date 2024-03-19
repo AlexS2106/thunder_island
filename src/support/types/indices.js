@@ -119,7 +119,7 @@ export const types = [
 export const favouriteRecipes = [
   "keto-prawn-cocktail-with-marie-rose-sauce",
   "peach-meringue-roulade",
-  "beefburgers-with-a-tangy-sauce",
+  "beefburgers",
   "creamy-parsnip-and-leek",
   "banoffee-pie",
   "butternut-squash-and-carrot-soup",
@@ -136,9 +136,9 @@ export const recommendedPosts = [
 //Used in the homepage in the carousel - this will be manually altered occasionally!
 export const recipesOfMonday = [
   "bacon-and-eggs",
-  "shrimp-salad",
+  "butternut-squash-and-bell-pepper-curry",
   "cajun-turkey",
-  "parsnip-chips",
+  "mashed-cauliflower",
   "mixed-berries-on-greek-yoghurt",
 ];
 export const recipesOfTuesday = [
@@ -151,35 +151,40 @@ export const recipesOfTuesday = [
   "mango-pudding-with-coconut-cream-topping",
 ];
 export const recipesOfWednesday = [
-  "almond-flour-sausage-rolls",
   "corned-beef-and-egg-hash",
+  "keto-prawn-cocktail-with-marie-rose-sauce",
   "pork-chops-with-apple-cinnamon-sauce",
-  "mashed-cauliflower",
-  "roasted-carrots",
+  "roasted-autumn-root-vegetables",
+  "treacle-sponge",
 ];
 export const recipesOfThursday = [
   "avocado-filled-with-tuna-mayo",
   "coriander-chicken-salad-with-lime-mayonnaise",
   "beef-cubes-in-a-bowl",
-  "banoffee-pie",
+  "crusty-bread",
+  "cocoa-powder-sponges",
 ];
 export const recipesOfFriday = [
   "mixed-berries-on-greek-yoghurt",
+  "mutton-burgers",
+  "bread-machine-burger-buns",
   "low-cal-mild-chicken-korma",
-  "margherita-pizza",
-  "sweet-potato-fries",
+  "fried-cauliflower-rice",
+  "naan-bread",
+  "banoffee-pie",
 ];
 export const recipesOfSaturday = [
   "goats-and-cheddar-cheese-omelette",
-  "keto-prawn-cocktail-with-marie-sauce",
-  "chicken-basque",
-  "mashed-cauliflower",
+  "egg-salad",
+  "margherita-pizza",
+  "air-fryer-chips",
   "peach-meringue-roulade",
 ];
 export const recipesOfSunday = [
   "keto-brunch",
+  "golden-oat-biscuits",
   "roast-chicken",
   "roasted-autumn-root-vegetables",
   "avocado-walnut-and-broccoli-salad",
-  "treacle-sponge",
+  "chocolate-ice-cream",
 ];

@@ -29,6 +29,7 @@ import {
 import { filterList, makeTitle } from "../../support/functions/utility";
 import useRecipes from "../../support/hooks/useRecipes.query";
 import useHealths from "../../support/hooks/useHealths.query";
+import useRecipesOfToday from "../../support/hooks/useRecipesOfToday.query";
 import {
   byDiets,
   byIngredients,
@@ -48,6 +49,7 @@ const RecipesPage = ({ pageContext }) => {
   ////** GRAPHQL DATA **////
   const _recipesData = useRecipes();
   const _healthsData = useHealths();
+  const _recipesOfToday = useRecipesOfToday();
 
   ////** STATE **////
   const [optionState, setOptionState] = useState([
@@ -296,7 +298,7 @@ const RecipesPage = ({ pageContext }) => {
       <Spacer size={1} />
       <Carousel
         title={carouselTodayRecipesTitle}
-        carouselData={_recipesData}
+        carouselData={_recipesOfToday}
         innerText={carouselTodayRecipesBtnText}
       />
       <Spacer size={1} />
