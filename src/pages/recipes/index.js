@@ -24,6 +24,8 @@ import {
   foodIngredientsImg,
   rawFoodsImg,
   foodOnPlatesImg,
+  cutSteakImg,
+  writtenRecipesOnPaperImg,
 } from "../../support/functions/staticImgFunctions";
 import { filterList, makeTitle } from "../../support/functions/utility";
 import useRecipes from "../../support/hooks/useRecipes.query";
@@ -129,6 +131,11 @@ const RecipesPage = ({ pageContext }) => {
       list: [...byOptions],
       name: "By Option",
       image: foodOnPlatesImg(),
+    },
+    {
+      list: [...byCourses, ...byDiets, ...byIngredients, ...byOptions],
+      name: "All Categories",
+      image: writtenRecipesOnPaperImg(),
     },
   ];
 
