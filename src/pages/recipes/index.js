@@ -24,7 +24,6 @@ import {
   foodIngredientsImg,
   rawFoodsImg,
   foodOnPlatesImg,
-  cutSteakImg,
   writtenRecipesOnPaperImg,
 } from "../../support/functions/staticImgFunctions";
 import { filterList, makeTitle } from "../../support/functions/utility";
@@ -167,15 +166,20 @@ const RecipesPage = ({ pageContext }) => {
   //UserChoiceFilter + PageTitle - accepts a click which selects a recipe subcategory and changes all the recipes in <Main /> or in <aside /> to be only those of that category and alters the <pageTitle/> heading.
   const handleUserChoiceFilterClick = (e) => {
     setMainCount(0);
-    const showTheseRecipes = _recipesData.filter(
-      (node) =>
-        node.frontmatter.by_ingredient?.includes(e.target.value) ||
-        node.frontmatter.by_diet?.includes(e.target.value) ||
-        node.frontmatter.by_course?.includes(e.target.value) ||
-        node.frontmatter.by_option?.includes(e.target.value),
-    );
-    setSelectedCategory(() => makeTitle(e.target.value));
-    setShownRecipes(() => showTheseRecipes);
+    if (selectedCategory !== makeTitle(e.target.value)) {
+      const showTheseRecipes = _recipesData.filter(
+        (node) =>
+          node.frontmatter.by_ingredient?.includes(e.target.value) ||
+          node.frontmatter.by_diet?.includes(e.target.value) ||
+          node.frontmatter.by_course?.includes(e.target.value) ||
+          node.frontmatter.by_option?.includes(e.target.value),
+      );
+      setSelectedCategory(() => makeTitle(e.target.value));
+      setShownRecipes(() => showTheseRecipes);
+    } else {
+      setSelectedCategory(() => makeTitle("All My"));
+      setShownRecipes(() => [..._recipesData]);
+    }
   };
   //TagCloud + SmallPostMenu - accepts a click which selects a recipe tag and changes all the recipes in the smallPostMenu to be only those of that tag.
   const handleCloudClick = (e) => {
