@@ -186,5 +186,5 @@ export const recipesOfSunday = [
   "roast-chicken",
   "roasted-autumn-root-vegetables",
   "avocado-walnut-and-broccoli-salad",
-  "chocolate-ice-cream",
+  "budget-chocolate-ice-cream",
 ];
