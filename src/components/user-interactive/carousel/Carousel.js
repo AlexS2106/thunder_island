@@ -22,8 +22,18 @@ const Carousel = ({ carouselData, title, innerText }) => {
   ////** STATE **////
   const [move, setMove] = useState(0);
 
-  const multiplyBy = useMediaQuery(`(min-width: 450px)`) ? 33 : 100;
+  const by1 = useMediaQuery(`(min-width: 450px)`);
+  const by2 = useMediaQuery(`(min-width: 650px)`);
 
+  let numPicsShowingOnCarousel = 3;
+  if (!by2) {
+    numPicsShowingOnCarousel = 2;
+  }
+  if (!by1) {
+    numPicsShowingOnCarousel = 1;
+  }
+  console.log(move);
+  const multiplyBy = 33;
   ////** FUNCTIONS **////
   //Generates the carousel posts
   const generateCarousel = carouselData.map((item) => (

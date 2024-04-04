@@ -138,6 +138,7 @@ export const recipesOfMonday = [
   "bacon-and-eggs",
   "butternut-squash-and-bell-pepper-curry",
   "cajun-turkey",
+  "roasted-carrots",
   "mashed-cauliflower",
   "mixed-berries-on-greek-yoghurt",
 ];
