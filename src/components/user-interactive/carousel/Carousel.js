@@ -32,7 +32,6 @@ const Carousel = ({ carouselData, title, innerText }) => {
   if (!by1) {
     numPicsShowingOnCarousel = 1;
   }
-  console.log(move);
   const multiplyBy = 33;
   ////** FUNCTIONS **////
   //Generates the carousel posts
