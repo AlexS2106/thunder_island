@@ -135,57 +135,47 @@ export const recommendedPosts = [
 ];
 //Used in the homepage in the carousel - this will be manually altered occasionally!
 export const recipesOfMonday = [
-  "bacon-and-eggs",
-  "butternut-squash-and-bell-pepper-curry",
+  "easy-sausage-rolls",
   "cajun-turkey",
   "roasted-carrots",
-  "mashed-cauliflower",
+  "crusty-bread",
   "mixed-berries-on-greek-yoghurt",
 ];
 export const recipesOfTuesday = [
-  "easy-sausage-rolls",
-  "mushroom-soup",
-  "crusty-bread",
+  "butternut-squash-and-bell-pepper-curry",
   "blackened-shrimp",
-  "tomato-and-cucumber-salad",
-  "roasted-broccoli",
+  "goats-and-cheddar-cheese-omelette",
+  "golden-oat-biscuits",
   "mango-pudding-with-coconut-cream-topping",
 ];
 export const recipesOfWednesday = [
-  "corned-beef-and-egg-hash",
   "keto-prawn-cocktail-with-marie-rose-sauce",
   "pork-chops-with-apple-cinnamon-sauce",
-  "roasted-autumn-root-vegetables",
+  "roasted-broccoli",
+  "roasted-spring-onions",
   "treacle-sponge",
 ];
 export const recipesOfThursday = [
-  "avocado-filled-with-tuna-mayo",
-  "coriander-chicken-salad-with-lime-mayonnaise",
-  "beef-cubes-in-a-bowl",
-  "crusty-bread",
+  "low-cal-mild-chicken-korma",
+  "cauliflower-rice",
+  "naan-bread",
   "cocoa-powder-sponges",
 ];
 export const recipesOfFriday = [
-  "mixed-berries-on-greek-yoghurt",
   "mutton-burgers",
   "bread-machine-burger-buns",
-  "low-cal-mild-chicken-korma",
-  "fried-cauliflower-rice",
-  "naan-bread",
-  "banoffee-pie",
+  "homemade-mayonnaise",
+  "mixed-berries-on-greek-yoghurt",
 ];
 export const recipesOfSaturday = [
-  "goats-and-cheddar-cheese-omelette",
-  "egg-salad",
   "margherita-pizza",
   "air-fryer-chips",
-  "peach-meringue-roulade",
+  "budget-chocolate-ice-cream",
 ];
 export const recipesOfSunday = [
   "keto-brunch",
   "golden-oat-biscuits",
   "roast-chicken",
   "roasted-autumn-root-vegetables",
-  "avocado-walnut-and-broccoli-salad",
-  "budget-chocolate-ice-cream",
+  "peach-meringue-roulade",
 ];
