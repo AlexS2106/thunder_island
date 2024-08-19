@@ -1,4 +1,9 @@
-export const topLevelPages = ["english", "recipes", "portfolio", "coming-soon"];
+export const topLevelPages = [
+  "learning",
+  "recipes",
+  "portfolio",
+  "coming-soon",
+];
 
 export const siteMenu = [
   {
@@ -10,8 +15,8 @@ export const siteMenu = [
     name: "Recipes",
   },
   {
-    link: "/english",
-    name: "English",
+    link: "/learning",
+    name: "Learning",
   },
   {
     link: "/portfolio",
@@ -19,16 +24,27 @@ export const siteMenu = [
   },
 ];
 
-export const mainCategories = ["english", "recipes", "portfolio"];
+export const mainCategories = ["learning", "recipes", "portfolio"];
 
-//English subcategories
-export const englishSubcategories = [
+//Learning subcategories
+export const learningSubcategories = [
   "tenses",
   "conditionals",
   "questions",
   "tricky-words",
+  "arithmetic",
 ];
-export const englishTags = ["past", "present", "future", "informal", "formal"];
+export const learningTags = [
+  "past",
+  "present",
+  "future",
+  "informal",
+  "formal",
+  "addition",
+  "subtraction",
+  "multiplication",
+  "division",
+];
 
 //Portfolio subcategories
 export const portfolioSubcategories = ["photography", "writing"];
@@ -112,6 +128,7 @@ export const types = [
   "poem",
   "photograph",
   "lesson",
+  "practice",
 ];
 
 //Changing Posts

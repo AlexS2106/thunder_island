@@ -7,7 +7,7 @@ module.exports = {
     title: "Thunder Island",
     image: "./src/images/logo-favicon.png",
     description:
-      "A personal coding and design project containing recipes, english points of grammar, writing examples and photographs.",
+      "A personal coding and design project containing recipes, things to learn, writing examples and photographs.",
     author: "Alex",
     stack: "JAMstack",
     techs: ["MDX", "React", "Gatsby", "Netlify"],
@@ -68,8 +68,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "english",
-        path: `${__dirname}/content/english/`,
+        name: "learning",
+        path: `${__dirname}/content/learning/`,
       },
     },
   ],

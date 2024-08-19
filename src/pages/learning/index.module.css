@@ -1,0 +1,66 @@
+/*@media*/
+.learning > div {
+  margin-bottom: 3rem;
+}
+.clusterGrid {
+  display: grid;
+  grid-template-areas:
+    "image image"
+    "title title"
+    "description description"
+    "level level"
+    "lessons lessons"
+    "exercises exercises";
+  grid-template-rows: min-content 50px 1fr min-content max-content max-content;
+  padding: 0.5rem;
+  border: 1px solid var(--color-accent-light);
+  border-radius: 5px;
+}
+.clusterImageWrapper {
+  grid-area: image;
+}
+.clusterImageWrapper div {
+  width: 100%;
+}
+.clusterTitle {
+  grid-area: title;
+  margin: auto;
+}
+.clusterExcerpt {
+  font-size: 1.5rem;
+  text-align: center;
+  text-justify: distribute;
+  padding-bottom: 1rem;
+  grid-area: description;
+}
+.clusterLevel {
+  grid-area: level;
+  padding: 2rem 0 0 1rem;
+}
+.clusterList {
+  padding: 0.5rem;
+}
+.clusterList:first-of-type {
+  grid-area: lessons;
+}
+.clusterList:last-of-type {
+  grid-area: exercises;
+}
+@media screen and (min-width: 650px) {
+  .learning {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 900px) {
+  .learning {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: auto;
+  }
+}

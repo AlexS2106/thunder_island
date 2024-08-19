@@ -53,7 +53,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
     healthPost,
     expatPost,
     writingPost,
-    englishPost,
+    learningPost,
   } = usePostSelection();
   const _recipesOfToday = useRecipesOfToday();
 
@@ -86,8 +86,8 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
       image: bookInFloraImg(),
     },
     {
-      link: "/english",
-      name: "Learn English",
+      link: "/learning",
+      name: "Learn",
       image: bookAndCoffeeImg(),
     },
   ];
@@ -98,7 +98,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
     healthPost,
     reviewPost,
     writingPost,
-    englishPost,
+    learningPost,
   ];
   const excerptListInnerText = "Read More";
   const excerptLength = 75;
@@ -199,8 +199,9 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                     a.k.a. stuff we like.
                   </p>
                   <p className="pad1">
-                    There is a section on English lessons for foreigners and a
-                    few practice pages for those who wish.
+                    There is a section containing <em>stuff</em> to learn. Maths
+                    practice for kids, English lessons for foreigners, and a few
+                    practice pages for those who wish.
                   </p>
                   <p className="pad1">
                     And lastly, a portfolio showcasing two of my hobbies: coding
@@ -259,7 +260,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Thunder Island | Recipes, English Grammar, Writing" />
+  <Seo title="Thunder Island | Recipes, Learning, Writing" />
 );
 
 ////** PROP TYPES **////
