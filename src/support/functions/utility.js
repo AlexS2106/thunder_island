@@ -85,3 +85,9 @@ export function today() {
       return "Today";
   }
 }
+//Returns a random number between 2 numbers inclusive
+export function randomNumber(min, max) {
+  const _min = Number(min);
+  const _max = Number(max);
+  return Math.floor(Math.random() * (_max - _min + 1)) + _min;
+}

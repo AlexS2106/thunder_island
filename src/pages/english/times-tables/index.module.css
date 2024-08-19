@@ -1,0 +1,61 @@
+.gameWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.game {
+  display: flex;
+  flex-direction: column;
+}
+.game-select-grid {
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: auto;
+}
+.gameAnswer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.gameAnswer > span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.gameAnswerForm {
+}
+.gameAnswerForm label {
+}
+.gameAnswerForm label > input {
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+}
+.isIncorrect,
+.isIncorrect:focus {
+  border: 1px solid var(--color-incorrect);
+}
+.isCorrect,
+.isCorrect:focus {
+  border: 1px solid var(--color-correct);
+}
+
+/*@media*/
+@media screen and (min-width: 450px) {
+  .game-select-grid {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1rem;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 650px) {
+  .game-select-grid {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1rem;
+    margin: auto;
+  }
+}

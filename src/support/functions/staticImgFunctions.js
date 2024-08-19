@@ -1,19 +1,19 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
-export function smallLogo () { 
+export function smallLogo() {
   return (
     <StaticImage
       src="../../images/logo-large.png"
       alt="thunder island logo"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 700 }
-      height={ 150 }
+      width={700}
+      height={150}
     />
   );
 }
-export function largeLogo () { 
+export function largeLogo() {
   return (
     <StaticImage
       src="../../images/logo-small.png"
@@ -24,7 +24,7 @@ export function largeLogo () {
   );
 }
 
-export function alexRightImg () { 
+export function alexRightImg() {
   return (
     <StaticImage
       src="../../images/alexRight-150x200.jpg"
@@ -35,7 +35,7 @@ export function alexRightImg () {
     />
   );
 }
-export function bookAndCoffeeImg () { 
+export function bookAndCoffeeImg() {
   return (
     <StaticImage
       src="../../images/bookAndCoffee-300x150.png"
@@ -46,7 +46,7 @@ export function bookAndCoffeeImg () {
     />
   );
 }
-export function bookInFloraImg () { 
+export function bookInFloraImg() {
   return (
     <StaticImage
       src="../../images/bookInFlora-300x150.png"
@@ -57,7 +57,7 @@ export function bookInFloraImg () {
     />
   );
 }
-export function bookWithHeartPageImg () { 
+export function bookWithHeartPageImg() {
   return (
     <StaticImage
       src="../../images/bookWithHeartPage-300x150.png"
@@ -68,7 +68,7 @@ export function bookWithHeartPageImg () {
     />
   );
 }
-export function buskett1Img () { 
+export function buskett1Img() {
   return (
     <StaticImage
       src="../../images/buskett1-300x150.png"
@@ -79,91 +79,91 @@ export function buskett1Img () {
     />
   );
 }
-export function buskett2Img () { 
+export function buskett2Img() {
   return (
     <StaticImage
       src="../../images/buskett2-150x250.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 150 }
-      height={ 250 }
+      width={150}
+      height={250}
     />
   );
 }
-export function buskett3Img () { 
+export function buskett3Img() {
   return (
     <StaticImage
       src="../../images/buskett3-300x150.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 300 }
-      height={ 150 }
+      width={300}
+      height={150}
     />
   );
 }
-export function buskett4Img () { 
+export function buskett4Img() {
   return (
     <StaticImage
       src="../../images/buskett4-300x150.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 300 }
-      height={ 150 }
+      width={300}
+      height={150}
     />
   );
 }
-export function buskett5Img () { 
+export function buskett5Img() {
   return (
     <StaticImage
       src="../../images/buskett5-300x150.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 300 }
-      height={ 150 }
+      width={300}
+      height={150}
     />
   );
 }
-export function buskett6Img () { 
+export function buskett6Img() {
   return (
     <StaticImage
       src="../../images/buskett6-100x250.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 100 }
-      height={ 250 }
+      width={100}
+      height={250}
     />
   );
 }
-export function buskett7Img () { 
+export function buskett7Img() {
   return (
     <StaticImage
       src="../../images/buskett7-150x200.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 150 }
-      height={ 200 }
+      width={150}
+      height={200}
     />
   );
 }
-export function buskett8Img () { 
+export function buskett8Img() {
   return (
     <StaticImage
       src="../../images/buskett8-150x200.png"
       alt="a scene from buskett gardens, Malta"
       aria-hidden="true"
       placeholder="blurred"
-      width={ 150 }
-      height={ 200 }
+      width={150}
+      height={200}
     />
   );
 }
-export function codeImg () { 
+export function codeImg() {
   return (
     <StaticImage
       src="../../images/code-300x150.png"
@@ -174,7 +174,7 @@ export function codeImg () {
     />
   );
 }
-export function countryPathImg () { 
+export function countryPathImg() {
   return (
     <StaticImage
       src="../../images/countryPath-300x150.png"
@@ -185,7 +185,7 @@ export function countryPathImg () {
     />
   );
 }
-export function cutSteakImg () { 
+export function cutSteakImg() {
   return (
     <StaticImage
       src="../../images/cutSteak-300x150.png"
@@ -196,7 +196,7 @@ export function cutSteakImg () {
     />
   );
 }
-export function differentFoodCoursesImg () { 
+export function differentFoodCoursesImg() {
   return (
     <StaticImage
       src="../../images/differentFoodCourses-300x150.png"
@@ -207,7 +207,7 @@ export function differentFoodCoursesImg () {
     />
   );
 }
-export function fantasyBoatImg () { 
+export function fantasyBoatImg() {
   return (
     <StaticImage
       src="../../images/fantasyBoat-300x150.png"
@@ -218,7 +218,7 @@ export function fantasyBoatImg () {
     />
   );
 }
-export function foodIngredientsImg () { 
+export function foodIngredientsImg() {
   return (
     <StaticImage
       src="../../images/foodIngredients-300x150.png"
@@ -229,7 +229,7 @@ export function foodIngredientsImg () {
     />
   );
 }
-export function foodOnPlatesImg () { 
+export function foodOnPlatesImg() {
   return (
     <StaticImage
       src="../../images/foodOnPlates-300x150.png"
@@ -240,7 +240,7 @@ export function foodOnPlatesImg () {
     />
   );
 }
-export function fruitInHeartShapeImg () { 
+export function fruitInHeartShapeImg() {
   return (
     <StaticImage
       src="../../images/fruitInHeartShape-300x150.png"
@@ -251,7 +251,7 @@ export function fruitInHeartShapeImg () {
     />
   );
 }
-export function iceBallImg () { 
+export function iceBallImg() {
   return (
     <StaticImage
       src="../../images/iceBall-300x150.png"
@@ -262,7 +262,7 @@ export function iceBallImg () {
     />
   );
 }
-export function lettersOutOfBookImg () { 
+export function lettersOutOfBookImg() {
   return (
     <StaticImage
       src="../../images/lettersOutOfBook-300x150.png"
@@ -273,7 +273,7 @@ export function lettersOutOfBookImg () {
     />
   );
 }
-export function maltaBoatsImg () { 
+export function maltaBoatsImg() {
   return (
     <StaticImage
       src="../../images/maltaBoats-300x150.png"
@@ -284,7 +284,18 @@ export function maltaBoatsImg () {
     />
   );
 }
-export function platesOfFoodImg () { 
+export function mathsTilesImg() {
+  return (
+    <StaticImage
+      src="../../images/maths-tiles-landscape (1).png"
+      alt="colourful tiles with numbers and math symbols"
+      aria-hidden="true"
+      placeholder="blurred"
+      objectFit="cover"
+    />
+  );
+}
+export function platesOfFoodImg() {
   return (
     <StaticImage
       src="../../images/platesOfFood-300x150.png"
@@ -295,7 +306,7 @@ export function platesOfFoodImg () {
     />
   );
 }
-export function questionMarksImg () { 
+export function questionMarksImg() {
   return (
     <StaticImage
       src="../../images/questionMarks-300x150.png"
@@ -306,7 +317,7 @@ export function questionMarksImg () {
     />
   );
 }
-export function quillInkPaperImg () { 
+export function quillInkPaperImg() {
   return (
     <StaticImage
       src="../../images/quillInkPaper-300x150.png"
@@ -317,7 +328,7 @@ export function quillInkPaperImg () {
     />
   );
 }
-export function rawFoodsImg () { 
+export function rawFoodsImg() {
   return (
     <StaticImage
       src="../../images/rawFoods-300x150.png"
@@ -328,7 +339,7 @@ export function rawFoodsImg () {
     />
   );
 }
-export function roadSignPastPresentImg () { 
+export function roadSignPastPresentImg() {
   return (
     <StaticImage
       src="../../images/roadSignPastPresent-300x150.png"
@@ -339,7 +350,7 @@ export function roadSignPastPresentImg () {
     />
   );
 }
-export function secondImg () { 
+export function secondImg() {
   return (
     <StaticImage
       src="../../images/second-300x150.png"
@@ -350,7 +361,7 @@ export function secondImg () {
     />
   );
 }
-export function skyWatchOfDinosaurCometImg () { 
+export function skyWatchOfDinosaurCometImg() {
   return (
     <StaticImage
       src="../../images/skyWatchOfDinosaurComet-300x150.png"
@@ -361,7 +372,7 @@ export function skyWatchOfDinosaurCometImg () {
     />
   );
 }
-export function sunlitLandscapeImg () { 
+export function sunlitLandscapeImg() {
   return (
     <StaticImage
       src="../../images/sunlitLandscape-300x150.png"
@@ -372,7 +383,7 @@ export function sunlitLandscapeImg () {
     />
   );
 }
-export function thunderLightningImg () { 
+export function thunderLightningImg() {
   return (
     <StaticImage
       src="../../images/thunderLightning-300x150.png"
@@ -383,7 +394,7 @@ export function thunderLightningImg () {
     />
   );
 }
-export function womanThinkingImg () { 
+export function womanThinkingImg() {
   return (
     <StaticImage
       src="../../images/womanThinking-300x150.png"
@@ -394,7 +405,7 @@ export function womanThinkingImg () {
     />
   );
 }
-export function writtenRecipesOnPaperImg () { 
+export function writtenRecipesOnPaperImg() {
   return (
     <StaticImage
       src="../../images/writtenRecipesOnPaper-300x150.png"
