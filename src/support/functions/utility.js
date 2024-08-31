@@ -91,3 +91,26 @@ export function randomNumber(min, max) {
   const _max = Number(max);
   return Math.floor(Math.random() * (_max - _min + 1)) + _min;
 }
+//makes an array of unique random numbers
+export function makeUniqueRandomNumberArray(lengthOfArray) {
+  let randomSet = new Set();
+  while (randomSet.size < lengthOfArray) {
+    randomSet.add(Math.floor(Math.random() * lengthOfArray - 1) + 1);
+  }
+  return [...randomSet.values()];
+}
+//takes an array of objects with 2 values (the beginning value must be attached to value1) and adapts it into an array of objects suitable for using with the component <mixmatch1> as the exerciseData prop
+export function makeMixMatchExerciseDataObjectArray(arr) {
+  const randomSet1 = makeUniqueRandomNumberArray(arr.length);
+  const randomSet2 = makeUniqueRandomNumberArray(arr.length);
+
+  const newArray = arr.map((obj, index) => ({
+    id: index,
+    loc1: randomSet1[index],
+    itemAtLoc1: obj.value1,
+    loc2: randomSet2[index],
+    itemAtLoc2: obj.value2,
+    success: false,
+  }));
+  return newArray;
+}

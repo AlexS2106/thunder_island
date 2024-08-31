@@ -35,6 +35,17 @@ export function alexRightImg() {
     />
   );
 }
+export function animalsImg() {
+  return (
+    <StaticImage
+      src="../../images/animals-landscape.png"
+      alt="dog and cat"
+      aria-hidden="true"
+      placeholder="blurred"
+      objectFit="cover"
+    />
+  );
+}
 export function bookAndCoffeeImg() {
   return (
     <StaticImage

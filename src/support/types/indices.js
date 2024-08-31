@@ -33,6 +33,7 @@ export const learningSubcategories = [
   "questions",
   "tricky-words",
   "arithmetic",
+  "maltese",
 ];
 export const learningTags = [
   "past",
@@ -44,6 +45,7 @@ export const learningTags = [
   "subtraction",
   "multiplication",
   "division",
+  "animals",
 ];
 
 //Portfolio subcategories

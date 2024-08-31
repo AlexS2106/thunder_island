@@ -29,6 +29,7 @@ import {
   lettersOutOfBookImg,
   iceBallImg,
   mathsTilesImg,
+  animalsImg,
 } from "../../support/functions/staticImgFunctions";
 import { makeTitle } from "../../support/functions/utility";
 
@@ -141,6 +142,18 @@ const LearningPage = ({ pageContext }) => {
       link: "times-tables/",
       lessons: [],
       exercises: ["simple-exercises-1"],
+      cluster: [],
+      mustKnow: [],
+      next: [],
+    },
+    {
+      title: "Maltese",
+      image: animalsImg(),
+      description: "Match the Maltese to the English.",
+      level: "Primary",
+      link: "maltese/",
+      lessons: [],
+      exercises: ["exercise-mix-match-1"],
       cluster: [],
       mustKnow: [],
       next: [],
