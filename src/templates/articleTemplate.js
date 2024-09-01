@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuid } from "uuid";
 
 import { wrapper, innerWrapper, btnWrapper } from "./templates.module.css";
 
@@ -45,25 +45,7 @@ const ArticleTemplate = ({
   } = frontmatter;
   const _associatedPosts = associatedPosts.nodes;
 
-  ////** VARIABLES **////
-  //Article - btn text
-  const innerText = "Go Back";
-  //PageTitle - title text
-  const pageTitle = title;
-  //Carousel - [] of {}
-  const carouselData = [..._associatedPosts];
-  //Carousel - button text, title text
-  const carouselPostsInnerText = "Read Article";
-  const carouselTitle = "Similar Articles";
-
   ////** FUNCTIONS **////
-  //Cloud - makes tags into h6s
-  const generateTags =
-    tags > 0
-      ? tags.map((tag) => {
-          return <h6 key={uuidv4()}>{tag.name}</h6>;
-        })
-      : null;
   //MDX - transforms children
   const MDXContent = MDX(children);
 
@@ -73,20 +55,19 @@ const ArticleTemplate = ({
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbs} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={title} />
       <Spacer size={3} />
       <Main size={1}>
         <div className={`flexColumn ${wrapper}`}>
           <article className="pad1">
             <div className={`flexColumn textCenter ${innerWrapper}`}>
               <Spacer size={3} />
-              {dates &&
-                dates.map((date) => (
-                  <Date
-                    key={date}
-                    date={date}
-                  />
-                ))}
+              {dates.map((date) => (
+                <Date
+                  key={date}
+                  date={date}
+                />
+              ))}
               <Spacer size={3} />
               <GatsbyImage
                 image={getImage(landscapeImage)}
@@ -94,7 +75,9 @@ const ArticleTemplate = ({
               />
               {photographer && <cite>photo by {photographer}</cite>}
               <Spacer size={3} />
-              {generateTags}
+              {tags.map((tag) => (
+                <h6 key={uuid()}>{tag.name}</h6>
+              ))}
               <Spacer size={3} />
               <Intro>{description}</Intro>
             </div>
@@ -112,16 +95,16 @@ const ArticleTemplate = ({
               onClick={() => {
                 navigate(-1);
               }}
-              innerText={innerText}
+              innerText="Go Back"
             />
           </div>
           <Spacer size={3} />
         </div>
         <Spacer size={3} />
         <Carousel
-          title={carouselTitle}
-          carouselData={carouselData}
-          innerText={carouselPostsInnerText}
+          title="Simiilar Articles"
+          carouselData={_associatedPosts}
+          innerText="Read Article"
         />
       </Main>
     </Layout>

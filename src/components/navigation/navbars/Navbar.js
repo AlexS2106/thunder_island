@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { v4 as uuid } from "uuid";
 
 import {
@@ -30,18 +30,23 @@ const Navbar = () => {
   const openMenuIcon = burger();
   ////** FUNCTIONS **////
   //Generates clickable links from the pages array (via topmenu in VARIABLES)
-  const generateNavLinks = topMenu.map((page) => {
-    const { link, name } = page;
-    return (
-      <li key={uuid()}>
-        <NavLink
-          key={uuid()}
-          linkTo={link}
-          innerText={name}
-        />
-      </li>
-    );
-  });
+  const generateNavLinks = useMemo(
+    () =>
+      topMenu.map((page) => {
+        const { link, name } = page;
+        return (
+          <li key={uuid()}>
+            <NavLink
+              key={uuid()}
+              linkTo={link}
+              innerText={name}
+            />
+          </li>
+        );
+      }),
+    [topMenu],
+  );
+
   //Sets state to open and close the navbar.
   const handleClick = () => {
     toggleOpen(!open);

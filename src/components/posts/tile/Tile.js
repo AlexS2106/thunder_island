@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import SimpleLink from "../../navigation/links/SimpleLink";
 
 const Tile = ({ tileData }) => {
+  ////** VARIABLES **////
+  //Unpacking data
   const { frontmatter } = tileData;
   const { title, slug, portraitImage, alt } = frontmatter;
+
+  //Memoised link
+  const linkTo = useMemo(() => `/recipes/${slug}`, [slug]);
+
+  ////** MARK UP**////
   return (
     <>
       <GatsbyImage
@@ -14,7 +21,7 @@ const Tile = ({ tileData }) => {
         alt={alt}
       />
       <SimpleLink
-        linkTo={`/recipes/${slug}`}
+        linkTo={linkTo}
         innerText={title}
       />
     </>

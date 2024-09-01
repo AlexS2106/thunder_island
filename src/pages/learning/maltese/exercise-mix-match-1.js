@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { v4 as uuid } from "uuid";
 
@@ -12,7 +12,6 @@ import Main from "../../../components/layout/containers/Main";
 import MixNMatch1 from "../../../components/user-interactive/mix-n-match/mix-n-match";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
 import Seo from "../../../components/seo/seo";
-import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
@@ -125,12 +124,6 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
           <Spacer size={2} />
         </Main>
         <aside className="sideBorderLight sideBorderPad">
-          <h3 className="shadowText">Lessons on The Zero Conditional</h3>
-          <SimpleLink
-            linkTo="/learning/zero-conditional/complete-lesson"
-            activeClassName="isActive"
-            innerText="The Zero Conditional - A Complete Lesson"
-          />
           <Spacer size={2} />
         </aside>
       </AsideRight>
@@ -138,9 +131,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
   );
 };
 
-export const Head = () => (
-  <Seo title="Thunder Island | Learning: Zero Conditional" />
-);
+export const Head = () => <Seo title="Thunder Island | Learning: Maltese" />;
 
 //// ** PROP TYPES ** ////
 ExerciseMixMatch1.propTypes = {

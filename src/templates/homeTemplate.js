@@ -123,10 +123,12 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
   ////** FUNCTIONS **////
   //Navigates from the options box to the user clicked page
   const handleBoxClick = (e) => {
-    const _clicked = _options.filter(
+    const clickedOption = _options.find(
       (item) => item.name === e.target.innerText,
     );
-    navigate(`${_clicked[0].link}`);
+    if (clickedOption) {
+      navigate(clickedOption.link);
+    }
   };
 
   ////** MARK UP **////
@@ -143,11 +145,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
           <Main size={1}>
             <h3 className="shadowText">My Latest posts</h3>
             <Spacer size={3} />
-            {pageContext.currentPage !== 1 ? (
-              <>
-                <Breadcrumbs crumbs={crumbs} />
-              </>
-            ) : null}
+            {pageContext.currentPage !== 1 && <Breadcrumbs crumbs={crumbs} />}
             <MediumPostList
               postData={mainData}
               excerptLength={mediumPostExcerptLength}

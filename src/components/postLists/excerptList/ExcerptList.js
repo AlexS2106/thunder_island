@@ -12,11 +12,11 @@ const ExcerptList = ({ excerptData, innerText, excerptLength }) => {
   ////** FUNCTIONS **////
   //Generate a list of excerpts of random posts
   const generatedExcerpts = excerptData.map((item) => {
-    //Posts with a main category of health will be linked to recipes while the health category has so few posts.
+    //Posts with a main category of health will be linked to recipes
+    const { mainCategories } = item.frontmatter;
     const mainCategoryLink =
-      item.frontmatter.mainCategories[0] === "health"
-        ? "recipes"
-        : item.frontmatter.mainCategories[0];
+      mainCategories[0] === "health" ? "recipes" : mainCategories[0];
+
     return (
       <li key={uuid()}>
         <MediumPost
@@ -27,7 +27,7 @@ const ExcerptList = ({ excerptData, innerText, excerptLength }) => {
         <h3 className="textCenter">
           <SimpleLink
             linkTo={`/${mainCategoryLink}`}
-            innerText={`See more in ${item.frontmatter.mainCategories}?`}
+            innerText={`See more in ${mainCategories[0]}?`}
           />
         </h3>
       </li>

@@ -12,7 +12,7 @@ import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
-import { zeroConditional1 } from "../../../support/types/englishExerciseAnswers";
+import { zeroConditional1 } from "../../../support/types/english";
 
 ////** COMPONENT **////
 const ExerciseMixMatch1 = ({ pageContext }) => {
@@ -30,10 +30,9 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
       : crumb,
   );
 
-  const exerciseAnswers = zeroConditional1;
-
   ////** VARIABLES **////
   //PageTitle
+  const exerciseAnswers = zeroConditional1;
   const pageTitle = "The Zero Conditional - A Mix 'N' Match";
 
   ////** MARK UP **////

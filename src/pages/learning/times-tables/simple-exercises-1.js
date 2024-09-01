@@ -24,10 +24,7 @@ import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 import TextEmphasisBox from "../../../components/typography/text-emphasis/TextEmphasisBox";
 
-import {
-  tablesToLearn,
-  completionAmounts,
-} from "../../../support/types/mathsExercises";
+import { tablesToLearn, completionAmounts } from "../../../support/types/maths";
 import { randomNumber } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
@@ -45,15 +42,15 @@ const SimpleExercises1 = ({ pageContext }) => {
       : crumb,
   );
 
-  let [isFinished, setIsFinished] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
   const [timesTables, setTimesTables] = useState([]);
   const [questionsToComplete, setQuestionsToComplete] = useState();
-  let [gameRunning, setGameRunnning] = useState(false);
-  let [isRight, setIsRight] = useState(false);
-  let [isWrong, setIsWrong] = useState(false);
-  let [question, setQuestion] = useState([]);
-  let [answersDone, setAnswersDone] = useState(0);
-  let [correctAnswers, setCorrectAnswers] = useState();
+  const [gameRunning, setGameRunnning] = useState(false);
+  const [isRight, setIsRight] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
+  const [question, setQuestion] = useState([]);
+  const [answersDone, setAnswersDone] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState();
 
   useEffect(() => {
     if (gameRunning && answersDone === questionsToComplete) {
@@ -70,132 +67,6 @@ const SimpleExercises1 = ({ pageContext }) => {
   const totalAnswersToCompleteOptions = completionAmounts;
 
   ////** FUNCTIONS ** ////
-  //times tables from imported indices variable
-  const generateSelectTimesTablesGrid = (
-    <div className={gameSelectGrid}>
-      {tables.map((table) => (
-        <Button
-          key={uuidv4()}
-          innerText={String(table)}
-          onClick={handleUserTimesTablesSelectedClick}
-        />
-      ))}
-    </div>
-  );
-  //questions asked options from an imported indices variable
-  const generateTotalAnswersToCompleteOptions = (
-    <div className={gameSelectGrid}>
-      {totalAnswersToCompleteOptions.map((num) => (
-        <Button
-          key={uuidv4()}
-          innerText={String(num)}
-          onClick={handleUserTotalAnswersToCompleteSelectClick}
-        />
-      ))}
-    </div>
-  );
-  //ui on pregame
-  const generatePreGame = (
-    <>
-      <TextEmphasisBoxMinor>
-        <p className="textCenter">
-          Which times tables do you want to practice?
-        </p>
-        <p className="textCenter">
-          {timesTables.map((times) => (
-            <span
-              key={uuidv4()}
-              className="pad1">
-              {times}
-            </span>
-          ))}
-        </p>
-      </TextEmphasisBoxMinor>
-      <Spacer size={3} />
-      {generateSelectTimesTablesGrid}
-      <Spacer size={3} />
-      <TextEmphasisBoxMinor>
-        <p className="textCenter">
-          How many questions do you want to answer today?
-        </p>
-        <p className="textCenter">{questionsToComplete}</p>
-      </TextEmphasisBoxMinor>
-      <Spacer size={3} />
-      {generateTotalAnswersToCompleteOptions}
-      <Spacer size={3} />
-      <Button
-        innerText="Ready to Begin?"
-        onClick={handleBeginGame}
-      />
-    </>
-  );
-  //ui during play
-  const generateGame = (
-    <div className={game}>
-      <TextEmphasisBox>
-        <p>
-          Answer {questionsToComplete} questions using the{" "}
-          {timesTables.map((times) => (
-            <span key={uuidv4()}>{times}, </span>
-          ))}{" "}
-          times tables.
-        </p>
-      </TextEmphasisBox>
-      <Spacer size={2} />
-      <TextEmphasisBox>
-        <p>
-          {correctAnswers} out of {questionsToComplete}
-        </p>
-      </TextEmphasisBox>
-      <Spacer size={2} />
-      <div className={gameAnswer}>
-        <span className="textCenter">
-          {question[0]} x {question[1]}
-        </span>
-        <Spacer size={3} />
-        <form
-          className={gameAnswerForm}
-          onSubmit={onAnswerSubmit}>
-          <label htmlFor="answerInput">
-            <input
-              type="text"
-              id="answerInput"
-              ref={inputRef}
-              aria-autocomplete="none"
-              className={isRight ? isCorrect : isIncorrect}
-            />
-          </label>
-        </form>
-      </div>
-      <Spacer size={3} />
-      {isWrong ? (
-        <TextEmphasisBox>
-          <p>Oh no! That's wrong.</p>
-        </TextEmphasisBox>
-      ) : (
-        <TextEmphasisBox>
-          {isRight ? <p>Well done!</p> : <p>Try this!</p>}
-        </TextEmphasisBox>
-      )}
-    </div>
-  );
-  //ui when all questions are answered
-  const generatePostGame = (
-    <>
-      <TextEmphasisBox>
-        <p>
-          You got {correctAnswers} out of {questionsToComplete} questions
-          correct!
-        </p>
-      </TextEmphasisBox>
-      <Spacer size={3} />
-      <Button
-        innerText="Play again?"
-        onClick={handleBeginAgain}
-      />
-    </>
-  );
-
   //adds user chosen times tables to state
   function handleUserTimesTablesSelectedClick(e) {
     const num = Number(e.target.innerText);
@@ -277,20 +148,128 @@ const SimpleExercises1 = ({ pageContext }) => {
         <Main size={1}>
           <Spacer size={3} />
           <div className={gameWrapper}>
-            {isFinished
-              ? generatePostGame
-              : !gameRunning
-                ? generatePreGame
-                : generateGame}
+            {isFinished ? (
+              <>
+                <TextEmphasisBox>
+                  <p>
+                    You got {correctAnswers} out of {questionsToComplete}{" "}
+                    questions correct!
+                  </p>
+                </TextEmphasisBox>
+                <Spacer size={3} />
+                <Button
+                  innerText="Play again?"
+                  onClick={handleBeginAgain}
+                />
+              </>
+            ) : !gameRunning ? (
+              <>
+                <TextEmphasisBoxMinor>
+                  <p className="textCenter">
+                    Which times tables do you want to practice?
+                  </p>
+                  <p className="textCenter">
+                    {timesTables.map((times) => (
+                      <span
+                        key={uuidv4()}
+                        className="pad1">
+                        {times}
+                      </span>
+                    ))}
+                  </p>
+                </TextEmphasisBoxMinor>
+                <Spacer size={3} />
+                <div className={gameSelectGrid}>
+                  {tables.map((table) => (
+                    <Button
+                      key={uuidv4()}
+                      innerText={String(table)}
+                      onClick={handleUserTimesTablesSelectedClick}
+                    />
+                  ))}
+                </div>
+                <Spacer size={3} />
+                <TextEmphasisBoxMinor>
+                  <p className="textCenter">
+                    How many questions do you want to answer today?
+                  </p>
+                  <p className="textCenter">{questionsToComplete}</p>
+                </TextEmphasisBoxMinor>
+                <Spacer size={3} />
+                <div className={gameSelectGrid}>
+                  {totalAnswersToCompleteOptions.map((num) => (
+                    <Button
+                      key={uuidv4()}
+                      innerText={String(num)}
+                      onClick={handleUserTotalAnswersToCompleteSelectClick}
+                    />
+                  ))}
+                </div>
+                <Spacer size={3} />
+                <Button
+                  innerText="Ready to Begin?"
+                  onClick={handleBeginGame}
+                />
+              </>
+            ) : (
+              <div className={game}>
+                <TextEmphasisBox>
+                  <p>
+                    Answer {questionsToComplete} questions using the{" "}
+                    {timesTables.map((times) => (
+                      <span key={uuidv4()}>{times}, </span>
+                    ))}{" "}
+                    times tables.
+                  </p>
+                </TextEmphasisBox>
+                <Spacer size={2} />
+                <TextEmphasisBox>
+                  <p>
+                    {correctAnswers} out of {questionsToComplete}
+                  </p>
+                </TextEmphasisBox>
+                <Spacer size={2} />
+                <div className={gameAnswer}>
+                  <span className="textCenter">
+                    {question[0]} x {question[1]}
+                  </span>
+                  <Spacer size={3} />
+                  <form
+                    className={gameAnswerForm}
+                    onSubmit={onAnswerSubmit}>
+                    <label htmlFor="answerInput">
+                      <input
+                        type="text"
+                        id="answerInput"
+                        ref={inputRef}
+                        aria-autocomplete="none"
+                        className={isRight ? isCorrect : isIncorrect}
+                      />
+                    </label>
+                  </form>
+                </div>
+                <Spacer size={3} />
+                {isWrong && (
+                  <TextEmphasisBox>
+                    <p>Oh no! That's wrong.</p>
+                  </TextEmphasisBox>
+                )}
+                {isRight && (
+                  <TextEmphasisBox>
+                    <p>Well done!</p>
+                  </TextEmphasisBox>
+                )}
+              </div>
+            )}
           </div>
           <Spacer size={2} />
         </Main>
         <aside className="sideBorderLight sideBorderPad">
           <h3 className="shadowText">Other Maths Lessons To Be Added</h3>
           <SimpleLink
-            linkTo="/learnimg/zero-conditional/complete-lesson"
+            linkTo=""
             activeClassName="isActive"
-            innerText="The Zero Conditional - A Complete Lesson"
+            innerText=""
           />
           <Spacer size={2} />
         </aside>

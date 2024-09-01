@@ -33,23 +33,21 @@ const Carousel = ({ carouselData, title, innerText }) => {
     numPicsShowingOnCarousel = 1;
   }
   const multiplyBy = 33;
+
   ////** FUNCTIONS **////
-  //Generates the carousel posts
-  const generateCarousel = carouselData.map((item) => (
-    <SmallPost
-      key={uuid()}
-      postData={item}
-      innerText={innerText}
-    />
-  ));
   //Acts on a user clicking to move the carousel left or right
   const clickHandler = (value) => {
     if (value === "increment") {
-      move >= carouselData * multiplyBy
-        ? setMove(carouselData * multiplyBy)
-        : setMove(move + multiplyBy);
+      setMove((prevMove) =>
+        prevMove >=
+        (carouselData.length - numPicsShowingOnCarousel) * multiplyBy
+          ? (carouselData.length - numPicsShowingOnCarousel) * multiplyBy
+          : prevMove + multiplyBy,
+      );
     } else if (value === "decrement") {
-      move - multiplyBy < 0 ? setMove(0) : setMove(move - multiplyBy);
+      setMove((prevMove) =>
+        prevMove - multiplyBy < 0 ? 0 : prevMove - multiplyBy,
+      );
     }
   };
 
@@ -64,11 +62,11 @@ const Carousel = ({ carouselData, title, innerText }) => {
         ) : null}
         <h3>{title}</h3>
         {move <
-        (carouselData.length * multiplyBy) / (carouselData.length / 2) ? (
+          (carouselData.length - numPicsShowingOnCarousel) * multiplyBy && (
           <button onClick={() => clickHandler("increment")}>
             <span className={colorPadding}>{singleArrowRight()}</span>
           </button>
-        ) : null}
+        )}
       </div>
       <div
         className={`flexRow ${spaced}`}
@@ -76,7 +74,13 @@ const Carousel = ({ carouselData, title, innerText }) => {
           width: `${carouselData.length * multiplyBy}vw`,
           transform: `translateX( -${move}vw )`,
         }}>
-        {generateCarousel}
+        {carouselData.map((item) => (
+          <SmallPost
+            key={uuid()}
+            postData={item}
+            innerText={innerText}
+          />
+        ))}
       </div>
     </div>
   );

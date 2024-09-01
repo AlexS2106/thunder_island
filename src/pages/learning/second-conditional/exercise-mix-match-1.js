@@ -12,7 +12,7 @@ import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
-import { secondConditional1 } from "../../../support/types/englishExerciseAnswers";
+import { secondConditional1 } from "../../../support/types/english";
 
 ////** COMPONENT **////
 const ExerciseMixMatch1 = ({ pageContext }) => {

@@ -43,26 +43,20 @@ export const zeroConditional1 = [
 
 export const secondConditional1 = [
   {
-    left: "If I could,",
-    leftLoc: undefined,
-    right: "I'd fly home.",
-    rightLoc: undefined,
-    success: false,
+    value1: "If I could,",
+    value2: "I'd fly home.",
   },
   {
-    left: "If I won the lottery",
-    leftLoc: undefined,
-    right: "I'd sail the world.",
-    rightLoc: undefined,
-    success: false,
+    value1: "If I won the lottery",
+    value2: "I'd sail the world.",
   },
   {
     value1: "If I was allowed,",
-    right: "I'd own a dog.",
+    value2: "I'd own a dog.",
   },
   {
     value1: "If I knew who did it,",
-    right: "I'd report them.",
+    value2: "I'd report them.",
   },
   {
     value1: "If it snowed in Winter,",
@@ -131,5 +125,106 @@ export const thirdConditional1 = [
   {
     value1: "I would have been sad,",
     value2: "if you hadn't said hello.",
+  },
+];
+
+export const getGotExercise = [
+  {
+    id: 0,
+    verb: "got",
+    correctAnswer: ["achieved", "received"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 1,
+    verb: "get",
+    correctAnswer: ["achieve"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 2,
+    verb: "got",
+    correctAnswer: ["bought"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 3,
+    verb: "get",
+    correctAnswer: ["fetch"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 4,
+    verb: "got",
+    correctAnswer: ["received"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 5,
+    verb: "gets",
+    correctAnswer: ["receives", "takes"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 6,
+    verb: "got",
+    correctAnswer: ["took", "caught"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 7,
+    verb: "got",
+    correctAnswer: ["received"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 8,
+    verb: "got",
+    correctAnswer: ["caught"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 9,
+    verb: "got",
+    correctAnswer: ["contracted"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 10,
+    verb: "got",
+    correctAnswer: ["received"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 11,
+    verb: "got",
+    correctAnswer: ["take"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 12,
+    verb: "get",
+    correctAnswer: ["fetch"],
+    userAnswer: "",
+    success: false,
+  },
+  {
+    id: 13,
+    verb: "get",
+    correctAnswer: ["take"],
+    userAnswer: "",
+    success: false,
   },
 ];

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -9,11 +9,18 @@ import LinkAsButton from "../../navigation/links/LinkAsButton";
 import { makeLink } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
-const SmallPost = ({ postData, innerText }) => {
+const SmallPost = ({ postData, innerText = "Read more" }) => {
   ////** VARIABLES **////
   //Unpacking data
   const { frontmatter } = postData;
   const { title, slug, mainCategories, landscapeImage, alt } = frontmatter;
+
+  //Memoised link
+  const linkTo = useMemo(
+    () => makeLink(mainCategories, slug),
+    [mainCategories, slug],
+  );
+
   ////** MARK UP **////
   return (
     <div className="flexColumn">
@@ -26,7 +33,7 @@ const SmallPost = ({ postData, innerText }) => {
       </div>
       <div className={`pad1 ${btnWrapper}`}>
         <LinkAsButton
-          linkTo={makeLink(mainCategories, slug)}
+          linkTo={linkTo}
           innerText={innerText}
         />
       </div>
@@ -37,7 +44,7 @@ const SmallPost = ({ postData, innerText }) => {
 ////** PROP TYPES **////
 SmallPost.propTypes = {
   postData: PropTypes.object.isRequired,
-  innerText: PropTypes.string.isRequired,
+  innerText: PropTypes.string,
 };
 
 export default SmallPost;

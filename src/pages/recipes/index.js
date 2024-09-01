@@ -26,6 +26,7 @@ import {
   foodOnPlatesImg,
   writtenRecipesOnPaperImg,
 } from "../../support/functions/staticImgFunctions";
+
 import { filterList, makeTitle } from "../../support/functions/utility";
 import useRecipes from "../../support/hooks/useRecipes.query";
 import useHealths from "../../support/hooks/useHealths.query";

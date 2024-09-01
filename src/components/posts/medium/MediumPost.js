@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -18,10 +18,18 @@ import {
   listSubcategories,
   reduceSentenceLength,
 } from "../../../support/functions/utility";
+
 import { DispatchContext } from "../../../support/providers/ContextProvider";
 
 ////** COMPONENT **////
-const MediumPost = ({ postData, ...props }) => {
+const MediumPost = ({
+  postData,
+  innerText = "See more",
+  excerptLength = 100,
+  showAuthor = false,
+  hasPhotographer = false,
+  showSubcategories = false,
+}) => {
   ////** CONTEXT **////
   const dispatch = useContext(DispatchContext);
 
@@ -38,50 +46,37 @@ const MediumPost = ({ postData, ...props }) => {
     photographer,
     description,
   } = frontmatter;
-  //article -> Button
-  const innerText = props.innerText ? props.innerText : "See More";
 
   ////** FUNCTIONS **////
   //Cuts the description of the post into the required length passed by props or to 100 characters (description passed by props.post)
-  const generatedExcerpt = reduceSentenceLength(
-    description,
-    props.excerptLength || 100,
+  const generatedExcerpt = useMemo(
+    () => reduceSentenceLength(description, excerptLength),
+    [description, excerptLength],
   );
   //Generates a list of h4 from the mainCategories (via props.post.frontmatter.mainCategories)
-  const mainCats = mainCategories.map((category) => {
-    return (
-      <h4
-        key={uuid()}
-        className="textCenter shadowText">
-        {category.name}
-      </h4>
-    );
-  });
+  const mainCats = useMemo(
+    () =>
+      mainCategories.map((category) => (
+        <h4
+          key={uuid()}
+          className="textCenter shadowText">
+          {category.name}
+        </h4>
+      )),
+    [mainCategories],
+  );
   //Checks for a list on subcategories and generates a list of h4 from the mainCategories (via props.post.frontmatter.subcategories)
-  const subCats = listSubcategories(frontmatter).map((category) => {
-    return (
-      <h4
-        key={uuid()}
-        className="textCenter shadowText">
-        {category.name}
-      </h4>
-    );
-  });
-  //Checks for a portraitImage and makes an image and wrapper if one is found (via props.post.frontmatter.portraitImage)
-  const generatedImage = portraitImage ? (
-    <div className={`flexColumn ${imageWrapper}`}>
-      <GatsbyImage
-        image={getImage(portraitImage)}
-        alt={alt}
-      />
-      {props.hasPhotographer &&
-      photographer !== "" &&
-      photographer !== null &&
-      photographer !== undefined ? (
-        <cite>photo by {photographer}</cite>
-      ) : null}
-    </div>
-  ) : null;
+  const subCats = useMemo(
+    () =>
+      listSubcategories(frontmatter).map((category) => (
+        <h4
+          key={uuid()}
+          className="textCenter shadowText">
+          {category.name}
+        </h4>
+      )),
+    [frontmatter],
+  );
 
   ////** MARK UP **////
   return (
@@ -89,8 +84,8 @@ const MediumPost = ({ postData, ...props }) => {
       <div>
         <h3 className="textCenter shadowText">{title}</h3>
         {mainCats}
-        {props.showSubcategories && subCats}
-        {props.showAuthor && (
+        {showSubcategories && subCats}
+        {showAuthor && (
           <address
             rel="author"
             className="textCenter shadowText">
@@ -99,7 +94,20 @@ const MediumPost = ({ postData, ...props }) => {
         )}
       </div>
       <div className="flexRow">
-        {generatedImage}
+        {portraitImage && (
+          <div className={`flexColumn ${imageWrapper}`}>
+            <GatsbyImage
+              image={getImage(portraitImage)}
+              alt={alt}
+            />
+            {hasPhotographer &&
+              photographer !== "" &&
+              photographer !== null &&
+              photographer !== undefined && (
+                <cite>photo by {photographer}</cite>
+              )}
+          </div>
+        )}
         <div className={`flexColumn ${textWrapper}`}>
           <p className="sideBorderDark sideBorderPad">{generatedExcerpt}</p>
         </div>

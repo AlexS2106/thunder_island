@@ -75,7 +75,7 @@ const RecipeTemplate = ({
         } else if (index === subcats.length - 1) {
           return <span key={uuid()}>{makeTitle(tag)} | </span>;
         } else {
-          return <span key={uuid()}>{makeTitle(tag)} | </span>;
+          return <span key={uuid()}> {makeTitle(tag)} | </span>;
         }
       })}{" "}
     </h6>

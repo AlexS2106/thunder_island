@@ -35,16 +35,16 @@ export function makeTitle(sentence) {
 export function listSubcategories(frontmatter) {
   let arr = [];
   if (frontmatter.subcategories) {
-    arr.concat(frontmatter.subcategories);
+    arr = [...arr, ...frontmatter.subcategories];
   }
   if (frontmatter.by_course) {
-    arr.concat(frontmatter.by_course);
+    arr = [...arr, ...frontmatter.by_course];
   }
   if (frontmatter.by_diet) {
-    arr.concat(frontmatter.by_diet);
+    arr = [...arr, ...frontmatter.by_diet];
   }
   if (frontmatter.by_ingredient) {
-    arr.concat(frontmatter.by_ingredient);
+    arr = [...arr, ...frontmatter.by_ingredient];
   }
   return arr;
 }

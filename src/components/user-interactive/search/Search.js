@@ -15,35 +15,31 @@ const Search = () => {
   const slugs = useSlugs();
 
   const _slugs = slugs.map(
-    (node) => `${node.frontmatter.mainCategories[0]}/${node.frontmatter.slug}`
+    (node) => `${node.frontmatter.mainCategories[0]}/${node.frontmatter.slug}`,
   );
 
   //State for the index and user query
-  const [index, setIndex] = useState(() => {
-    const initialState = _slugs.concat(mainCategories);
-    return initialState;
-  });
+  const [index, setIndex] = useState(() => _slugs.concat(mainCategories));
   const [query, setQuery] = useState("");
   //State for making the dropdown to show the search results
   const [dropdown, setDropdown] = useState([]);
   const [show, setShow] = useState(false);
   //Component did mount state for dropdown - will only alter if dropdown state alters
   useEffect(() => {
-    dropdown.length !== 0 ? setShow(true) : setShow(false);
+    setShow(dropdown.length !== 0);
   }, [dropdown]);
 
   ////** FUNCTIONS **////
   //Manages events on user input
   const handleChange = (e) => {
-    setQuery(e.target.value);
+    const value = e.target.value;
+    setQuery(value);
 
-    if (e.target.value.length > 2) {
-      const regExp = new RegExp(e.target.value.replaceAll(" ", "-"));
-      const list = index.filter((i) => i.match(regExp));
+    if (value.length > 2) {
+      const regExp = new RegExp(value.replaceAll(" ", "-"), "i");
+      const list = index.filter((i) => regExp.test(i));
       setDropdown(list);
-    }
-
-    if (e.target.value.length <= 2) {
+    } else {
       setDropdown([]);
     }
   };
@@ -55,7 +51,9 @@ const Search = () => {
   ////** MARK UP **////
   return (
     <div className={search}>
-      <form className={searchForm} onSubmit={handleSubmit}>
+      <form
+        className={searchForm}
+        onSubmit={handleSubmit}>
         <label htmlFor="query" />
         <input
           type="text"
@@ -65,21 +63,21 @@ const Search = () => {
           onChange={handleChange}
         />
       </form>
-      <div
-        style={
-          show ? { display: "flex", position: "fixed" } : { display: "none" }
-        }
-      >
-        <ul className={`flexColumn ${searchDropdown}`}>
-          {dropdown.map((item) => (
-            <Link key={uuid()} to={`/${item}`}>
-              {makeTitle(
-                item.includes("/") ? item.slice(item.indexOf("/")) : item
-              )}
-            </Link>
-          ))}
-        </ul>
-      </div>
+      {show && (
+        <div style={{ display: "flex", position: "fixed" }}>
+          <ul className={`flexColumn ${searchDropdown}`}>
+            {dropdown.map((item) => (
+              <Link
+                key={uuid()}
+                to={`/${item}`}>
+                {makeTitle(
+                  item.includes("/") ? item.slice(item.indexOf("/")) : item,
+                )}
+              </Link>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

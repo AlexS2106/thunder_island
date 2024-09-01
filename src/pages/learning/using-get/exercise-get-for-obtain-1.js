@@ -15,119 +15,10 @@ import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBox from "../../../components/typography/text-emphasis/TextEmphasisBox";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
+import { getGotExercise } from "../../../support/types/english";
+
 ////** COMPONENT **////
 const ExerciseGetForObtain1 = ({ pageContext }) => {
-  ////** STATE **////
-  //Initial state for answers
-  const exerciseAnswers = [
-    {
-      id: 0,
-      verb: "got",
-      correctAnswer: ["achieved", "received"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 1,
-      verb: "get",
-      correctAnswer: ["achieve"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 2,
-      verb: "got",
-      correctAnswer: ["bought"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 3,
-      verb: "get",
-      correctAnswer: ["fetch"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 4,
-      verb: "got",
-      correctAnswer: ["received"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 5,
-      verb: "gets",
-      correctAnswer: ["receives", "takes"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 6,
-      verb: "got",
-      correctAnswer: ["took", "caught"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 7,
-      verb: "got",
-      correctAnswer: ["received"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 8,
-      verb: "got",
-      correctAnswer: ["caught"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 9,
-      verb: "got",
-      correctAnswer: ["contracted"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 10,
-      verb: "got",
-      correctAnswer: ["received"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 11,
-      verb: "got",
-      correctAnswer: ["take"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 12,
-      verb: "get",
-      correctAnswer: ["fetch"],
-      userAnswer: "",
-      success: false,
-    },
-    {
-      id: 13,
-      verb: "get",
-      correctAnswer: ["take"],
-      userAnswer: "",
-      success: false,
-    },
-  ];
-  //State relative to user interaction with the answer inputs
-  const [submitted, setSubmitted] = useState(false);
-  const [answers, setAnswers] = useState(() => {
-    const initialState = [...exerciseAnswers];
-    return initialState;
-  });
-
-  const [success, setSuccess] = useState(false);
-
   ////** CONTEXT **////
   //Breadcrumb state
   const {
@@ -141,6 +32,14 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
         }
       : crumb,
   );
+
+  ////** STATE **////
+  //State relative to user interaction with the answer inputs
+  const [submitted, setSubmitted] = useState(false);
+  const [answers, setAnswers] = useState(() => [...getGotExercise]);
+
+  const [success, setSuccess] = useState(false);
+
   ////** VARIABLES **////
   //PageTitle
   const pageTitle = "An Exercise For Using Get.";
@@ -152,12 +51,8 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
     targetAnswer.userAnswer = e.target.value;
     targetAnswer.success = targetAnswer.correctAnswer.includes(
       targetAnswer.userAnswer,
-    )
-      ? true
-      : false;
-    setAnswers({
-      ...answers,
-    });
+    );
+    setAnswers([...answers]);
   };
   //Manages the submit click
   const handleSubmit = (e) => {
@@ -176,16 +71,20 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
     setSuccess(false);
   };
   const handleReset = () => {
-    setAnswers(exerciseAnswers);
+    setAnswers([...getGotExercise]);
     setSuccess(false);
     setSubmitted(false);
   };
   //Generates each input and its properties.
   const answerInput = (num) => {
     const { id, verb, userAnswer, success } = answers[num];
+    const inputClass = success ? isCorrect : isIncorrect;
+    const inputStyle =
+      submitted && !success ? { backgroundColor: "pink" } : null;
+
     return (
       <label
-        htmlFor={num}
+        htmlFor={id}
         className={label}>
         <input
           type="text"
@@ -193,8 +92,8 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
           value={userAnswer}
           placeholder={verb}
           onChange={handleOnChange}
-          className={success ? isCorrect : isIncorrect}
-          style={submitted && !success ? { backgroundColor: "pink" } : null}
+          className={inputClass}
+          style={inputStyle}
         />
       </label>
     );

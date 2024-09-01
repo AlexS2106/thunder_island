@@ -6,7 +6,7 @@ import { mediumTileList, smallTileList, border } from "./TileList.module.css";
 
 import Tile from "../../posts/tile/Tile";
 
-const TileList = ({ tileListData, size, withBorder }) => {
+const TileList = ({ tileListData, size = "small", withBorder = false }) => {
   const _border = withBorder ? `${border}` : ``;
   const _tileList =
     size === "medium" ? `${mediumTileList}` : `${smallTileList}`;
