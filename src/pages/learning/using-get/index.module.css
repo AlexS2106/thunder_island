@@ -1,9 +1,6 @@
 .body {
   padding: 1.5rem;
 }
-.list {
-  padding: 1rem;
-}
 .label > input {
   width: 5rem;
 }

@@ -261,7 +261,7 @@ const RecipesPage = ({ pageContext }) => {
             onClick={handleCloudClick}
           />
           <Spacer size={3} />
-          <section className="sideBorderPad flexColumn bgLight">
+          <section className="sideBorderPad flexCol bgLight">
             <h3 className="textCenter pad1 shadowText">{`${selectedTag} Recipes `}</h3>
             <Spacer size={3} />
             <SmallPostList

@@ -94,7 +94,7 @@ const RecipeTemplate = ({
       <StandardGrid size={1}>
         <Main size={1}>
           <article className="bgLight">
-            <div className={`flexColumn textCenter ${innerWrapper}`}>
+            <div className={`flexCol textCenter ${innerWrapper}`}>
               <Spacer size={3} />
               {dates &&
                 dates.map((date) => (
@@ -114,8 +114,8 @@ const RecipeTemplate = ({
               </Chat>
             </div>
             <Spacer size={1} />
-            <div className={`flexColumn pad1 ${card}`}>
-              <header className={`flexColumn ${cardHeading}`}>
+            <div className={`flexCol pad1 ${card}`}>
+              <header className={`flexCol ${cardHeading}`}>
                 <GatsbyImage
                   image={getImage(landscapeImage)}
                   alt={alt}></GatsbyImage>
@@ -134,8 +134,8 @@ const RecipeTemplate = ({
             </div>
           </article>
         </Main>
-        <aside className="flexColumn">
-          <section className="sideBorderDark flexColumn bgLight">
+        <aside className="flexCol">
+          <section className="sideBorderDark flexCol bgLight">
             <header>
               <h3 className="textCenter pad1 shadowText">
                 {asidePostsHeaderText}

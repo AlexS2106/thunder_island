@@ -58,9 +58,9 @@ const ArticleTemplate = ({
       <PageTitle title={title} />
       <Spacer size={3} />
       <Main size={1}>
-        <div className={`flexColumn ${wrapper}`}>
+        <div className={`flexCol ${wrapper}`}>
           <article className="pad1">
-            <div className={`flexColumn textCenter ${innerWrapper}`}>
+            <div className={`flexCol textCenter ${innerWrapper}`}>
               <Spacer size={3} />
               {dates.map((date) => (
                 <Date

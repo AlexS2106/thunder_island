@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { body, list } from "./index.module.css";
+import { body } from "./index.module.css";
 
 import Arrow from "../../../components/typography/arrow/Arrow";
 import AsideRight from "../../../components/layout/grids/AsideRight";
@@ -31,9 +31,8 @@ const AdvancedLesson = ({ pageContext }) => {
       : crumb,
   );
 
-  ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "The Second Conditional - A Complete Lesson";
+  ////** VARIABLES**////
+  const pageTitle1 = "The Second Conditional - A Complete Lesson";
 
   ////** MARK UP **////
   return (
@@ -41,12 +40,12 @@ const AdvancedLesson = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
           <article className="pad1">
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">What Is the Second Conditional?</h3>
               <Spacer size={3} />
               <TextEmphasisBox>
@@ -57,7 +56,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </TextEmphasisBox>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 What Do I Use the Second Conditional for?
               </h3>
@@ -66,7 +65,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <p>The second conditional is to imagine, dream and wish!</p>
               </TextEmphasisBoxMinor>
               <Spacer size={3} />
-              <ul className={list}>
+              <ul className="pad1">
                 <li>
                   {" "}
                   <Arrow
@@ -145,7 +144,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </ul>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 How Do I Say the Second Conditional?
               </h3>
@@ -156,7 +155,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   One clause is the condition clause. It uses <em>if</em> and
                   the past simple to make the condition.
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -165,7 +164,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>If + past simple</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -188,7 +187,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   The other clause is the result clause. It uses the subject,{" "}
                   <em>would</em> and the base form of a verb to make the result.
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -197,7 +196,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Subject + would + verb base form</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -222,7 +221,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   sentence or the end.
                 </p>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -231,7 +230,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Condition clause + , + result clause.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -258,7 +257,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Result clause + condition clause.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -280,7 +279,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Do I Have to Use Would?</h5>
               <div className={body}>
                 <p>
@@ -289,7 +288,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   words you can use. It all depends on what you want to say!
                 </p>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -298,7 +297,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>would</em> for wishes and dreams.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -318,7 +317,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>could</em> when the result is not 100% sure.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -337,7 +336,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>might</em> when the result is a lot less sure.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -351,7 +350,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Can I See Examples of the Second Conditional?
               </h3>
@@ -360,7 +359,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   Use the Second Conditional to Talk about Impossible or
                   Unlikely Future Conditions and their Results.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If he went to the moon, he'd be happy.</li>
                   <li>If I won the lottery, I would buy a mansion.</li>
                   <li>If they owned the company, they'd do a better job.</li>
@@ -379,7 +378,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   This is often used as a way of considering options and
                   choices.
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If I joined a gym, I might work out more.</li>
                   <li>
                     We could finish on time if the company employed another
@@ -392,7 +391,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   Use the Second Conditional to Talk about an Unreal Condition
                   in the Present and an Imaginary Result.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If I had a million euros, I might buy that car.</li>
                   <li>He would do better if he worked a bit harder.</li>
                   <li>
@@ -403,7 +402,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Second Conditional to Offer Advice.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If I were her, I'd say no.</li>
                   <li>If I were you, I think I might call them.</li>
                   <li>
@@ -414,7 +413,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Second Conditional to Ask Advice.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li> If you were me, what would you do?</li>
                   <li>If you could go on holiday, would you?</li>
                   <li> If you lived there, what would you do?</li>
@@ -423,7 +422,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Second Conditional to a Hypothetical Question.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>What would you do if it were always night?</li>
                   <li>
                     If you could change the country, what would you change?
@@ -435,7 +434,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   Use the Second Conditional to Give Reasons You Cannot Do
                   Something.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If I had his number, I would call him.</li>
                   <li>If I had the time, I could do something about it.</li>
                   <li>
@@ -446,7 +445,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Second Conditional For a Polite Request.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>It'd be great if you introduced us.</li>
                   <li>I'd be really happy if you visited me.</li>
                   <li>She might find it easier if you helped her.</li>
@@ -454,7 +453,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Something a Little Different!</h5>
               <div className={body}>
                 <p>
@@ -466,7 +465,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   When talking about imaginary abilities, replace the past
                   simple with <em>could + verb 1</em> like this:
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -495,7 +494,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Something to Remember!</h5>
               <div className={body}>
                 <p>
@@ -507,7 +506,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   When imagining you are someone else you use the verb{" "}
                   <em>to be</em> like this:
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"

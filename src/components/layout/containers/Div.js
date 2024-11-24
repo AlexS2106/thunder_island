@@ -21,7 +21,7 @@ const Div = ({ size, children }) => {
   }
 
   ////** MARK UP **////
-  return <div className={`flexColumn ${width}`}>{children}</div>;
+  return <div className={`flexCol ${width}`}>{children}</div>;
 };
 
 ////** PROP TYPES **////

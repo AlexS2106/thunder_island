@@ -15,9 +15,12 @@ import Seo from "../../../components/seo/seo";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
-import { word_group_0, word_group_1 } from "../../../support/types/maltese";
+import { taran_word_groups, numbers } from "../../../support/types/maltese";
 
-import { makeTitle } from "../../../support/functions/utility";
+import {
+  makeTitle,
+  redefineEnglishMaltiValuesAsValue1AndValue2ForMixMatchExerciseData,
+} from "../../../support/functions/utility";
 
 ////** COMPONENT **////
 const ExerciseMixMatch1 = ({ pageContext }) => {
@@ -35,27 +38,24 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
       : crumb,
   );
 
+  //// *** STATE *** ////
   const [userSelectedWordGroups, setUserSelectedWordGroups] = useState([]);
   const [userSelectedSubGroups, setUserSelectedSubGroups] = useState([]);
 
   //// *** VARIABLES *** ////
-  //PageTitle - text
-  const pageTitle = "Maltese Mix N Match";
-
+  const pageTitle1 = "Maltese Mix N Match";
   //array containing imported wordgroup objects
-  const _allWordGroups = [word_group_0, word_group_1];
+  const _allWordGroups = [taran_word_groups, numbers];
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {
     if (type === "wordgroup") {
       const check = userSelectedWordGroups.some((group) => group === selected);
       if (check) {
-        const updated = userSelectedWordGroups.filter(
-          (group) => group !== selected,
-        );
-        setUserSelectedWordGroups(updated);
+        return;
       } else {
-        setUserSelectedWordGroups((prevGroups) => [...prevGroups, selected]);
+        setUserSelectedWordGroups([selected]);
+        setUserSelectedSubGroups([]);
       }
     } else if (type === "subgroup") {
       const check = userSelectedSubGroups.some((group) => group === selected);
@@ -65,7 +65,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
         );
         setUserSelectedSubGroups(updated);
       } else {
-        setUserSelectedSubGroups([selected]);
+        setUserSelectedSubGroups((prevState) => [...prevState, selected]);
       }
     }
   }
@@ -76,7 +76,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -93,7 +93,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
             </div>
             {userSelectedWordGroups?.map((wordGroup) => (
               <div key={uuid()}>
-                {wordGroup.subWordGroups.map((subGroup) => (
+                {wordGroup.subWordGroups?.map((subGroup) => (
                   <Button
                     key={uuid()}
                     innerText={makeTitle(subGroup.name)}
@@ -117,7 +117,11 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
                 <Spacer size={3} />
                 <h6>{makeTitle(subGroup.name)}</h6>
                 <Spacer size={3} />
-                <MixNMatch1 exerciseData={subGroup.list} />
+                <MixNMatch1
+                  exerciseData={redefineEnglishMaltiValuesAsValue1AndValue2ForMixMatchExerciseData(
+                    subGroup.list,
+                  )}
+                />
               </div>
             ))}
           </div>

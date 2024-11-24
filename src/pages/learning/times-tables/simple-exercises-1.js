@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
 import {
-  gameWrapper,
-  game,
   gameSelectGrid,
   gameAnswer,
   gameAnswerForm,
@@ -24,8 +22,9 @@ import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 import TextEmphasisBox from "../../../components/typography/text-emphasis/TextEmphasisBox";
 
-import { tablesToLearn, completionAmounts } from "../../../support/types/maths";
 import { randomNumber } from "../../../support/functions/utility";
+
+import { tablesToLearn, completionAmounts } from "../../../support/types/maths";
 
 ////** COMPONENT **////
 const SimpleExercises1 = ({ pageContext }) => {
@@ -42,98 +41,129 @@ const SimpleExercises1 = ({ pageContext }) => {
       : crumb,
   );
 
-  const [isFinished, setIsFinished] = useState(false);
-  const [timesTables, setTimesTables] = useState([]);
-  const [questionsToComplete, setQuestionsToComplete] = useState();
-  const [gameRunning, setGameRunnning] = useState(false);
-  const [isRight, setIsRight] = useState(false);
-  const [isWrong, setIsWrong] = useState(false);
-  const [question, setQuestion] = useState([]);
-  const [answersDone, setAnswersDone] = useState(0);
-  const [correctAnswers, setCorrectAnswers] = useState();
+  const [startingSettings, setStartingSettings] = useState({
+    timesTables: [],
+    questionsToComplete: 5,
+  });
+
+  const [gameState, setGameState] = useState({
+    gameIsRunning: false,
+    currentQuestion: [],
+    answersCompleted: 0,
+    gameIsFinished: false,
+  });
+
+  const [userState, setUserState] = useState({
+    currentAnswerIsRight: false,
+    currentAnswerIsWrong: false,
+    totalCorrectAnswersGiven: 0,
+  });
 
   useEffect(() => {
-    if (gameRunning && answersDone === questionsToComplete) {
-      setIsFinished(true);
+    if (gameState.answersCompleted === startingSettings.questionsToComplete) {
+      setGameState((prevState) => ({
+        ...prevState,
+        gameIsFinished: true,
+      }));
+    } else {
+      const num1 = randomNumber(0, 12);
+      const num2 = randomNumber(
+        Math.min(...startingSettings.timesTables),
+        Math.max(...startingSettings.timesTables),
+      );
+      setGameState((prevState) => ({
+        ...prevState,
+        currentQuestion: [num1, num2],
+      }));
     }
-  }, [answersDone, questionsToComplete, gameRunning]);
-
-  const inputRef = createRef();
+  }, [
+    gameState.gameIsRunning,
+    gameState.answersCompleted,
+    startingSettings.questionsToComplete,
+    startingSettings.timesTables,
+  ]);
 
   ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "Times Tables Exercises";
-  const tables = tablesToLearn;
-  const totalAnswersToCompleteOptions = completionAmounts;
+  const inputRef = createRef();
+  const pageTitle1 = "Times Tables Exercises";
 
   ////** FUNCTIONS ** ////
   //adds user chosen times tables to state
   function handleUserTimesTablesSelectedClick(e) {
     const num = Number(e.target.innerText);
-    const _timesTables = [...timesTables, num];
-    const __timesTables = Array.from(new Set(_timesTables));
-    setTimesTables([...__timesTables]);
+    const updatedTimesTables = [...startingSettings.timesTables, num];
+    const uniqueTimesTables = Array.from(new Set(updatedTimesTables));
+    setStartingSettings((prevState) => ({
+      ...prevState,
+      timesTables: uniqueTimesTables,
+    }));
   }
   //adds user chosen totalquestions to be answered to state
   function handleUserTotalAnswersToCompleteSelectClick(e) {
     const num = Number(e.target.innerText);
-    setQuestionsToComplete(num);
+    setStartingSettings((prevState) => ({
+      ...prevState,
+      questionsToComplete: num,
+    }));
   }
   //onclick func begins the game after the timesTables and questionsToComplete are chosen
   function handleBeginGame() {
-    setGameRunnning(true);
-    setAnswersDone(0);
-    setCorrectAnswers(0);
-    setIsRight(false);
-    setIsWrong(false);
-    setQuestion([]);
-    askQuestion();
+    setGameState({
+      gameIsRunning: true,
+      currentQuestion: [],
+      answersCompleted: 0,
+      gameIsFinished: false,
+    });
+    setUserState({
+      currentAnswerIsRight: false,
+      currentAnswerIsWrong: false,
+      totalCorrectAnswersGiven: 0,
+    });
   }
   //onlick function when user chooses to restart game after a previous completion
   function handleBeginAgain() {
-    setIsFinished(false);
-    setGameRunnning(false);
-    setTimesTables([]);
-    setQuestionsToComplete();
-    setIsRight(false);
-    setIsWrong(false);
-    setAnswersDone();
-    setCorrectAnswers();
+    setStartingSettings({
+      timesTables: [],
+      questionsToComplete: 5,
+    });
+    setGameState({
+      gameIsRunning: false,
+      currentQuestion: [],
+      answersCompleted: 0,
+      gameIsFinished: false,
+    });
+    setUserState({
+      currentAnswerIsRight: false,
+      currentAnswerIsWrong: false,
+      totalCorrectAnswersGiven: 0,
+    });
   }
-  //generates a question
-  function askQuestion() {
-    setIsRight(false);
-    setIsWrong(false);
-    const num1 = randomNumber(0, 12);
-    const num2 = randomNumber(
-      Math.min(...timesTables),
-      Math.max(...timesTables),
-    );
-    setQuestion([num1, num2]);
-  }
+
   //Manages the user submitted answer
   function onAnswerSubmit(e) {
     e.preventDefault();
-
-    let result = question[0] * question[1] === Number(inputRef.current.value);
+    const { currentQuestion, answersCompleted } = gameState;
+    let result =
+      currentQuestion[0] * currentQuestion[1] ===
+      Number(inputRef.current.value);
     if (result) {
-      setIsRight(true);
-      setCorrectAnswers((prevCount) => prevCount + 1);
+      setUserState((prevState) => ({
+        ...prevState,
+        currentAnswerIsRight: true,
+        totalCorrectAnswersGiven: prevState.totalCorrectAnswersGiven + 1,
+      }));
     } else {
-      setIsWrong(true);
+      setUserState((prevState) => ({
+        ...prevState,
+        currentAnswerIsWrong: true,
+      }));
     }
+    setGameState((prevState) => ({
+      ...prevState,
+      answersCompleted: answersCompleted + 1,
+    }));
 
-    setAnswersDone((prevCount) => prevCount + 1);
-    checkFinished();
-  }
-  //see if all questions are answered and ask another question or finish the game
-  function checkFinished() {
     inputRef.current.value = "";
-    if (isFinished) {
-      setGameRunnning(false);
-    } else {
-      askQuestion();
-    }
   }
 
   ////** MARK UP **////
@@ -142,18 +172,18 @@ const SimpleExercises1 = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
           <Spacer size={3} />
-          <div className={gameWrapper}>
-            {isFinished ? (
+          <div className="flexCol">
+            {gameState.gameIsFinished ? (
               <>
                 <TextEmphasisBox>
                   <p>
-                    You got {correctAnswers} out of {questionsToComplete}{" "}
-                    questions correct!
+                    You got {userState.totalCorrectAnswersGiven} out of{" "}
+                    {startingSettings.questionsToComplete} questions correct!
                   </p>
                 </TextEmphasisBox>
                 <Spacer size={3} />
@@ -162,14 +192,14 @@ const SimpleExercises1 = ({ pageContext }) => {
                   onClick={handleBeginAgain}
                 />
               </>
-            ) : !gameRunning ? (
+            ) : !gameState.gameIsRunning ? (
               <>
                 <TextEmphasisBoxMinor>
                   <p className="textCenter">
                     Which times tables do you want to practice?
                   </p>
                   <p className="textCenter">
-                    {timesTables.map((times) => (
+                    {startingSettings.timesTables.map((times) => (
                       <span
                         key={uuidv4()}
                         className="pad1">
@@ -180,7 +210,7 @@ const SimpleExercises1 = ({ pageContext }) => {
                 </TextEmphasisBoxMinor>
                 <Spacer size={3} />
                 <div className={gameSelectGrid}>
-                  {tables.map((table) => (
+                  {tablesToLearn.map((table) => (
                     <Button
                       key={uuidv4()}
                       innerText={String(table)}
@@ -193,11 +223,13 @@ const SimpleExercises1 = ({ pageContext }) => {
                   <p className="textCenter">
                     How many questions do you want to answer today?
                   </p>
-                  <p className="textCenter">{questionsToComplete}</p>
+                  <p className="textCenter">
+                    {startingSettings.questionsToComplete}
+                  </p>
                 </TextEmphasisBoxMinor>
                 <Spacer size={3} />
                 <div className={gameSelectGrid}>
-                  {totalAnswersToCompleteOptions.map((num) => (
+                  {completionAmounts.map((num) => (
                     <Button
                       key={uuidv4()}
                       innerText={String(num)}
@@ -212,11 +244,12 @@ const SimpleExercises1 = ({ pageContext }) => {
                 />
               </>
             ) : (
-              <div className={game}>
+              <div className="flexCol">
                 <TextEmphasisBox>
                   <p>
-                    Answer {questionsToComplete} questions using the{" "}
-                    {timesTables.map((times) => (
+                    Answer {startingSettings.questionsToComplete} questions
+                    using the{" "}
+                    {startingSettings.timesTables.map((times) => (
                       <span key={uuidv4()}>{times}, </span>
                     ))}{" "}
                     times tables.
@@ -225,36 +258,42 @@ const SimpleExercises1 = ({ pageContext }) => {
                 <Spacer size={2} />
                 <TextEmphasisBox>
                   <p>
-                    {correctAnswers} out of {questionsToComplete}
+                    {userState.totalCorrectAnswersGiven} out of{" "}
+                    {startingSettings.questionsToComplete}
                   </p>
                 </TextEmphasisBox>
                 <Spacer size={2} />
-                <div className={gameAnswer}>
+                <div className={`${gameAnswer} flexCol`}>
                   <span className="textCenter">
-                    {question[0]} x {question[1]}
+                    {gameState.currentQuestion[0]} x{" "}
+                    {gameState.currentQuestion[1]}
                   </span>
                   <Spacer size={3} />
                   <form
                     className={gameAnswerForm}
                     onSubmit={onAnswerSubmit}>
-                    <label htmlFor="answerInput">
+                    <label htmlFor="inputForTimesTables1">
                       <input
                         type="text"
-                        id="answerInput"
+                        id="inputForTimesTables1"
                         ref={inputRef}
                         aria-autocomplete="none"
-                        className={isRight ? isCorrect : isIncorrect}
+                        className={
+                          userState.currentAnswerIsRight
+                            ? isCorrect
+                            : isIncorrect
+                        }
                       />
                     </label>
                   </form>
                 </div>
                 <Spacer size={3} />
-                {isWrong && (
+                {userState.currentAnswerIsWrong && (
                   <TextEmphasisBox>
                     <p>Oh no! That's wrong.</p>
                   </TextEmphasisBox>
                 )}
-                {isRight && (
+                {userState.currentAnswerIsRight && (
                   <TextEmphasisBox>
                     <p>Well done!</p>
                   </TextEmphasisBox>
@@ -265,9 +304,10 @@ const SimpleExercises1 = ({ pageContext }) => {
           <Spacer size={2} />
         </Main>
         <aside className="sideBorderLight sideBorderPad">
-          <h3 className="shadowText">Other Maths Lessons To Be Added</h3>
+          <h3 className="shadowText">Other Maths Exercises</h3>
+          <Spacer size={2} />
           <SimpleLink
-            linkTo=""
+            linkTo="/learning/addition/simple-exercises-1"
             activeClassName="isActive"
             innerText=""
           />

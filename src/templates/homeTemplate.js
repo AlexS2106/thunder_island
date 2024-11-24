@@ -162,7 +162,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
           </Main>
           <aside>
             <div className="sideBorderDark sideBorderPad">
-              <div className="flexColumn">
+              <div className="flexCol">
                 <div className={rotated}>
                   <h3 className={`textCenter pad1 ${greeting}`}>
                     Hello
@@ -231,7 +231,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
         <Spacer size={2} />
         {pageContext.currentPage === 1 ? (
           <>
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className={`shadowText ${marginLeftBig}`}>
                 Popular Posts By Category
               </h3>
@@ -246,7 +246,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
           </>
         ) : null}
       </Div>
-      <section className="flexColumn">
+      <section className="flexCol">
         <Carousel
           title={carouselTitle}
           carouselData={carouselContent}

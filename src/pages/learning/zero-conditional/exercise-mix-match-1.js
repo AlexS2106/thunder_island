@@ -31,9 +31,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
   );
 
   ////** VARIABLES **////
-  //PageTitle
-  const exerciseAnswers = zeroConditional1;
-  const pageTitle = "The Zero Conditional - A Mix 'N' Match";
+  const pageTitle2 = "The Zero Conditional - A Mix 'N' Match";
 
   ////** MARK UP **////
   return (
@@ -41,7 +39,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle2} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -52,7 +50,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
             </p>
           </TextEmphasisBoxMinor>
           <Spacer size={3} />
-          <MixNMatch1 exerciseData={exerciseAnswers} />
+          <MixNMatch1 exerciseData={zeroConditional1} />
           <Spacer size={2} />
         </Main>
         <aside className="sideBorderLight sideBorderPad">

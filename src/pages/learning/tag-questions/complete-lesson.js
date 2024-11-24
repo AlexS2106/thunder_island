@@ -46,7 +46,7 @@ const CompleteLesson = ({ pageContext }) => {
       <AsideRight>
         <Main size={1}>
           <article className="pad1">
-            <section display="flexColumn">
+            <section display="flexCol">
               <h3 className="shadowText">What Are Tag Questions?</h3>
               <Spacer size={3} />
               <TextEmphasisBoxMinor>
@@ -60,10 +60,10 @@ const CompleteLesson = ({ pageContext }) => {
               </TextEmphasisBox>
               <Spacer size={2} />
             </section>
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">What Do I Use Tag Questions for?</h3>
               <div className={body}>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     {" "}
                     <Arrow
@@ -109,11 +109,11 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">How Do I Say A Tag Question?</h3>
               <div className={body}>
                 <p>Usually, we ask questions in English like this: </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -152,7 +152,7 @@ const CompleteLesson = ({ pageContext }) => {
                     be negative.
                   </p>
                 </TextEmphasisBoxMinor>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -185,7 +185,7 @@ const CompleteLesson = ({ pageContext }) => {
                     <em>must</em> be positive.
                   </p>
                 </TextEmphasisBoxMinor>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -214,7 +214,7 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Something to Remember!</h5>
               <div className={body}>
                 <p>
@@ -231,14 +231,14 @@ const CompleteLesson = ({ pageContext }) => {
                 </p>
               </div>
             </section>
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">How Do I Say a Tag Question?</h3>
               <div className={body}>
                 <Spacer size={4} />
                 <p>There are three different ways to make tag questions.</p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>Most tag questions look like this:</li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x1"
@@ -250,7 +250,7 @@ const CompleteLesson = ({ pageContext }) => {
                         pronoun?
                       </em>
                     </li>
-                    <ul className={list}>
+                    <ul className="pad1">
                       <li>
                         <Arrow
                           type="x2"
@@ -278,7 +278,7 @@ const CompleteLesson = ({ pageContext }) => {
                     </ul>
                   </ul>
                   <li>Sometimes tag questions look like this:</li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x1"
@@ -287,7 +287,7 @@ const CompleteLesson = ({ pageContext }) => {
                       />{" "}
                       Auxiliary verb + main verb, do/does/did + pronoun?
                     </li>
-                    <ul className={list}>
+                    <ul className="pad1">
                       <li>
                         <Arrow
                           type="x2"
@@ -325,7 +325,7 @@ const CompleteLesson = ({ pageContext }) => {
                   <li>
                     The exception is when saying <em>I am</em>:
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x1"
@@ -334,7 +334,7 @@ const CompleteLesson = ({ pageContext }) => {
                       />{" "}
                       The negative I am is aren't I.
                     </li>
-                    <ul className={list}>
+                    <ul className="pad1">
                       <li>
                         <Arrow
                           type="x2"
@@ -364,14 +364,14 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
               </div>
             </section>
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Something to remember!</h5>
               <div className={body}>
                 <p>
                   Usually, these are the verbs most often used for tag
                   questions:
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -415,7 +415,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
               </div>
             </section>
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Can I See Examples of Tag Questions?
               </h3>
@@ -423,7 +423,7 @@ const CompleteLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use Tag Questions to Check Understanding.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -437,7 +437,7 @@ const CompleteLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use Tag Questions to soften a statement.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -451,7 +451,7 @@ const CompleteLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use Tag Questions to Ask a Question In an Indirect Way.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -473,7 +473,7 @@ const CompleteLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use Tag Questions to Check if the Information Is True.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     Is this where you live?{" "}
                     <Arrow
@@ -514,7 +514,7 @@ const CompleteLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use Tag Questions to Ask a Questions.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     Is there anybody there?{" "}
                     <Arrow

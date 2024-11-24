@@ -7,37 +7,73 @@ import {
   faAnglesRight,
   faAnglesLeft,
   faBurger,
-  faBars
+  faBars,
+  faCheck,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-export function singleArrowRight () { 
+export function singleArrowRight() {
   return (
-    <FontAwesomeIcon icon={ faAngleRight } size="1x" />
+    <FontAwesomeIcon
+      icon={faAngleRight}
+      size="1x"
+    />
   );
 }
-export function singleArrowLeft () { 
+export function singleArrowLeft() {
   return (
-    <FontAwesomeIcon icon={ faAngleLeft } size="1x" />
+    <FontAwesomeIcon
+      icon={faAngleLeft}
+      size="1x"
+    />
   );
 }
-export function doubleArrowRight () { 
+export function doubleArrowRight() {
   return (
-    <FontAwesomeIcon icon={ faAnglesRight } size="1x" />
+    <FontAwesomeIcon
+      icon={faAnglesRight}
+      size="1x"
+    />
   );
 }
-export function doubleArrowLeft () { 
+export function doubleArrowLeft() {
   return (
-    <FontAwesomeIcon icon={ faAnglesLeft } size="1x" />
+    <FontAwesomeIcon
+      icon={faAnglesLeft}
+      size="1x"
+    />
   );
 }
 
-export function burger () {
+export function burger() {
   return (
-    <FontAwesomeIcon icon={ faBurger } size="2x" />
+    <FontAwesomeIcon
+      icon={faBurger}
+      size="2x"
+    />
   );
 }
-export function bars () {
+export function bars() {
   return (
-    <FontAwesomeIcon icon={ faBars } size="2x" />
+    <FontAwesomeIcon
+      icon={faBars}
+      size="2x"
+    />
+  );
+}
+export function tick() {
+  return (
+    <FontAwesomeIcon
+      icon={faCheck}
+      size="3x"
+    />
+  );
+}
+export function cross() {
+  return (
+    <FontAwesomeIcon
+      icon={faXmark}
+      size="3x"
+    />
   );
 }

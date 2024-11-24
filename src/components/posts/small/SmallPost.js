@@ -23,7 +23,7 @@ const SmallPost = ({ postData, innerText = "Read more" }) => {
 
   ////** MARK UP **////
   return (
-    <div className="flexColumn">
+    <div className="flexCol">
       <h4 className={`shadowText ${spacing}`}>{title}</h4>
       <div className={spacing}>
         <GatsbyImage

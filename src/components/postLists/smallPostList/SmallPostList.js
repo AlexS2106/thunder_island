@@ -21,7 +21,7 @@ const SmallPostList = ({ postData, innerText }) => {
 
   ////** MARK UP **////
   return (
-    <ul className={` flexColumn bgLight ${list}`}>{generateSmallPostList}</ul>
+    <ul className={` flexCol bgLight ${list}`}>{generateSmallPostList}</ul>
   );
 };
 

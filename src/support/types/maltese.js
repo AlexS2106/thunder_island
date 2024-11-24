@@ -6,74 +6,420 @@
 //     name: string,
 //     list: [
 //       {
-//         value1: string,
-//         value2: string,
+//         english: string,
+//         malti: string,
 //       }
 //     ]
 //   }
 // ]
 // }
-export const word_group_0 = {
+export const taran_word_groups = {
+  name: "tarans words",
+  subWordGroups: [
+    {
+      name: "group one",
+      list: [
+        {
+          english: "xkupilja",
+          malti: "broom",
+        },
+        {
+          english: "għajn",
+          malti: "eye",
+        },
+        {
+          english: "xofftejn",
+          malti: "lips",
+        },
+        {
+          english: "żarbun",
+          malti: "shoe",
+        },
+        {
+          english: "saqajn",
+          malti: "feet",
+        },
+      ],
+    },
+    {
+      name: "group two",
+      list: [
+        {
+          english: "ħawħa",
+          malti: "peach",
+        },
+        {
+          english: "bettieħa",
+          malti: "melon",
+        },
+        {
+          english: "dulliegħa",
+          malti: "watermelon",
+        },
+        {
+          english: "lanġasa",
+          malti: "pear",
+        },
+        {
+          english: "tuffieħa",
+          malti: "apple",
+        },
+      ],
+    },
+    {
+      name: "group three",
+      list: [
+        {
+          english: "poter",
+          malti: "power",
+        },
+        {
+          english: "triq",
+          malti: "street",
+        },
+        {
+          english: "tikek",
+          malti: "spots",
+        },
+        {
+          english: "dmugħ",
+          malti: "fright",
+        },
+        {
+          english: "ġiżirana",
+          malti: "necklace",
+        },
+      ],
+    },
+    {
+      name: "the bees",
+      list: [
+        {
+          english: "naħla",
+          malti: "bee",
+        },
+        {
+          english: "xehda",
+          malti: "hive",
+        },
+        {
+          english: "għasel",
+          malti: "honey",
+        },
+        {
+          english: "flowers",
+          malti: "fjuri",
+        },
+        {
+          english: "ġnien",
+          malti: "garden",
+        },
+        {
+          english: "hedgehog",
+          malti: "qanfud",
+        },
+      ],
+    },
+    {
+      name: "about myself",
+      list: [
+        {
+          english: "name",
+          malti: "isem",
+        },
+        {
+          english: "eta",
+          malti: "age",
+        },
+        {
+          english: "xagħar",
+          malti: "hair",
+        },
+        {
+          english: "għajnejn",
+          malti: "eyes",
+        },
+        {
+          english: "passatempi",
+          malti: "hobbies",
+        },
+      ],
+    },
+  ],
+};
+export const numbers = {
+  name: "numbers",
+  subWordGroups: [
+    {
+      name: "1 to 5",
+      list: [
+        {
+          english: "one",
+          malti: "wiegħed",
+        },
+        {
+          english: "two",
+          malti: "tnejn",
+        },
+        {
+          english: "three",
+          malti: "tlieta",
+        },
+        {
+          english: "four",
+          malti: "erbgħa",
+        },
+        {
+          english: "five",
+          malti: "ħamsa",
+        },
+      ],
+    },
+    {
+      name: "6 to 10",
+      list: [
+        {
+          english: "six",
+          malti: "sitta",
+        },
+        {
+          english: "seven",
+          malti: "sebgħa",
+        },
+        {
+          english: "eight",
+          malti: "tmienja",
+        },
+        {
+          english: "nine",
+          malti: "disgħa",
+        },
+        {
+          english: "ten",
+          malti: "għaxra",
+        },
+      ],
+    },
+    {
+      name: "11 to 15",
+      list: [
+        {
+          english: "eleven",
+          malti: "ħdax",
+        },
+        {
+          english: "twelve",
+          malti: "tnax",
+        },
+        {
+          english: "thirteen",
+          malti: "tlettax",
+        },
+        {
+          english: "fourteen",
+          malti: "erbatax",
+        },
+        {
+          english: "fifteen",
+          malti: "ħmistax",
+        },
+      ],
+    },
+    {
+      name: "16 to 20",
+      list: [
+        {
+          english: "sixteen",
+          malti: "sittax",
+        },
+        {
+          english: "seventeen",
+          malti: "sbatax",
+        },
+        {
+          english: "eighteen",
+          malti: "tmintax",
+        },
+        {
+          english: "nineteen",
+          malti: "dsatax",
+        },
+        {
+          english: "twenty",
+          malti: "għoxrin",
+        },
+      ],
+    },
+    {
+      name: "tens",
+      list: [
+        {
+          english: "ten",
+          malti: "għaxra",
+        },
+        {
+          english: "twenty",
+          malti: "għoxrin",
+        },
+        {
+          english: "thirty",
+          malti: "tletin",
+        },
+        {
+          english: "forty",
+          malti: "erbgħin",
+        },
+        {
+          english: "fifty",
+          malti: "ħamsin",
+        },
+        {
+          english: "sixty",
+          malti: "sittin",
+        },
+        {
+          english: "seventy",
+          malti: "sebgħin",
+        },
+        {
+          english: "eighty",
+          malti: "tmenin",
+        },
+        {
+          english: "seventy",
+          malti: "sebgħin",
+        },
+        {
+          english: "eighty",
+          malti: "tmenin",
+        },
+        {
+          english: "ninety",
+          malti: "disgħin",
+        },
+        {
+          english: "hundred",
+          malti: "mija",
+        },
+      ],
+    },
+  ],
+};
+export const about_me = {
+  name: "me",
+  subWordGroups: [
+    {
+      name: "family",
+      list: [
+        {
+          english: "the family",
+          malti: "il-familja",
+        },
+        {
+          english: "ma",
+          malti: "mama",
+        },
+        {
+          english: "pa",
+          malti: "papa",
+        },
+        {
+          english: "sister",
+          malti: "oħti",
+        },
+        {
+          english: "brother",
+          malti: "ħija",
+        },
+        {
+          english: "grandma",
+          malti: "nanna",
+        },
+        {
+          english: "granddad",
+          malti: "nannu",
+        },
+        {
+          english: "aunt",
+          malti: "zija",
+        },
+        {
+          english: "uncle",
+          malti: "ziju",
+        },
+        {
+          english: "cousin",
+          malti: "kuġina",
+        },
+        {
+          english: "cousin",
+          malti: "kuġin",
+        },
+      ],
+    },
+  ],
+};
+export const maltese_animals = {
   name: "animals",
   subWordGroups: [
     {
       name: "domestic animals",
       list: [
         {
-          value1: "dog",
-          value2: "kelb",
+          english: "dog",
+          malti: "kelb",
         },
         {
-          value1: "cat",
-          value2: "qattus",
+          english: "cat",
+          malti: "qattus",
         },
         {
-          value1: "chicken",
-          value2: "tiġieġa",
+          english: "chicken",
+          malti: "tiġieġa",
         },
         {
-          value1: "cow",
-          value2: "baqra",
+          english: "cow",
+          malti: "baqra",
         },
         {
-          value1: "horse",
-          value2: "żiemel",
+          english: "horse",
+          malti: "żiemel",
         },
         {
-          value1: "donkey",
-          value2: "ħmar",
+          english: "donkey",
+          malti: "ħmar",
         },
         {
-          value1: "goat",
-          value2: "mogħża",
+          english: "goat",
+          malti: "mogħża",
         },
         {
-          value1: "pig",
-          value2: "ħanżir",
+          english: "pig",
+          malti: "ħanżir",
         },
         {
-          value1: "rabbit",
-          value2: "fenek",
+          english: "rabbit",
+          malti: "fenek",
         },
         {
-          value1: "sheep",
-          value2: "nagħġa",
+          english: "sheep",
+          malti: "nagħġa",
         },
         {
-          value1: "cockerel",
-          value2: "serduq",
+          english: "cockerel",
+          malti: "serduq",
         },
         {
-          value1: "camel",
-          value2: "ġemel",
+          english: "camel",
+          malti: "ġemel",
         },
         {
-          value1: "duck",
-          value2: "papra",
+          english: "duck",
+          malti: "papra",
         },
         {
-          value1: "goose",
-          value2: "wiżża",
+          english: "goose",
+          malti: "wiżża",
         },
       ],
     },
@@ -81,64 +427,64 @@ export const word_group_0 = {
       name: "wildlife",
       list: [
         {
-          value1: "bird",
-          value2: "għasfur",
+          english: "bird",
+          malti: "għasfur",
         },
         {
-          value1: "spider",
-          value2: "brimba",
+          english: "spider",
+          malti: "brimba",
         },
         {
-          value1: "snail",
-          value2: "bebbuxu",
+          english: "snail",
+          malti: "bebbuxu",
         },
         {
-          value1: "lizard",
-          value2: "gremxula",
+          english: "lizard",
+          malti: "gremxula",
         },
         {
-          value1: "fish",
-          value2: "ħut",
+          english: "fish",
+          malti: "ħut",
         },
         {
-          value1: "chick",
-          value2: "fellus",
+          english: "chick",
+          malti: "fellus",
         },
         {
-          value1: "tortoise",
-          value2: "fekruna",
+          english: "tortoise",
+          malti: "fekruna",
         },
         {
-          value1: "pigeon",
-          value2: "ħamiem",
+          english: "pigeon",
+          malti: "ħamiem",
         },
         {
-          value1: "hedgehog",
-          value2: "qanfud",
+          english: "hedgehog",
+          malti: "qanfud",
         },
         {
-          value1: "owl",
-          value2: "kokka",
+          english: "owl",
+          malti: "kokka",
         },
         {
-          value1: "swan",
-          value2: "cinju",
+          english: "swan",
+          malti: "cinju",
         },
         {
-          value1: "worm",
-          value2: "dudu",
+          english: "worm",
+          malti: "dudu",
         },
         {
-          value1: "ladybug",
-          value2: "nannakola",
+          english: "ladybug",
+          malti: "nannakola",
         },
         {
-          value1: "robin",
-          value2: "pitiross",
+          english: "robin",
+          malti: "pitiross",
         },
         {
-          value1: "canary",
-          value2: "kanarin",
+          english: "canary",
+          malti: "kanarin",
         },
       ],
     },
@@ -146,44 +492,44 @@ export const word_group_0 = {
       name: "wild animals",
       list: [
         {
-          value1: "tiger",
-          value2: "tigra",
+          english: "tiger",
+          malti: "tigra",
         },
         {
-          value1: "lion",
-          value2: "ljun",
+          english: "lion",
+          malti: "ljun",
         },
         {
-          value1: "elephant",
-          value2: "iljunfant",
+          english: "elephant",
+          malti: "iljunfant",
         },
         {
-          value1: "wolf",
-          value2: "lupu",
+          english: "wolf",
+          malti: "lupu",
         },
         {
-          value1: "monkey",
-          value2: "xadina",
+          english: "monkey",
+          malti: "xadina",
         },
         {
-          value1: "crocodile",
-          value2: "kukkudrill",
+          english: "crocodile",
+          malti: "kukkudrill",
         },
         {
-          value1: "hippopotamus",
-          value2: "ippopotamus",
+          english: "hippopotamus",
+          malti: "ippopotamus",
         },
         {
-          value1: "parrot",
-          value2: "pappagall",
+          english: "parrot",
+          malti: "pappagall",
         },
         {
-          value1: "zebra",
-          value2: "żebra",
+          english: "zebra",
+          malti: "żebra",
         },
         {
-          value1: "giraffe",
-          value2: "giraffa",
+          english: "giraffe",
+          malti: "giraffa",
         },
       ],
     },
@@ -197,44 +543,44 @@ export const word_group_1 = {
       name: "structure",
       list: [
         {
-          value1: "window",
-          value2: "tieq",
+          english: "window",
+          malti: "tieq",
         },
         {
-          value1: "door",
-          value2: "bieb",
+          english: "door",
+          malti: "bieb",
         },
         {
-          value1: "wall",
-          value2: "ħajt",
+          english: "wall",
+          malti: "ħajt",
         },
         {
-          value1: "floor",
-          value2: "art",
+          english: "floor",
+          malti: "art",
         },
         {
-          value1: "roof",
-          value2: "saqaf",
+          english: "roof",
+          malti: "saqaf",
         },
         {
-          value1: "kitchen",
-          value2: "kcina",
+          english: "kitchen",
+          malti: "kcina",
         },
         {
-          value1: "living room",
-          value2: "salott",
+          english: "living room",
+          malti: "salott",
         },
         {
-          value1: "bathroom",
-          value2: "kamra tal-banju",
+          english: "bathroom",
+          malti: "kamra tal-banju",
         },
         {
-          value1: "bedroom",
-          value2: "kamra tas-sodda",
+          english: "bedroom",
+          malti: "kamra tas-sodda",
         },
         {
-          value1: "balcony",
-          value2: "gallarija",
+          english: "balcony",
+          malti: "gallarija",
         },
       ],
     },
@@ -242,24 +588,24 @@ export const word_group_1 = {
       name: "fittings",
       list: [
         {
-          value1: "bath",
-          value2: "banju",
+          english: "bath",
+          malti: "banju",
         },
         {
-          value1: "toilet",
-          value2: "twalett",
+          english: "toilet",
+          malti: "twalett",
         },
         {
-          value1: "lights",
-          value2: "dwal",
+          english: "lights",
+          malti: "dwal",
         },
         {
-          value1: "fridge",
-          value2: "frigg",
+          english: "fridge",
+          malti: "frigg",
         },
         {
-          value1: "shower",
-          value2: "docca",
+          english: "shower",
+          malti: "docca",
         },
       ],
     },
@@ -267,16 +613,16 @@ export const word_group_1 = {
       name: "furniture",
       list: [
         {
-          value1: "sodda",
-          value2: "bed",
+          english: "sodda",
+          malti: "bed",
         },
         {
-          value1: "rug",
-          value2: "tapit",
+          english: "rug",
+          malti: "tapit",
         },
         {
-          value1: "chair",
-          value2: "siġġu",
+          english: "chair",
+          malti: "siġġu",
         },
       ],
     },

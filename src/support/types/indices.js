@@ -32,7 +32,7 @@ export const learningSubcategories = [
   "conditionals",
   "questions",
   "tricky-words",
-  "arithmetic",
+  "maths",
   "maltese",
 ];
 export const learningTags = [

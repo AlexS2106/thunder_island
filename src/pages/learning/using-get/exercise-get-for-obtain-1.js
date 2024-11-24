@@ -41,8 +41,7 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
   const [success, setSuccess] = useState(false);
 
   ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "An Exercise For Using Get.";
+  const pageTitle1 = "An Exercise For Using Get.";
 
   ////** FUNCTIONS **////
   //Manages change in any of the inputs
@@ -105,7 +104,7 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -138,7 +137,7 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
             </ol>
           </TextEmphasisBoxMinor>
           <Spacer size={3} />
-          <section className="flexColumn">
+          <section className="flexCol">
             <h3>Speech</h3>
             <p>
               'When my son {answerInput(0)} his degree, I was so happy because I

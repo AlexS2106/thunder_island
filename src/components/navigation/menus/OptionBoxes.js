@@ -17,7 +17,7 @@ const OptionBoxes = ({ menu, onClick }) => {
       menu.map((item) => (
         <div
           key={uuid()}
-          className="flexColumn">
+          className="flexCol">
           {item.image}
           <Button
             innerText={makeTitle(item.name)}

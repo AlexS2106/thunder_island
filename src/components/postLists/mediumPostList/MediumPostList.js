@@ -22,7 +22,7 @@ const MediumPostList = ({ postData, ...props }) => {
 
   ////** MARK UP **////
   return (
-    <ul className={`flexColumn bgLight ${list}`}>{generateMediumPostList}</ul>
+    <ul className={`flexCol bgLight ${list}`}>{generateMediumPostList}</ul>
   );
 };
 

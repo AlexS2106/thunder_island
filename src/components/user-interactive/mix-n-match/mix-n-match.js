@@ -50,35 +50,41 @@ const MixNMatch1 = ({ exerciseData }) => {
   ////** FUNCTIONS **////
   //Drag function logic
   function handleOnDragStart(e, index) {
-    dragged.current = index;
+    if (!success) {
+      dragged.current = index;
+    }
   }
 
   function handleOnDragOver(e, index) {
     e.preventDefault();
-    draggedOver.current = index;
+    if (!success) {
+      draggedOver.current = index;
+    }
   }
 
   function handleOnDragEnd(e) {
-    const draggedLoc = dragged.current;
-    const draggedOverLoc = draggedOver.current;
+    if (!success) {
+      const draggedLoc = dragged.current;
+      const draggedOverLoc = draggedOver.current;
 
-    if (draggedLoc === null || draggedOverLoc === null) return;
+      if (draggedLoc === null || draggedOverLoc === null) return;
 
-    const updatedLocs = e.target.hasAttribute("first")
-      ? [...arrayOfLocs1]
-      : [...arrayOfLocs2];
+      const updatedLocs = e.target.hasAttribute("first")
+        ? [...arrayOfLocs1]
+        : [...arrayOfLocs2];
 
-    const draggedOverItem = updatedLocs[draggedOverLoc];
-    const draggedItem = updatedLocs[draggedLoc];
-    updatedLocs[draggedLoc] = draggedOverItem;
-    updatedLocs[draggedOverLoc] = draggedItem;
+      const draggedOverItem = updatedLocs[draggedOverLoc];
+      const draggedItem = updatedLocs[draggedLoc];
+      updatedLocs[draggedLoc] = draggedOverItem;
+      updatedLocs[draggedOverLoc] = draggedItem;
 
-    e.target.hasAttribute("first")
-      ? setArrayOfLocs1(updatedLocs)
-      : setArrayOfLocs2(updatedLocs);
+      e.target.hasAttribute("first")
+        ? setArrayOfLocs1(updatedLocs)
+        : setArrayOfLocs2(updatedLocs);
 
-    dragged.current = null;
-    draggedOver.current = null;
+      dragged.current = null;
+      draggedOver.current = null;
+    }
   }
   ////** MARK UP **////
   return (

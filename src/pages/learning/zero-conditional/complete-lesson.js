@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { body, list } from "./index.module.css";
+import { body } from "./index.module.css";
 
 import Arrow from "../../../components/typography/arrow/Arrow";
 import AsideRight from "../../../components/layout/grids/AsideRight";
@@ -30,9 +30,9 @@ const AdvancedLesson = ({ pageContext }) => {
         }
       : crumb,
   );
+
   ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "The Zero Conditional - A Complete Lesson";
+  const pageTitle1 = "The Zero Conditional - A Complete Lesson";
 
   ////** MARK UP **////
   return (
@@ -40,12 +40,12 @@ const AdvancedLesson = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
           <article className="pad1">
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">What Is the Zero Conditional?</h3>
               <Spacer size={3} />
               <TextEmphasisBox>
@@ -61,7 +61,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </TextEmphasisBox>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 What Do I Use the Zero Conditional for?
               </h3>
@@ -70,7 +70,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <p className="textCenter">Real and probable conditions.</p>
               </TextEmphasisBoxMinor>
               <Spacer size={3} />
-              <ul className={list}>
+              <ul className="pad1">
                 <li>
                   {" "}
                   <Arrow
@@ -89,7 +89,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   />{" "}
                   To speak truths.
                 </li>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x2"
@@ -145,7 +145,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </ul>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">How Do I Say the Zero Conditional?</h3>
               <div className={body}>
                 <p>You say the zero conditional by using two clauses.</p>
@@ -154,7 +154,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   One clause is the condition clause. It uses <em>if</em> and
                   the present tense to make the condition.
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -163,7 +163,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>If + present tense</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -186,7 +186,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   The other clause is the result clause. It uses either the
                   present simple or the imperative.
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -195,7 +195,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Subject + present simple</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -214,7 +214,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     </li>
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -223,7 +223,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Imperative</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -248,7 +248,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   sentence or the end.
                 </p>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -257,7 +257,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Condition clause + , + result clause.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -300,7 +300,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Result clause + condition clause.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -338,13 +338,13 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">
                 Do I Have to Use <em>If</em>?
               </h5>
               <div className={body}>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -353,7 +353,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>if</em> for a <em>possible</em> action.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -372,7 +372,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>when</em> for an <em>expected</em> action.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -391,7 +391,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>unless</em> for a <em>negative if</em>.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -410,7 +410,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>as long as</em> to <em>replace if</em>.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -429,7 +429,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     Use <em>as soon as</em> to <em>replace if</em>.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -443,7 +443,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Can I See Examples of the Zero Conditional?
               </h3>
@@ -451,7 +451,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Zero Conditional to Talk About Scientific Facts.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If water is frozen, it is solid.</li>
                   <li>When you mix red and blue, it makes purple.</li>
                   <li>Water isn't boiling unless it's at 100°C.</li>
@@ -460,21 +460,21 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Zero Conditional to State Truths.
                 </h4>
-                <div className={list}>
+                <div className="pad1">
                   <h5 className="shadowText">General Truths.</h5>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>If you brush your teeth, they are clean.</li>
                     <li>As long as you eat, you aren't hungry.</li>
                     <li>When you look, you see.</li>
                   </ul>
                   <h5 className="shadowText">Personal Truths</h5>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>If I eat nuts, I am ill.</li>
                     <li>As soon as I lay down, I feel sleepy.</li>
                     <li>If my dad doesn't call, I call him.</li>
                   </ul>
                   <h5 className="shadowText">Habits</h5>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>As soon as he arrives, he has coffee.</li>
                     <li>When it's lunchtime, we eat.</li>
                     <li>If we go to bed, we sleep.</li>
@@ -484,7 +484,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Zero Condtional to Give Instructions.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>As soon as Bill arrives, call me!</li>
                   <li>Tell me if you are coming.</li>
                   <li>When everyone is ready, go!</li>
@@ -493,7 +493,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Zero Conditional to Give Advice.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>As soon as you arrive, find the hotel.</li>
                   <li>If you are going into the city, use public transport.</li>
                   <li>Don't go unless you have a ticket.</li>
@@ -502,7 +502,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Zero Conditional to Make a Suggestion.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>If you have time, change it.</li>
                   <li>Turn it off as soon as it stops.</li>
                   <li>Help her when you can.</li>

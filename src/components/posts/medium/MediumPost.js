@@ -95,7 +95,7 @@ const MediumPost = ({
       </div>
       <div className="flexRow">
         {portraitImage && (
-          <div className={`flexColumn ${imageWrapper}`}>
+          <div className={`flexCol ${imageWrapper}`}>
             <GatsbyImage
               image={getImage(portraitImage)}
               alt={alt}
@@ -108,11 +108,11 @@ const MediumPost = ({
               )}
           </div>
         )}
-        <div className={`flexColumn ${textWrapper}`}>
+        <div className={`flexCol ${textWrapper}`}>
           <p className="sideBorderDark sideBorderPad">{generatedExcerpt}</p>
         </div>
       </div>
-      <div className={`flexColumn ${btnWrapper}`}>
+      <div className={`flexCol ${btnWrapper}`}>
         <ButtonEmphasised
           innerText={innerText}
           onClick={() => {

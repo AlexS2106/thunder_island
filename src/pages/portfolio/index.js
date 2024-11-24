@@ -110,13 +110,13 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
 
   ////** FUNCTIONS **////
   const generateWritingContent = _options.map((item) => {
-    if (item.posts) {
+    if (item.tagged) {
       const { name, posts } = item;
       return (
         <div key={uuid()}>
           <div
             id={makeSlug(name)}
-            className={`bgGradient flexColumn ${group}`}>
+            className={`bgGradient flexCol ${group}`}>
             <h3 className="shadowText textCenter">{name}</h3>
             <Spacer size={4} />
             <ul className={groupMenu}>
@@ -172,7 +172,7 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
                       alt={alt}
                     />
                   </div>
-                  <div className={`flexColumn pad1 ${groupItemBody}`}>
+                  <div className={`flexCol pad1 ${groupItemBody}`}>
                     <div>
                       <h4>{title}</h4>
                     </div>

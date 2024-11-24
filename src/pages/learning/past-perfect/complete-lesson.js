@@ -46,7 +46,7 @@ const AdvancedLesson = ({ pageContext }) => {
       <AsideRight>
         <Main size={1}>
           <article className="pad1">
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">What Is the Past Perfect?</h3>
               <Spacer size={3} />
               <TextEmphasisBox>
@@ -65,7 +65,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <p style={{ textAlign: "left", paddingLeft: "1rem" }}>
                   The second event can be:
                 </p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     {" "}
                     <Arrow
@@ -97,7 +97,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </TextEmphasisBox>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 What Do I Use the Past Perfect for?
               </h3>
@@ -106,7 +106,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <p>The Past Perfect Is the Narrative Tense.</p>
               </TextEmphasisBoxMinor>
               <Spacer size={3} />
-              <ul className={list}>
+              <ul className="pad1">
                 <li>
                   {" "}
                   <Arrow
@@ -165,14 +165,14 @@ const AdvancedLesson = ({ pageContext }) => {
               </ul>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">How Do I Say the Past Perfect?</h3>
               <div className={body}>
                 <p>
                   You use the past participle, often known as past participle.
                 </p>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -183,7 +183,7 @@ const AdvancedLesson = ({ pageContext }) => {
                       Subject + had /hadn't + past participle, second event.
                     </em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -212,7 +212,7 @@ const AdvancedLesson = ({ pageContext }) => {
                       Second event + subject + had / hadn't + past participle.
                     </em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -234,11 +234,11 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Something to Remember!</h5>
               <div className={body}>
                 <h6>Contractions</h6>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I had{" "}
                     <Arrow
@@ -283,7 +283,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Can I See Examples of the Past Perfect?
               </h3>
@@ -291,7 +291,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Using the Past Perfect to Tell a Story About the Past.{" "}
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I'd never been abroad before, but then I moved to Australia.
                   </li>
@@ -302,7 +302,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Using the past perfect to describe something that happened.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     The rain still hadn't stopped by the time we reached the top
                     of the mountain.
@@ -315,7 +315,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   Using the Past Perfect to Talk about Past Events but{" "}
                   <em>not</em> in the Order They Happened.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     By the time I reached the shop, I had walked a long way.
                   </li>
@@ -326,7 +326,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Using the Past Perfect to Report an Event.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I had stood for about five minutes when the robber came in.
                   </li>
@@ -339,7 +339,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Past Perfect to Report on Things Said.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     My teacher had told me to draw, but I couldn't find my
                     pencil.
@@ -351,7 +351,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Past Perfect to Express Regret.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>I wish I'd tried harder at school.</li>
                   <li>I wish I'd lived a healthier life.</li>
                   <li>I wish I had spent more time with my parents.</li>
@@ -360,7 +360,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Use the Past Perfect for the Third Conditional.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     If my alarm had gone off, I wouldn't have been late to work.
                   </li>
@@ -375,13 +375,13 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">
                 Adverbs and Adverbials of Time Often Used to Add Meaning to a
                 Past Perfect Event.
               </h5>
               <div className={body}>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>Before</h6>
                   </li>
@@ -393,7 +393,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Any time before the past perfect event.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>She'd never been there before.</li>
                     <li>
                       The policeman had arrested the thief before you got here.
@@ -401,7 +401,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     <li>They'd met before</li>.
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>Already</h6>
                   </li>
@@ -415,7 +415,7 @@ const AdvancedLesson = ({ pageContext }) => {
                       Before, but not long before, the past perfect event.
                     </em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       The boat had already sailed by the time he got to the
                       docks.
@@ -424,7 +424,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     <li>By then, we'd already completed the project.</li>
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>Still</h6>
                   </li>
@@ -436,7 +436,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Before and right up to the past perfect event.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>It still hadn't rained by June.</li>
                     <li>By the time I left, it still hadn't arrived.</li>
                     <li>
@@ -444,7 +444,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     </li>
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>Just</h6>
                   </li>
@@ -456,13 +456,13 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>A very short time before the past perfect event.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I had just arrived before it started to rain.</li>
                     <li>It was nighttime, and they'd just fallen asleep.</li>
                     <li>He had hoped she would come.</li>
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>Ever</h6>
                   </li>
@@ -474,7 +474,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>All the time before the past perfect event.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>It was the most beautiful sight I had ever seen.</li>
                     <li>Hadn't he ever visited Norway before?</li>
                     <li>
@@ -483,7 +483,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     </li>
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>Never</h6>
                   </li>
@@ -495,7 +495,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>At no time before the past perfect event.</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I had never been abroad until I moved to Australia.</li>
                     <li>Before that night, I had never walked home alone.</li>
                     <li>She had never been there.</li>
@@ -508,7 +508,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <em>Second Event</em> of a Past Perfect Sentence.
               </h5>
               <div className={body}>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>By the time</h6>
                   </li>
@@ -520,7 +520,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Right up to the secondary event</em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>By the time I'd got there, she'd gone.</li>
                     <li>
                       I had forgotten what I wanted by the time I got to the
@@ -529,7 +529,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     <li>By the time they had finished, everyone was bored.</li>
                   </ul>
                 </ul>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <h6>When</h6>
                   </li>
@@ -544,7 +544,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   <li style={{ paddingLeft: "1rem" }}>
                     When is often combined with just.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>The thief had just escaped when the police arrived.</li>
                     <li>I'd just gone inside when it started to rain.</li>
                     <li>We'd just eaten when they told us to leave.</li>

@@ -114,3 +114,12 @@ export function makeMixMatchExerciseDataObjectArray(arr) {
   }));
   return newArray;
 }
+export function redefineEnglishMaltiValuesAsValue1AndValue2ForMixMatchExerciseData(
+  arr,
+) {
+  const newArray = arr.map((obj) => ({
+    value1: obj.english,
+    value2: obj.malti,
+  }));
+  return newArray;
+}

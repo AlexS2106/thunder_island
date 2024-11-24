@@ -65,7 +65,7 @@ const Search = () => {
       </form>
       {show && (
         <div style={{ display: "flex", position: "fixed" }}>
-          <ul className={`flexColumn ${searchDropdown}`}>
+          <ul className={`flexCol ${searchDropdown}`}>
             {dropdown.map((item) => (
               <Link
                 key={uuid()}

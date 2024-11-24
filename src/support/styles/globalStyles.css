@@ -123,7 +123,7 @@ table {
 .sideBorderLight {
   border-left: 1px solid var(--color-accent-light);
 }
-.flexColumn {
+.flexCol {
   display: flex;
   flex-direction: column;
   flex: 1;

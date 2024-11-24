@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { body, list } from "./index.module.css";
+import { body } from "./index.module.css";
 
 import Arrow from "../../../components/typography/arrow/Arrow";
 import AsideRight from "../../../components/layout/grids/AsideRight";
@@ -31,8 +31,7 @@ const CompleteLesson = ({ pageContext }) => {
   );
 
   ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "How to Use Get and Got Like a Native";
+  const pageTitle1 = "How to Use Get and Got Like a Native";
 
   ////** MARK UP **////
   return (
@@ -41,7 +40,7 @@ const CompleteLesson = ({ pageContext }) => {
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
       <PageTitle
-        title={pageTitle}
+        title={pageTitle1}
         size={1}
       />
       <Spacer size={2} />
@@ -66,11 +65,11 @@ const CompleteLesson = ({ pageContext }) => {
             <Spacer size={4} />
             <p>Each of the formal verbs has a meaning like obtain.</p>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">Use 'Get' To Obtain Something</h3>
               <div className={body}>
                 <h4 className="shadowText">Buy</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     Shall we buy some fruit?{" "}
                     <Arrow
@@ -101,7 +100,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Receive</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I received a lovely necklace for my birthday.{" "}
                     <Arrow
@@ -132,7 +131,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Fetch</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     Go and fetch it!{" "}
                     <Arrow
@@ -163,7 +162,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Catch (a thing)</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I caught the ball!{" "}
                     <Arrow
@@ -194,7 +193,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Catch (a person)</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I liked him for so long, and then, I caught him!{" "}
                     <Arrow
@@ -225,7 +224,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Achieve</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     He achieved his degree.{" "}
                     <Arrow
@@ -257,7 +256,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Contract (obtain a service)</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     We've contracted him for the length of this contract.{" "}
                     <Arrow
@@ -288,7 +287,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Take (also catch)</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     She took a plane to France.{" "}
                     <Arrow
@@ -320,13 +319,13 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Use 'Get' For A Change Of Emotion Or State
               </h3>
               <div className={body}>
                 <h4 className="shadowText">Become</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     Don't you think it's becoming colder?{" "}
                     <Arrow
@@ -357,7 +356,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={3} />
                 <h4 className="shadowText">Contract (become ill)</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     They contracted some horrible disease while they were
                     travelling.{" "}
@@ -391,11 +390,11 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">Use 'Get' To Arrive Somewhere</h3>
               <div className={body}>
                 <h4 className="shadowText">Arrive</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     She arrived there in the afternoon.{" "}
                     <Arrow
@@ -427,11 +426,11 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">Use 'Get' To Show Understanding</h3>
               <div className={body}>
                 <h4 className="shadowText">Understand</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     He understood the joke.{" "}
                     <Arrow
@@ -463,11 +462,11 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">Use 'Get' For An Experience</h3>
               <div className={body}>
                 <h4 className="shadowText">Experience</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     John's just experienced a great idea!{" "}
                     <Arrow
@@ -499,7 +498,7 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Use 'Get' To Indicate Something Is Made To Happen Or Someone Is
                 Being Forced To Make Something Happen
@@ -508,7 +507,7 @@ const CompleteLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Make/Force (someone to do something)
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     They finally got me to buy a new computer.{" "}
                     <Arrow
@@ -539,7 +538,7 @@ const CompleteLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={2} />
                 <h4 className="shadowText">Make (something happen)</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     We're renewing the passports before our holiday.{" "}
                     <Arrow
@@ -571,11 +570,11 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">Use Get For An Act Of Revenge</h3>
               <div className={body}>
                 <h4 className="shadowText">Obtain revenge on</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     We'll obtain revenge on them!{" "}
                     <Arrow
@@ -607,14 +606,14 @@ const CompleteLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Use 'Get' Instead Of The Verb 'To Be' When The Sentence
                 Structure Is Object Then Verb (passive voice)
               </h3>
               <div className={body}></div>
               <h4 className="shadowText">Was</h4>
-              <ul className={list}>
+              <ul className="pad1">
                 <li>
                   Their car was stolen last night.{" "}
                   <Arrow
@@ -645,16 +644,16 @@ const CompleteLesson = ({ pageContext }) => {
               </ul>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">Phrasal Verbs With Get</h3>
               <p>
                 There are many, many phrasal verbs using get. Here are those you
                 are most likely to hear.
               </p>
               <div className={body}>
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h5 className="shadowText">Get about</h5>
-                  <div className={list}>
+                  <div className="pad1">
                     <h6>
                       <Arrow
                         type="x1"
@@ -663,7 +662,7 @@ const CompleteLesson = ({ pageContext }) => {
                       />{" "}
                       To be mobile
                     </h6>
-                    <ul className={list}>
+                    <ul className="pad1">
                       <li>
                         He can get about a lot more since he bought an electric
                         wheelchair.
@@ -676,7 +675,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </div>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get across</h4>
                   <h6>
                     <Arrow
@@ -686,7 +685,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     To successfully communicate an idea.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       I'm not sure he got his view across in that meeting.
                     </li>
@@ -702,7 +701,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     To cross from one side to another.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Can we get across the river here?</li>
                     <li>
                       We got across the road when the traffic lights turned red.
@@ -710,7 +709,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get ahead</h4>
                   <h6>
                     <Arrow
@@ -720,7 +719,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Do better than.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       If we can finish this today, we will get ahead of our
                       timeline.
@@ -729,7 +728,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get around to</h4>
                   <h6>
                     <Arrow
@@ -740,7 +739,7 @@ const CompleteLesson = ({ pageContext }) => {
                     To start something. (Usually, this is something you don't
                     really want to do.).
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I'll get around to the cleaning later.</li>
                     <li>
                       When I have the time, I will also get around to your
@@ -749,7 +748,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get at</h4>
                   <h6>
                     <Arrow
@@ -759,7 +758,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     To repeatedly criticise someone.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>You're getting at me!</li>
                     <li>
                       The manager really got at John in the meeting. It was
@@ -768,7 +767,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get away</h4>
                   <h6>
                     <Arrow
@@ -778,7 +777,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Successfully leave after a crime.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>The getaway car was abandoned nearby.</li>
                     <li>The thief got away with the money.</li>
                   </ul>
@@ -791,7 +790,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Do something and not be caught or punished.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>He stole the money and got away with it.</li>
                     <li>
                       I get away with doing as little as possible at work..
@@ -799,7 +798,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get back</h4>
                   <h6>
                     <Arrow
@@ -809,7 +808,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Return to a place or person.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>We should get back by 7:30.</li>
                     <li>She got him back.</li>
                   </ul>
@@ -821,13 +820,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Move backwards(often as a warning).
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>The car's on fire! Get back!</li>
                     <li>You're too close. Get back.</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get behind</h4>
                   <h6>
                     <Arrow
@@ -837,7 +836,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />
                     Become late with paying for something. (Also 'fell behind'.)
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       If you get behind with your payments, you can lose the
                       car.
@@ -849,7 +848,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get by</h4>
                   <h6>
                     <Arrow
@@ -859,7 +858,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Manage with difficulty.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       My English isn't good, but I know enough to get by on
                       holiday.
@@ -868,7 +867,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get in</h4>
                   <h6>
                     <Arrow
@@ -878,7 +877,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Enter a house, car, swimmming pool or container.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Get in the car!</li>
                     <li>
                       The water in the swimming pool is so warm! You should get
@@ -894,13 +893,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Exit a house, car, swimmming pool or container.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>We should get out of the car!</li>
                     <li>Get out of my house!</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get on</h4>
                   <h6>
                     <Arrow
@@ -910,7 +909,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Enter a bus, train, plane, bike or boat.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Let's get on the bus.</li>
                     <li>We are getting on the plane now!</li>
                   </ul>
@@ -923,13 +922,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Exit a bus, train, plane, bike or boat.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Get off my bike!</li>
                     <li>Let's get off the boat.</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get off</h4>
                   <h6>
                     <Arrow
@@ -939,7 +938,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Stop
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       {" "}
                       Can I get off work early? I need to collect my kids.
@@ -948,7 +947,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get on / get along with</h4>
                   <h6>
                     <Arrow
@@ -958,13 +957,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Have a good relationship with someone.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Did you get along with him?</li>
                     <li>The team just didn't get on together. </li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Getting on</h4>
                   <h6>
                     <Arrow
@@ -974,7 +973,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Becoming older
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       It's my 60th birthday next month. I'm getting on a bit.
                     </li>
@@ -991,13 +990,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Time is becoming late.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>It's getting on for 4pm, I have to leave soon.</li>
                     <li>It's getting on a bit, you will have to go home.</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get out</h4>
                   <h6>
                     <Arrow
@@ -1007,13 +1006,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Leave
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>If there is a fire, get out by the nearest exit.</li>
                     <li>She gets out of prison next week.</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get out of</h4>
                   <h6>
                     <Arrow
@@ -1023,7 +1022,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />
                     Avoid doing something you don't want to do.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       I told my teacher I was ill and I got out of doing the
                       exam today.
@@ -1038,7 +1037,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Leave a bad relationship.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Once I got out of my marriage, I was happy..</li>
                     <li>
                       Once he got out of that relationship, he went abroad.
@@ -1046,7 +1045,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get over</h4>
                   <h6>
                     <Arrow
@@ -1056,7 +1055,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Recover from an illness or a bad situation.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I was really sick, but I've got over it now.</li>
                     <li>
                       They divorced recently, but she got over it quickly.
@@ -1064,7 +1063,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get rid of</h4>
                   <h6>
                     <Arrow
@@ -1074,7 +1073,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Throw someone or something away
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I need to get rid of my old clothes.</li>
                     <li>
                       She needs to get rid of him. He is jealous all the time.
@@ -1082,7 +1081,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get stuck</h4>
                   <h6>
                     <Arrow
@@ -1092,7 +1091,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />
                     Delayed
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I'm late because I got stuck in traffic.</li>
                     <li>
                       John's probably got stuck in the office; we were very busy
@@ -1101,7 +1100,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get through</h4>
                   <h6>
                     <Arrow
@@ -1111,7 +1110,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />
                     Make contact
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       Mary says she can't get through to Joe. Is his phone
                       ringing?
@@ -1122,7 +1121,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get through to</h4>
                   <h6>
                     <Arrow
@@ -1132,7 +1131,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Communicate an understanding
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       My son and I always seem to be arguing nowadays; I cannot
                       get through to him.
@@ -1144,7 +1143,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get to</h4>
                   <h6>
                     <Arrow
@@ -1154,13 +1153,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Reach a place.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>When I get to the end of this page, I will stop.</li>
                     <li>They get to the halfway point soon. </li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get up</h4>
                   <h6>
                     <Arrow
@@ -1170,7 +1169,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Leave your bed after waking.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>I got up at 7:30.</li>
                     <li>What time are you getting up tomorrow? </li>
                   </ul>
@@ -1182,13 +1181,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Rise from a chair or the floor.
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>Get up from the chair because I need to move it.</li>
                     <li>Get up! The floor's dirty!</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get up to</h4>
                   <h6>
                     <Arrow
@@ -1198,7 +1197,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />
                     Do
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>What did you get up to this weekend?</li>
                     <li>
                       She looks tired; I wonder what she got up to last night.
@@ -1206,7 +1205,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get used to</h4>
                   <h6>
                     <Arrow
@@ -1216,13 +1215,13 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Adjust to something
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>It's really hot here, but you get used to it.</li>
                     <li>I got used to working at night.</li>
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Get wound up</h4>
                   <h6>
                     <Arrow
@@ -1232,7 +1231,7 @@ const CompleteLesson = ({ pageContext }) => {
                     />{" "}
                     Get angry
                   </h6>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       He always gets wound up when he talks about politics.
                     </li>
@@ -1240,7 +1239,7 @@ const CompleteLesson = ({ pageContext }) => {
                   </ul>
                 </section>
                 <Spacer size={4} />
-                <section className="flexColumn">
+                <section className="flexCol">
                   <h4 className="shadowText">Have got</h4>
                   <p>
                     <Arrow
@@ -1251,7 +1250,7 @@ const CompleteLesson = ({ pageContext }) => {
                     Used as 'to have'. (It is always 'have got', never 'have
                     get'.)
                   </p>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>She has got a new car.</li>
                     <li>Have you got any brothers and sisters?</li>
                   </ul>

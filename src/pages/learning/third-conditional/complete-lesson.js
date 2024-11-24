@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { body, list } from "./index.module.css";
+import { body } from "./index.module.css";
 
 import Arrow from "../../../components/typography/arrow/Arrow";
 import AsideRight from "../../../components/layout/grids/AsideRight";
@@ -30,10 +30,8 @@ const AdvancedLesson = ({ pageContext }) => {
         }
       : crumb,
   );
-
   ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "The Third Conditional - A Complete Lesson";
+  const pageTitle1 = "The Third Conditional - A Complete Lesson";
 
   ////** MARK UP **////
   return (
@@ -41,12 +39,12 @@ const AdvancedLesson = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
           <article className="pad1">
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">What Is the Third Conditional?</h3>
               <Spacer size={3} />
               <TextEmphasisBox>
@@ -66,12 +64,12 @@ const AdvancedLesson = ({ pageContext }) => {
               </TextEmphasisBox>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 What Do I Use the Third Conditional for?
               </h3>
               <Spacer size={3} />
-              <ul className={list}>
+              <ul className="pad1">
                 <li>
                   {" "}
                   <Arrow
@@ -111,7 +109,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </ul>
             </section>
             <Spacer size={2} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 How Do I Say the Third Conditional?
               </h3>
@@ -122,7 +120,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   </p>
                 </TextEmphasisBoxMinor>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -134,7 +132,7 @@ const AdvancedLesson = ({ pageContext }) => {
                       past participle.
                     </em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -164,7 +162,7 @@ const AdvancedLesson = ({ pageContext }) => {
                       if + past perfect.
                     </em>
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -187,7 +185,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h5 className="shadowText">Something to remember!</h5>
               <div className={body}>
                 <h6>Replacing Would</h6>
@@ -196,7 +194,7 @@ const AdvancedLesson = ({ pageContext }) => {
                   would with:
                 </p>
                 <Spacer size={4} />
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -205,7 +203,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>May have</em> or <em>may not have</em>.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -225,7 +223,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Might have</em> or <em>might not have</em>.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -245,7 +243,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     <em>Could have</em> or <em>could not have</em>.
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -260,7 +258,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <Spacer size={4} />
                 <h6>Replacing If</h6>
                 <p>Replace if with I wish or if only.</p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -269,7 +267,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     I wish
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -288,7 +286,7 @@ const AdvancedLesson = ({ pageContext }) => {
                     />{" "}
                     If only
                   </li>
-                  <ul className={list}>
+                  <ul className="pad1">
                     <li>
                       <Arrow
                         type="x2"
@@ -303,7 +301,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <Spacer size={4} />
                 <h6>When the If clause Is Not Said.</h6>
                 <p>Occasionally the if clause is implied.</p>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     <Arrow
                       type="x1"
@@ -322,7 +320,7 @@ const AdvancedLesson = ({ pageContext }) => {
               </div>
             </section>
             <Spacer size={3} />
-            <section className="flexColumn">
+            <section className="flexCol">
               <h3 className="shadowText">
                 Can I See Examples of the Third Conditional?
               </h3>
@@ -330,7 +328,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 <h4 className="shadowText">
                   Talking About Situations That Never Happened.
                 </h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     If he had gone to university, he might have received a
                     higher wage.
@@ -344,7 +342,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={4} />
                 <h4 className="shadowText">Expressing regret.</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     I wish I had worked harder so I could have a better job now.
                   </li>
@@ -358,7 +356,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={4} />
                 <h4 className="shadowText">Expressing Relief.</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>I would not have fallen if I had stayed at home.</li>
                   <li>
                     If we had driven along the other road, we would have been
@@ -368,7 +366,7 @@ const AdvancedLesson = ({ pageContext }) => {
                 </ul>
                 <Spacer size={4} />
                 <h4 className="shadowText">To criticise.</h4>
-                <ul className={list}>
+                <ul className="pad1">
                   <li>
                     This country would have been a nice place if the people had
                     kept it clean.

@@ -1,0 +1,43 @@
+.game-options {
+  justify-content: space-around;
+}
+.margin-auto {
+  margin: auto;
+}
+.large-font {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 3rem;
+}
+.game {
+  align-items: center;
+}
+.game-question-box {
+  align-items: center;
+}
+.game-question-box .maths-symbol {
+  align-self: start;
+}
+.game-form {
+  padding: 1rem;
+  align-items: center;
+}
+.game-form form {
+  align-self: center;
+}
+.game-form input {
+  text-align: center;
+  padding: 0.5rem;
+  width: 5rem;
+  height: 2rem;
+}
+.game span {
+  padding: 0rem 1rem;
+  align-self: right;
+}
+.is-incorrect svg {
+  color: var(--color-incorrect);
+}
+.is-correct svg {
+  color: var(--color-correct);
+}

@@ -1,8 +1,8 @@
 /*@media*/
-.learning > div {
+.pageGrid > div {
   margin-bottom: 3rem;
 }
-.clusterGrid {
+.groupGrid {
   display: grid;
   grid-template-areas:
     "image image"
@@ -16,38 +16,38 @@
   border: 1px solid var(--color-accent-light);
   border-radius: 5px;
 }
-.clusterImageWrapper {
+.groupImageWrapper {
   grid-area: image;
 }
-.clusterImageWrapper div {
+.groupImageWrapper div {
   width: 100%;
 }
-.clusterTitle {
+.groupTitle {
   grid-area: title;
   margin: auto;
 }
-.clusterExcerpt {
+.groupExcerpt {
   font-size: 1.5rem;
   text-align: center;
   text-justify: distribute;
   padding-bottom: 1rem;
   grid-area: description;
 }
-.clusterLevel {
+.groupLevel {
   grid-area: level;
   padding: 2rem 0 0 1rem;
 }
-.clusterList {
+.groupList {
   padding: 0.5rem;
 }
-.clusterList:first-of-type {
+.groupList:first-of-type {
   grid-area: lessons;
 }
-.clusterList:last-of-type {
+.groupList:last-of-type {
   grid-area: exercises;
 }
 @media screen and (min-width: 650px) {
-  .learning {
+  .pageGrid {
     max-width: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -56,7 +56,7 @@
   }
 }
 @media screen and (min-width: 900px) {
-  .learning {
+  .pageGrid {
     max-width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

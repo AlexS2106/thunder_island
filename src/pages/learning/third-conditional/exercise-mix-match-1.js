@@ -30,19 +30,15 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
       : crumb,
   );
 
-  const exerciseAnswers = thirdConditional1;
-
-  ////** VARIABLES **////
-  //PageTitle
-  const pageTitle = "An Exercise Using The Third Conditional.";
-
+  ////**  VARIABLES **////
+  const pageTitle1 = "An Exercise Using The Third Conditional.";
   ////** MARK UP **////
   return (
     <Layout>
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -53,7 +49,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
             </p>
           </TextEmphasisBoxMinor>
           <Spacer size={2} />
-          <MixNMatch1 exerciseData={exerciseAnswers} />
+          <MixNMatch1 exerciseData={thirdConditional1} />
           <Spacer size={2} />
         </Main>
         <aside className="sideBorderLight sideBorderPad">

@@ -20,19 +20,19 @@ const Footer = () => {
 
   return (
     <footer className={footer}>
-      <div className="flexColumn">{logo}</div>
+      <div className="flexCol">{logo}</div>
       <div className={credits}>
         <p>{generateCopyright} </p>
         <div className="flexRow">
-          <div className="flexColumn">
+          <div className="flexCol">
             <p>A {stack} Website</p>
             <p>{techList}</p>
           </div>
-          <div className="flexColumn">
+          <div className="flexCol">
             <p>Logo Design</p>
             <p>by Claire Murray</p>
           </div>
-          <div className="flexColumn">
+          <div className="flexCol">
             <p>
               All the design, coding and content (with the exception of the
               nicest photographs - credit given where known) of Thunder Island

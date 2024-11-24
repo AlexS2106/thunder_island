@@ -40,7 +40,6 @@ export const zeroConditional1 = [
     value2: "the result is true.",
   },
 ];
-
 export const secondConditional1 = [
   {
     value1: "If I could,",
@@ -60,7 +59,7 @@ export const secondConditional1 = [
   },
   {
     value1: "If it snowed in Winter,",
-    right: "would you go skiing?",
+    value2: "would you go skiing?",
   },
   {
     value1: "If I joined a gym,",
@@ -83,6 +82,7 @@ export const secondConditional1 = [
     value2: "which job would you choose?",
   },
 ];
+
 export const thirdConditional1 = [
   {
     value1: "If I had understood,",

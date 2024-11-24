@@ -24,22 +24,22 @@ export function largeLogo() {
   );
 }
 
-export function alexRightImg() {
+export function additionImg() {
   return (
     <StaticImage
-      src="../../images/alexRight-150x200.jpg"
-      alt="the author"
+      src="../../images/addition-landscape.png"
+      alt="graffic image of a plus sign"
       aria-hidden="true"
       placeholder="blurred"
       objectFit="cover"
     />
   );
 }
-export function animalsImg() {
+export function alexRightImg() {
   return (
     <StaticImage
-      src="../../images/animals-landscape.png"
-      alt="dog and cat"
+      src="../../images/alexRight-150x200.jpg"
+      alt="the author"
       aria-hidden="true"
       placeholder="blurred"
       objectFit="cover"
@@ -289,6 +289,17 @@ export function maltaBoatsImg() {
     <StaticImage
       src="../../images/maltaBoats-300x150.png"
       alt="boats on the sea"
+      aria-hidden="true"
+      placeholder="blurred"
+      objectFit="cover"
+    />
+  );
+}
+export function malteseImg() {
+  return (
+    <StaticImage
+      src="../../images/maltese-landscape.png"
+      alt="maltese boats on the sea"
       aria-hidden="true"
       placeholder="blurred"
       objectFit="cover"

@@ -11,7 +11,7 @@ import MediumPost from "../../posts/medium/MediumPost";
 const AssociatedPostList = ({ postData }) => {
   ////** MARK UP **////
   return (
-    <ul className={`flexColumn bgLight ${list}`}>
+    <ul className={`flexCol bgLight ${list}`}>
       {postData.map((item) => {
         return (
           <li
