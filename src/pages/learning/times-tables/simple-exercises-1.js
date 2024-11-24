@@ -305,7 +305,7 @@ const SimpleExercises1 = ({ pageContext }) => {
         </Main>
         <aside className="sideBorderLight sideBorderPad">
           <h3 className="shadowText">Other Maths Exercises</h3>
-          <Spacer size={2} />
+          <Spacer size={3} />
           <SimpleLink
             linkTo="/learning/addition/simple-exercises-1"
             activeClassName="isActive"
