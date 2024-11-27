@@ -60,12 +60,9 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
     } else if (type === "subgroup") {
       const check = userSelectedSubGroups.some((group) => group === selected);
       if (check) {
-        const updated = userSelectedSubGroups.filter(
-          (group) => group !== selected,
-        );
-        setUserSelectedSubGroups(updated);
+        return;
       } else {
-        setUserSelectedSubGroups((prevState) => [...prevState, selected]);
+        setUserSelectedSubGroups([selected]);
       }
     }
   }
