@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { v4 as uuid } from "uuid";
-
-import {} from "./dropdown.module.css";
 
 import { makeTitle } from "../../../support/functions/utility";
 

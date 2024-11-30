@@ -103,101 +103,99 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
       ),
     },
     {
-      name: "Thunder Island's Code",
+      name: "Thunder Island Code",
       image: thunderLightningImg(),
     },
   ];
 
   ////** FUNCTIONS **////
-  const generateWritingContent = _options.map((item) => {
-    if (item.tagged) {
-      const { name, posts } = item;
+
+  const generateContent = _options.map((optionItem) => {
+    if (!optionItem.posts) return null;
+
+    const { name, posts } = optionItem;
+
+    const generatePostsQuickClickButtonsFromOptionItem = posts.map((post) => {
+      const { title, slug } = post.frontmatter;
       return (
-        <div key={uuid()}>
+        <li key={uuid()}>
+          <button onClick={() => scrollTo(`#${slug} `)}>
+            <h4>{title}</h4>
+          </button>
+        </li>
+      );
+    });
+
+    const generateListOfPostsFromEachOptionItem = posts.map((post, index) => {
+      const { title, slug, portraitImage, landscapeImage, alt, description } =
+        post.frontmatter;
+      let displayAlternating =
+        index % 2 === 0 ? groupItemContainer : groupItemContainerReverse;
+      let bg;
+      switch (index) {
+        case 1:
+          bg = bg1;
+          break;
+        case 2:
+          bg = bg3;
+          break;
+        case 3:
+          bg = bg4;
+          break;
+        default:
+          bg = bg2;
+          break;
+      }
+      let groupItemImg = isWide ? landscapeImage : portraitImage;
+      return (
+        <div
+          key={uuid()}
+          id={`${slug}`}
+          className={`${displayAlternating} ${groupItem} ${bg}`}>
+          <div>
+            <GatsbyImage
+              image={getImage(groupItemImg)}
+              alt={alt}
+            />
+          </div>
+          <div className={`flexCol pad1 ${groupItemBody}`}>
+            <div>
+              <h4>{title}</h4>
+            </div>
+            <div className={`pad1`}>
+              <p>{description}</p>
+            </div>
+            <LinkAsButton
+              linkTo={`/portfolio/${slug}/`}
+              innerText={`Read More Of ${title}`}
+            />
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <div key={uuid()}>
+        <div id={uuid()}>
           <div
             id={makeSlug(name)}
             className={`bgGradient flexCol ${group}`}>
             <h3 className="shadowText textCenter">{name}</h3>
             <Spacer size={4} />
             <ul className={groupMenu}>
-              {posts.map((post) => {
-                const { title, slug } = post.frontmatter;
-                return (
-                  <li key={uuid()}>
-                    <button onClick={() => scrollTo(`#${slug} `)}>
-                      <h4>{title}</h4>
-                    </button>
-                  </li>
-                );
-              })}
+              {generatePostsQuickClickButtonsFromOptionItem}
             </ul>
             <Spacer size={4} />
-            {posts.map((post, index) => {
-              const {
-                title,
-                slug,
-                portraitImage,
-                landscapeImage,
-                alt,
-                description,
-              } = post.frontmatter;
-              let displayAlternating =
-                index % 2 === 0
-                  ? groupItemContainer
-                  : groupItemContainerReverse;
-              let bg;
-              switch (index) {
-                case 1:
-                  bg = bg1;
-                  break;
-                case 2:
-                  bg = bg3;
-                  break;
-                case 3:
-                  bg = bg4;
-                  break;
-                default:
-                  bg = bg2;
-                  break;
-              }
-              let groupItemImg = isWide ? landscapeImage : portraitImage;
-              return (
-                <div
-                  key={uuid()}
-                  id={`${slug}`}
-                  className={`${displayAlternating} ${groupItem} ${bg}`}>
-                  <div>
-                    <GatsbyImage
-                      image={getImage(groupItemImg)}
-                      alt={alt}
-                    />
-                  </div>
-                  <div className={`flexCol pad1 ${groupItemBody}`}>
-                    <div>
-                      <h4>{title}</h4>
-                    </div>
-                    <div className={`pad1`}>
-                      <p>{description}</p>
-                    </div>
-                    <LinkAsButton
-                      linkTo={`/portfolio/${slug}/`}
-                      innerText={`Read More Of ${title}`}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+            {generateListOfPostsFromEachOptionItem}
           </div>
-          <Spacer size={1} />
         </div>
-      );
-    } else {
-      return null;
-    }
+      </div>
+    );
   });
 
   const handleMenuClick = (e) => {
     const id = `${makeSlug(e.target.innerText)}`;
+    console.log(e.target.innerText);
     if (id === "thunder-island-code") {
       window.location.href = "https://github.com/AlexS2106/thunder_island.git";
     } else {
@@ -230,7 +228,7 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
             Writing
           </h2>
           <Spacer size={3} />
-          {generateWritingContent}
+          {generateContent}
           <Spacer size={2} />
         </Main>
       </div>

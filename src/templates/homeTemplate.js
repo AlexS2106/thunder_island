@@ -178,9 +178,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                   <p className="pad1">
                     This space is a passionate mix of everything great and
                     nothing important that is expected to go unnoticed by the
-                    rest of the world. But, just in case some random kindly
-                    stranger stops by - that would be you! - and wishes to look
-                    around, let me give you a quick idea of what you will find.
+                    rest of the world.
                   </p>
                   <p className="pad1">
                     But, just in case some random kindly stranger stops by -
@@ -197,9 +195,10 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
                     a.k.a. stuff we like.
                   </p>
                   <p className="pad1">
-                    There is a section containing <em>stuff</em> to learn. Maths
-                    practice for kids, English lessons for foreigners, and a few
-                    practice pages for those who wish.
+                    There is a section containing things to learn: primary maths
+                    for both my kids, some Maltese for my son, and English
+                    lessons for foreigners including a few practice pages for
+                    those who wish.
                   </p>
                   <p className="pad1">
                     And lastly, a portfolio showcasing two of my hobbies: coding

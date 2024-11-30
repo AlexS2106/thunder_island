@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { body, list } from "./index.module.css";
+import { body } from "./index.module.css";
 
 import Arrow from "../../../components/typography/arrow/Arrow";
 import AsideRight from "../../../components/layout/grids/AsideRight";
