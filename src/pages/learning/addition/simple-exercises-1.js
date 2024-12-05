@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -46,105 +46,88 @@ const SimpleExercises1 = ({ pageContext }) => {
       : crumb,
   );
 
-  const [settings, setSettings] = useState({
-    difficulty: 1,
-    toComplete: 5,
-    currentlyDone: 0,
-    correctAnswers: 0,
-  });
+  const inputRef = useRef(null);
+  const [gameRunning, setGameRunning] = useState(false);
+  const [difficulty, setDifficulty] = useState(1);
+  const [questionsToComplete, setQuestionsToComplete] = useState(5);
   const [nums, setNums] = useState();
+  const [totalQuestionsCompleted, setTotalQuestionsCompleted] = useState();
   const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
   const [answerIsIncorrect, setAnswerIsIncorrect] = useState(false);
   const [incorrectAnswersLog, setIncorrectAnswersLog] = useState([]);
-  const [finished, setFinished] = useState(false);
+  const [gameFinished, setGameFinished] = useState(false);
+
+  const gameFinishes = useCallback(() => {
+    setGameFinished(true);
+  }, []);
+
+  const gameContinues = useCallback(() => {
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
+    setAnswerIsCorrect(false);
+    setAnswerIsIncorrect(false);
+    setGameRunning(true);
+    generateNums(difficulty);
+  }, [difficulty]);
 
   useEffect(() => {
-    generateNums(settings.difficulty);
-  }, [settings.difficulty]);
+    if (!gameRunning) {
+      return;
+    }
+    generateNums(difficulty);
+  }, [difficulty, gameRunning]);
 
   useEffect(() => {
-    const { difficulty, toComplete, currentlyDone } = settings;
-    if (currentlyDone === 0) return;
-    const numberValue = Number(inputRef.current.value);
-
-    setTimeout(() => {
-      if (answerIsCorrect) {
-        setSettings((prevSettings) => ({
-          ...prevSettings,
-          correctAnswers: prevSettings.correctAnswers + 1,
-        }));
-      } else if (answerIsIncorrect) {
-        setIncorrectAnswersLog((prevLog) => [
-          {
-            question: [nums],
-            answer: numberValue,
-          },
-          ...prevLog,
-        ]);
-      } else {
-        console.log("Error in the 2nd useEffect of the addition component.");
-      }
-
-      toComplete <= currentlyDone ? gameFinished() : generateNums(difficulty);
-      if (inputRef.current) {
-        inputRef.current.value = "";
-      }
-      setAnswerIsCorrect(false);
-      setAnswerIsIncorrect(false);
+    const timer = setTimeout(() => {
+      questionsToComplete === totalQuestionsCompleted
+        ? gameFinishes()
+        : gameContinues();
     }, 800);
-  }, [settings.currentlyDone]);
+    return () => clearTimeout(timer);
+  }, [
+    questionsToComplete,
+    totalQuestionsCompleted,
+    gameFinished,
+    gameFinishes,
+    gameContinues,
+  ]);
 
   ////** VARIABLES **////
-  const inputRef = createRef();
   const pageTitle = "Addition";
 
   ////** FUNCTIONS **////
   function handleDifficultyChange(e) {
-    setSettings({
-      ...settings,
-      difficulty: Number(e.target.value),
-    });
+    setDifficulty(Number(e.target.value));
   }
-  function handleToCompleteChange(e) {
-    setSettings({
-      ...settings,
-      toComplete: Number(e.target.value),
-    });
+  function handleQuestionsToCompleteChange(e) {
+    setQuestionsToComplete(Number(e.target.value));
   }
   function generateNums(difficultySetting) {
-    let max;
-    switch (difficultySetting) {
-      case 1:
-        max = 9;
-        break;
-      case 2:
-        max = 99;
-        break;
-      case 3:
-        max = 999;
-        break;
-      case 4:
-        max = 9999;
-        break;
-      case 5:
-        max = 99999;
-        break;
-    }
+    const max = Math.pow(10, difficultySetting) - 1;
     setNums([randomNumber(1, max), randomNumber(1, max)]);
   }
+
   function handleAnswerSubmission(e) {
     e.preventDefault();
-    Number(inputRef.current.value) === nums[0] + nums[1]
-      ? setAnswerIsCorrect(true)
-      : setAnswerIsIncorrect(true);
-    setSettings((prevSettings) => ({
-      ...prevSettings,
-      currentlyDone: prevSettings.currentlyDone + 1,
-    }));
+    setGameRunning(false);
+    setTotalQuestionsCompleted((prev) => prev + 1);
+    analyseAnswer(nums, Number(inputRef.current.value));
   }
 
-  function gameFinished() {
-    setFinished(true);
+  function analyseAnswer(nums, inputValue) {
+    if (nums[0] + nums[1] === inputValue) {
+      setAnswerIsCorrect(true);
+    } else {
+      setAnswerIsIncorrect(true);
+      setIncorrectAnswersLog((prevLog) => [
+        {
+          question: nums,
+          answer: inputValue,
+        },
+        ...prevLog,
+      ]);
+    }
   }
 
   ////** MARK UP **////
@@ -162,19 +145,19 @@ const SimpleExercises1 = ({ pageContext }) => {
             <Dropdown
               text="difficulty"
               dropdownData={additionDifficultyLevels}
-              selectedOption={settings.difficulty}
+              selectedOption={difficulty}
               onChange={handleDifficultyChange}
             />
             <Dropdown
               text="questions"
               dropdownData={completionAmounts}
-              selectedOption={settings.toComplete}
-              onChange={handleToCompleteChange}
+              selectedOption={questionsToComplete}
+              onChange={handleQuestionsToCompleteChange}
             />
           </div>
           <Spacer size={3} />
           <div className={`${game} ${marginAuto} flexCol`}>
-            {!finished ? (
+            {!gameFinished ? (
               <>
                 <div className={`${gameQuestionBox}${marginAuto} flexCol`}>
                   <span className={largeFont}>{nums && nums[0]}</span>
@@ -184,7 +167,7 @@ const SimpleExercises1 = ({ pageContext }) => {
                     <form
                       className="flexRow"
                       onSubmit={handleAnswerSubmission}>
-                      <label htmlFor="inputforAddition1" />
+                      <label htmlFor="inputforAddition1">{""}</label>
                       <input
                         type="text"
                         id="inputforAddition1"
@@ -201,12 +184,13 @@ const SimpleExercises1 = ({ pageContext }) => {
                     )}
                   </div>
                 </div>
-                {settings.currentlyDone > 0 && (
+                {totalQuestionsCompleted > 0 && (
                   <div className="flexCol">
                     <Spacer size={3} />
                     <p className="textCenter">
-                      You got {settings.correctAnswers} out of{" "}
-                      {settings.currentlyDone}.
+                      You got{" "}
+                      {incorrectAnswersLog.length - totalQuestionsCompleted} out
+                      of {totalQuestionsCompleted}.
                     </p>
                   </div>
                 )}

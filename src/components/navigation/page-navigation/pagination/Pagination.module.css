@@ -14,6 +14,11 @@
   border-radius: 10px;
   margin-left: 0.5rem;
 }
+@media (max-width: 450px) {
+  .pagination ul li {
+    padding: 0.5rem 1rem;
+  }
+}
 .pagination ul li:hover,
 .pagination ul li:active {
   font-weight: bold;

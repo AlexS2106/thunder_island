@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import PropTypes from "prop-types";
-import { v4 as uuid } from "uuid";
 
 import { grid, isCorrect, isIncorrect } from "./mix-n-match.module.css";
 
@@ -29,17 +28,22 @@ const MixNMatch1 = ({ exerciseData }) => {
   const dragged = useRef(null);
   const draggedOver = useRef(null);
 
+  //Set memoisation
+  const memoizedArrayOfLocs1 = useMemo(() => arrayOfLocs1, [arrayOfLocs1]);
+  const memoizedArrayOfLocs2 = useMemo(() => arrayOfLocs2, [arrayOfLocs2]);
+
   //Maps through each data item object to see if loc1 and loc2 match correctly and sets the success attribute accordingly of those that do.
   useEffect(() => {
-    const matchingIds = arrayOfLocs1
-      .filter((item, index) => item.id === arrayOfLocs2[index].id)
+    const matchingIds = memoizedArrayOfLocs1
+      .filter((item, index) => item.id === memoizedArrayOfLocs2[index].id)
       .map((item) => item.id);
-    const updatedData = data.map((item) => ({
-      ...item,
-      success: matchingIds.includes(item.id) ? true : false,
-    }));
-    setData(updatedData);
-  }, [arrayOfLocs1, arrayOfLocs2]);
+    setData((prevData) =>
+      prevData.map((item) => ({
+        ...item,
+        success: matchingIds.includes(item.id) ? true : false,
+      })),
+    );
+  }, [memoizedArrayOfLocs1, memoizedArrayOfLocs2]);
 
   //Checks if all answers are successfully completed and sets the success state to true
   useEffect(() => {
@@ -69,7 +73,7 @@ const MixNMatch1 = ({ exerciseData }) => {
 
       if (draggedLoc === null || draggedOverLoc === null) return;
 
-      const updatedLocs = e.target.hasAttribute("first")
+      const updatedLocs = e.target.hasAttribute("data-first")
         ? [...arrayOfLocs1]
         : [...arrayOfLocs2];
 
@@ -78,7 +82,7 @@ const MixNMatch1 = ({ exerciseData }) => {
       updatedLocs[draggedLoc] = draggedOverItem;
       updatedLocs[draggedOverLoc] = draggedItem;
 
-      e.target.hasAttribute("first")
+      e.target.hasAttribute("data-first")
         ? setArrayOfLocs1(updatedLocs)
         : setArrayOfLocs2(updatedLocs);
 
@@ -93,7 +97,7 @@ const MixNMatch1 = ({ exerciseData }) => {
         <div>
           {arrayOfLocs1.map((item, index) => (
             <div
-              key={uuid()}
+              key={`1${item}${index}`}
               className={
                 data.find(
                   (dataItem) =>
@@ -102,7 +106,9 @@ const MixNMatch1 = ({ exerciseData }) => {
                   ? isCorrect
                   : isIncorrect
               }
-              first="true"
+              role="button"
+              tabIndex={0}
+              data-first="true"
               draggable
               onDragStart={(e) => handleOnDragStart(e, index)}
               onDragOver={(e) => handleOnDragOver(e, index)}
@@ -114,7 +120,7 @@ const MixNMatch1 = ({ exerciseData }) => {
         <div>
           {arrayOfLocs2.map((item, index) => (
             <div
-              key={uuid()}
+              key={`2${item}${index}`}
               className={
                 data.find(
                   (dataItem) =>
@@ -123,7 +129,9 @@ const MixNMatch1 = ({ exerciseData }) => {
                   ? isCorrect
                   : isIncorrect
               }
-              second="true"
+              role="button"
+              tabIndex={0}
+              data-second="true"
               draggable
               onDragStart={(e) => handleOnDragStart(e, index)}
               onDragOver={(e) => handleOnDragOver(e, index)}

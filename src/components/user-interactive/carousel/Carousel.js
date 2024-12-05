@@ -21,7 +21,7 @@ import useMediaQuery from "../../../support/hooks/useMediaQuery";
 const Carousel = ({ carouselData, title, innerText }) => {
   ////** STATE **////
   const [move, setMove] = useState(0);
-
+  // Create carousel size based off device width
   const by1 = useMediaQuery(`(min-width: 450px)`);
   const by2 = useMediaQuery(`(min-width: 650px)`);
 

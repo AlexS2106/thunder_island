@@ -114,6 +114,7 @@ export function makeMixMatchExerciseDataObjectArray(arr) {
   }));
   return newArray;
 }
+//alters listed data of 1 english word matched to 1 maltese word to a set format for the mixmatch exercise data
 export function redefineEnglishMaltiValuesAsValue1AndValue2ForMixMatchExerciseData(
   arr,
 ) {
@@ -122,4 +123,15 @@ export function redefineEnglishMaltiValuesAsValue1AndValue2ForMixMatchExerciseDa
     value2: obj.malti,
   }));
   return newArray;
+}
+
+//creates a debounce function useful for adding a pause to an intensive function that might be called multiple times in a short time frame e.g. a search
+export function debounce(funcToBeDelayed, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      funcToBeDelayed.apply(this, args);
+    }, delay);
+  };
 }

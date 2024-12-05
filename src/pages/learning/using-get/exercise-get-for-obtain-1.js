@@ -82,9 +82,12 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
       submitted && !success ? { backgroundColor: "pink" } : null;
 
     return (
-      <label
-        htmlFor={id}
-        className={label}>
+      <>
+        <label
+          htmlFor={id}
+          className={label}>
+          {""}
+        </label>
         <input
           type="text"
           id={id}
@@ -94,7 +97,7 @@ const ExerciseGetForObtain1 = ({ pageContext }) => {
           className={inputClass}
           style={inputStyle}
         />
-      </label>
+      </>
     );
   };
 

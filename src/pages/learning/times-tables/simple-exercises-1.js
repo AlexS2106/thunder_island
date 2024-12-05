@@ -272,19 +272,16 @@ const SimpleExercises1 = ({ pageContext }) => {
                   <form
                     className={gameAnswerForm}
                     onSubmit={onAnswerSubmit}>
-                    <label htmlFor="inputForTimesTables1">
-                      <input
-                        type="text"
-                        id="inputForTimesTables1"
-                        ref={inputRef}
-                        aria-autocomplete="none"
-                        className={
-                          userState.currentAnswerIsRight
-                            ? isCorrect
-                            : isIncorrect
-                        }
-                      />
-                    </label>
+                    <label htmlFor="inputForTimesTables1">{""}</label>
+                    <input
+                      type="text"
+                      id="inputForTimesTables1"
+                      ref={inputRef}
+                      aria-autocomplete="none"
+                      className={
+                        userState.currentAnswerIsRight ? isCorrect : isIncorrect
+                      }
+                    />
                   </form>
                 </div>
                 <Spacer size={3} />
