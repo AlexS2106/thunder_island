@@ -114,15 +114,30 @@ export function makeMixMatchExerciseDataObjectArray(arr) {
   }));
   return newArray;
 }
-//alters listed data of 1 english word matched to 1 maltese word to a set format for the mixmatch exercise data
-export function redefineEnglishMaltiValuesAsValue1AndValue2ForMixMatchExerciseData(
-  arr,
+//alters listed data of 1 english word matched to 1 alternative language word to a set format for use as exercise data in the different components
+export function redefineLanguageValuesAsValue1AndValue2ForData(
+  obj,
+  languageValue1,
+  languageValue2,
 ) {
-  const newArray = arr.map((obj) => ({
-    value1: obj.english,
-    value2: obj.malti,
-  }));
-  return newArray;
+  let returningObj;
+  if (
+    languageValue1.toLowerCase() === "english" &&
+    languageValue2.toLowerCase() === "malti"
+  ) {
+    if (Array.isArray(obj)) {
+      returningObj = obj.map((item) => ({
+        value1: item.english,
+        value2: item.malti,
+      }));
+    } else {
+      returningObj = {
+        value1: obj.english,
+        value2: obj.malti,
+      };
+    }
+    return returningObj;
+  }
 }
 
 //creates a debounce function useful for adding a pause to an intensive function that might be called multiple times in a short time frame e.g. a search

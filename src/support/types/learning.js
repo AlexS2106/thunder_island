@@ -132,7 +132,7 @@ export const learningGroups = [
     level: "Primary",
     link: "maltese/",
     lessons: [],
-    exercises: ["exercise-mix-match-1"],
+    exercises: ["exercise-mix-match-1", "exercise-spell-words-1"],
     subcategory: ["maltese"],
     mustKnow: [],
     next: [],

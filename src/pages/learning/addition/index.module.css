@@ -9,31 +9,44 @@
   font-weight: bold;
   line-height: 3rem;
 }
-.game {
-  align-items: center;
+.game-wrapper {
 }
-.game-question-box {
-  align-items: center;
+.game-container {
+  display: grid;
+  grid-template-areas:
+    "empty game-num-0 game-num-0 empty"
+    "game-maths-symbol empty empty empty"
+    "empty game-num-1 game-num-1 empty"
+    "empty game-form game-form game-tick-cross";
+  gap: 10px;
 }
-.game-question-box .maths-symbol {
-  align-self: start;
+
+.empty {
+  grid-area: empty;
 }
+
+.game-num-0 {
+  grid-area: game-num-0;
+}
+
+.game-maths-symbol {
+  grid-area: game-maths-symbol;
+}
+
+.game-num-1 {
+  grid-area: game-num-1;
+}
+
 .game-form {
-  padding: 1rem;
-  align-items: center;
+  grid-area: game-form;
 }
-.game-form form {
-  align-self: center;
+
+.game-tick-cross {
+  grid-area: game-tick-cross;
 }
 .game-form input {
   text-align: center;
   padding: 0.5rem;
-  width: 5rem;
-  height: 2rem;
-}
-.game span {
-  padding: 0rem 1rem;
-  align-self: right;
 }
 .is-incorrect svg {
   color: var(--color-incorrect);

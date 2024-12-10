@@ -3,10 +3,14 @@ import PropTypes from "prop-types";
 
 import {
   gameOptions,
-  game,
-  gameQuestionBox,
-  mathsSymbol,
+  gameWrapper,
+  empty,
+  gameContainer,
+  gameNum0,
+  gameMathsSymbol,
+  gameNum1,
   gameForm,
+  gameTickCross,
   isCorrect,
   isIncorrect,
   marginAuto,
@@ -156,26 +160,51 @@ const SimpleExercises1 = ({ pageContext }) => {
             />
           </div>
           <Spacer size={3} />
-          <div className={`${game} ${marginAuto} flexCol`}>
+          <div className={`${gameWrapper} ${marginAuto}`}>
             {!gameFinished ? (
               <>
-                <div className={`${gameQuestionBox}${marginAuto} flexCol`}>
-                  <span className={largeFont}>{nums && nums[0]}</span>
-                  <span className={`${largeFont} ${mathsSymbol}`}>+</span>
-                  <span className={largeFont}>{nums && nums[1]}</span>
-                  <div className={`${gameForm} flexRow`}>
-                    <form
-                      className="flexRow"
-                      onSubmit={handleAnswerSubmission}>
-                      <label htmlFor="inputforAddition1">{""}</label>
-                      <input
-                        type="text"
-                        id="inputforAddition1"
-                        className={largeFont}
-                        ref={inputRef}
-                        aria-autocomplete="none"
-                      />
-                    </form>
+                <div className={gameContainer}>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <div className={`${largeFont} ${gameNum0}`}>
+                    {nums && nums[0]}
+                  </div>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <div className={`${largeFont} ${gameMathsSymbol}`}>+</div>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <div className={`${largeFont} ${gameNum1}`}>
+                    {nums && nums[1]}
+                  </div>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <div
+                    className={empty}
+                    role="presentation"></div>
+                  <form
+                    className={gameForm}
+                    onSubmit={handleAnswerSubmission}>
+                    <label htmlFor="inputforAddition1">{""}</label>
+                    <input
+                      type="text"
+                      id="inputforAddition1"
+                      className={largeFont}
+                      ref={inputRef}
+                      aria-autocomplete="none"
+                    />
+                  </form>
+                  <div className={gameTickCross}>
                     {answerIsCorrect && (
                       <span className={isCorrect}>{tick()}</span>
                     )}
