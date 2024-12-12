@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import { v4 as uuid } from "uuid";
 
@@ -9,7 +9,7 @@ import Breadcrumbs from "../../../components/navigation/page-navigation/breadcru
 import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
-import MixNMatch1 from "../../../components/user-interactive/mix-n-match/mix-n-match";
+import SpellWords from "../../../components/user-interactive/spell-words/spell-words";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
 import Seo from "../../../components/seo/seo";
 import Spacer from "../../../components/layout/spacing/Spacer";
@@ -17,13 +17,10 @@ import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/T
 
 import { taran_word_groups, numbers } from "../../../support/types/maltese";
 
-import {
-  makeTitle,
-  redefineLanguageValuesAsValue1AndValue2ForData,
-} from "../../../support/functions/utility";
+import { makeTitle } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
-const ExerciseMixMatch1 = ({ pageContext }) => {
+const ExerciseSpellWords1 = ({ pageContext }) => {
   ////** CONTEXT **////
   //Breadcrumb state
   const {
@@ -41,14 +38,36 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
   //// *** STATE *** ////
   const [userSelectedWordGroups, setUserSelectedWordGroups] = useState([]);
   const [userSelectedSubGroups, setUserSelectedSubGroups] = useState([]);
+  const [wordSetCount, setWordSetCount] = useState(0);
+  const [currentWordSet, setCurrentWordSet] = useState();
+  const [wordSetComplete, setWordSetComplete] = useState(false);
+
+  const memoizedUserSelectedSubGroups = useMemo(
+    () => userSelectedSubGroups,
+    [userSelectedSubGroups],
+  );
+
+  useEffect(() => {
+    setCurrentWordSet(memoizedUserSelectedSubGroups[0]?.list[wordSetCount]);
+  }, [memoizedUserSelectedSubGroups, wordSetCount]);
+
+  useEffect(() => {
+    if (!userSelectedSubGroups || wordSetCount < 1) {
+      return;
+    } else if (wordSetCount === userSelectedSubGroups[0]?.list.length) {
+      setWordSetComplete(true);
+    }
+  }, [wordSetCount, userSelectedSubGroups, wordSetComplete]);
 
   //// *** VARIABLES *** ////
-  const pageTitle1 = "Maltese Mix N Match";
+  const pageTitle1 = "Maltese Spellwords";
   //array containing imported wordgroup objects
   const _allWordGroups = [taran_word_groups, numbers];
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {
+    setWordSetCount(0);
+    setWordSetComplete(false);
     if (type === "wordgroup") {
       const check = userSelectedWordGroups.some((group) => group === selected);
       if (check) {
@@ -65,6 +84,13 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
         setUserSelectedSubGroups([selected]);
       }
     }
+  }
+  function resetSpellWords() {
+    setWordSetCount((prevCount) => {
+      const newCount = prevCount + 1;
+      setCurrentWordSet(memoizedUserSelectedSubGroups[0]?.list[newCount]);
+      return newCount;
+    });
   }
 
   ////** MARK UP **////
@@ -109,20 +135,25 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
                 </TextEmphasisBoxMinor>
               </>
             ) : null}
-            {userSelectedSubGroups?.map((subGroup) => (
+            {wordSetComplete && (
+              <div>
+                <p>You finished!</p>
+                <p>Awesome you!</p>
+              </div>
+            )}
+            {currentWordSet && (
               <div key={uuid()}>
                 <Spacer size={3} />
-                <h6>{makeTitle(subGroup.name)}</h6>
+                <h6>{makeTitle(userSelectedSubGroups[0].name)}</h6>
                 <Spacer size={3} />
-                <MixNMatch1
-                  exerciseData={redefineLanguageValuesAsValue1AndValue2ForData(
-                    subGroup.list,
-                    "english",
-                    "malti",
-                  )}
+                <SpellWords
+                  data={currentWordSet}
+                  lang1="english"
+                  lang2="malti"
+                  onReset={resetSpellWords}
                 />
               </div>
-            ))}
+            )}
           </div>
           <Spacer size={2} />
         </Main>
@@ -137,8 +168,8 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
 export const Head = () => <Seo title="Thunder Island | Learning: Maltese" />;
 
 //// ** PROP TYPES ** ////
-ExerciseMixMatch1.propTypes = {
+ExerciseSpellWords1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };
 
-export default ExerciseMixMatch1;
+export default ExerciseSpellWords1;

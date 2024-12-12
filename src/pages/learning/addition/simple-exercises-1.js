@@ -147,7 +147,7 @@ const SimpleExercises1 = ({ pageContext }) => {
             />
           </div>
           <Spacer size={3} />
-          <div className={`${game} ${marginAuto} flexCol`}>
+          <div className={`${gameWrapper} ${marginAuto}`}>
             {!gameFinished ? (
               <>
                 <div className={`${gameQuestionBox} ${marginAuto} flexCol`}>

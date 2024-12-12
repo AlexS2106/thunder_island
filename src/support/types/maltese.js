@@ -20,24 +20,24 @@ export const taran_word_groups = {
       name: "group one",
       list: [
         {
-          english: "xkupilja",
-          malti: "broom",
+          english: "broom",
+          malti: "xkupilja",
         },
         {
-          english: "għajn",
-          malti: "eye",
+          english: "eye",
+          malti: "għajn",
         },
         {
-          english: "xofftejn",
-          malti: "lips",
+          english: "lips",
+          malti: "xofftejn",
         },
         {
-          english: "żarbun",
-          malti: "shoe",
+          english: "shoe",
+          malti: "żarbun",
         },
         {
-          english: "saqajn",
-          malti: "feet",
+          english: "feet",
+          malti: "saqajn",
         },
       ],
     },
@@ -45,24 +45,24 @@ export const taran_word_groups = {
       name: "group two",
       list: [
         {
-          english: "ħawħa",
-          malti: "peach",
+          english: "peach",
+          malti: "ħawħa",
         },
         {
-          english: "bettieħa",
-          malti: "melon",
+          english: "melon",
+          malti: "bettieħa",
         },
         {
-          english: "dulliegħa",
-          malti: "watermelon",
+          english: "watermelon",
+          malti: "dulliegħa",
         },
         {
-          english: "lanġasa",
-          malti: "pear",
+          english: "pear",
+          malti: "lanġasa",
         },
         {
-          english: "tuffieħa",
-          malti: "apple",
+          english: "apple",
+          malti: "tuffieħa",
         },
       ],
     },
@@ -70,24 +70,24 @@ export const taran_word_groups = {
       name: "group three",
       list: [
         {
-          english: "poter",
-          malti: "power",
+          english: "power",
+          malti: "poter",
         },
         {
-          english: "triq",
-          malti: "street",
+          english: "street",
+          malti: "triq",
         },
         {
-          english: "tikek",
-          malti: "spots",
+          english: "spots",
+          malti: "tikek",
         },
         {
-          english: "dmugħ",
-          malti: "fright",
+          english: "fright",
+          malti: "dmugħ",
         },
         {
-          english: "ġiżirana",
-          malti: "necklace",
+          english: "necklace",
+          malti: "ġiżirana",
         },
       ],
     },
@@ -95,24 +95,24 @@ export const taran_word_groups = {
       name: "the bees",
       list: [
         {
-          english: "naħla",
-          malti: "bee",
+          english: "bee",
+          malti: "naħla",
         },
         {
-          english: "xehda",
-          malti: "hive",
+          english: "hive",
+          malti: "xeħda",
         },
         {
-          english: "għasel",
-          malti: "honey",
+          english: "honey",
+          malti: "għasel",
         },
         {
           english: "flowers",
           malti: "fjuri",
         },
         {
-          english: "ġnien",
-          malti: "garden",
+          english: "garden",
+          malti: "ġnien",
         },
         {
           english: "hedgehog",
@@ -128,20 +128,20 @@ export const taran_word_groups = {
           malti: "isem",
         },
         {
-          english: "eta",
-          malti: "age",
+          english: "age",
+          malti: "eta",
         },
         {
-          english: "xagħar",
-          malti: "hair",
+          english: "hair",
+          malti: "xagħar",
         },
         {
-          english: "għajnejn",
-          malti: "eyes",
+          english: "eyes",
+          malti: "għajnejn",
         },
         {
-          english: "passatempi",
-          malti: "hobbies",
+          english: "hobbies",
+          malti: "passatempi",
         },
       ],
     },
