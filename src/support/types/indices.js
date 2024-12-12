@@ -87,7 +87,7 @@ export const byOptions = [
   "meal-in-one",
   "pies",
   "simple",
-  "copycat-takeouts",
+  "copycats",
 ];
 export const byIngredients = [
   "beef-and-lamb",
@@ -118,6 +118,8 @@ export const recipeTags = [
   "strict-paleo",
   "slow-cooked",
   "vinaigrette",
+  "seasoning",
+  "marinade",
 ];
 
 //Types

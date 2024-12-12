@@ -4,7 +4,6 @@ import {
   gameOptions,
   game,
   gameQuestionBox,
-  mathsSymbol,
   gameForm,
   evaluationWrapper,
   isCorrect,
@@ -14,6 +13,7 @@ import {
 } from "./index.module.css";
 import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
+import Button from "../../../components/buttons/Button";
 import Dropdown from "../../../components/user-interactive/dropdown/dropdown";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
@@ -21,6 +21,7 @@ import PageTitle from "../../../components/typography/pageTitle/PageTitle";
 import Seo from "../../../components/seo/seo";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
+import TextEmphasisBox from "../../../components/typography/text-emphasis/TextEmphasisBox";
 import { tick, cross } from "../../../support/functions/iconFunctions";
 import { randomNumber } from "../../../support/functions/utility";
 import {
@@ -54,7 +55,9 @@ const SimpleExercises1 = ({ pageContext }) => {
   ////** USE CALLBACK **////
   const resetGame = useCallback(() => {
     setInputValue("");
-    inputRef.current.value = "";
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
     setAnswerIsCorrect(false);
     setAnswerIsIncorrect(false);
   }, []);
@@ -110,6 +113,15 @@ const SimpleExercises1 = ({ pageContext }) => {
     }
   };
 
+  const resetAll = () => {
+    resetGame();
+    setGameRunning(false);
+    setNums([]);
+    setTotalQuestionsCompleted(0);
+    setIncorrectAnswersLog([]);
+    setGameFinished(false);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (questionsToComplete === totalQuestionsCompleted) {
@@ -148,12 +160,12 @@ const SimpleExercises1 = ({ pageContext }) => {
           </div>
           <Spacer size={3} />
           <div className={`${game} ${marginAuto}`}>
-            {!gameFinished ? (
+            {!gameFinished && (
               <>
                 <div className={`${gameQuestionBox} ${marginAuto} flexCol`}>
                   <span className={largeFont}>{nums[0]}</span>
                   <span
-                    className={`${largeFont} ${mathsSymbol}`}
+                    className={largeFont}
                     style={{ marginRight: `${difficulty * 2}rem` }}>
                     +
                   </span>
@@ -197,23 +209,41 @@ const SimpleExercises1 = ({ pageContext }) => {
                     <p className="textCenter">
                       You got{" "}
                       {totalQuestionsCompleted - incorrectAnswersLog.length} out
-                      of {totalQuestionsCompleted}.
+                      of {questionsToComplete}.
                     </p>
                   </div>
                 )}
               </>
-            ) : (
+            )}
+            {gameFinished && (
               <div className="flexCol">
-                <p>You finished!</p>
-                {incorrectAnswersLog.map((log, index) => (
-                  <div key={index}>
-                    <p>Question: {log.question.join(" + ")}</p>
-                    <p>You answered: {log.answer}</p>
+                <TextEmphasisBox>
+                  <p>You finished!</p>
+                </TextEmphasisBox>
+                <Spacer size={2} />
+                {incorrectAnswersLog && (
+                  <div>
                     <p>
-                      The correct answer is {log.question[0] + log.question[1]}
+                      You only got {incorrectAnswersLog.length} wrong, but let's
+                      take a look at them.
                     </p>
+                    <Spacer size={3} />
+                    {incorrectAnswersLog.map((log) => (
+                      <>
+                        <p>
+                          {log.question.join(" + ")} adds up to{" "}
+                          {log.question[0] + log.question[1]}.
+                        </p>
+                        <p>Unfortunately you answered {log.answer}.</p>
+                        <Spacer size={4} />
+                      </>
+                    ))}
                   </div>
-                ))}
+                )}
+                <Button
+                  innerText="Play again?"
+                  onClick={resetAll}
+                />
               </div>
             )}
           </div>
