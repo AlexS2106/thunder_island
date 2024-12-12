@@ -34,6 +34,20 @@ import {
 ////** COMPONENT **////
 const SimpleExercises1 = ({ pageContext }) => {
   ////** STATE **////
+  const inputRef = useRef(null);
+  const [gameRunning, setGameRunning] = useState(false);
+  const [difficulty, setDifficulty] = useState(1);
+  const [questionsToComplete, setQuestionsToComplete] = useState(5);
+  const [nums, setNums] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [totalQuestionsCompleted, setTotalQuestionsCompleted] = useState(0);
+  const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
+  const [answerIsIncorrect, setAnswerIsIncorrect] = useState(false);
+  const [incorrectAnswersLog, setIncorrectAnswersLog] = useState([]);
+  const [gameFinished, setGameFinished] = useState(false);
+
+  ////** FUNCTIONS **////
+  //Breadcrumb logic
   const {
     breadcrumb: { crumbs },
   } = pageContext;
@@ -45,76 +59,41 @@ const SimpleExercises1 = ({ pageContext }) => {
         }
       : crumb,
   );
-
-  const inputRef = useRef(null);
-  const [gameRunning, setGameRunning] = useState(false);
-  const [difficulty, setDifficulty] = useState(1);
-  const [questionsToComplete, setQuestionsToComplete] = useState(5);
-  const [nums, setNums] = useState();
-  const [totalQuestionsCompleted, setTotalQuestionsCompleted] = useState();
-  const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
-  const [answerIsIncorrect, setAnswerIsIncorrect] = useState(false);
-  const [incorrectAnswersLog, setIncorrectAnswersLog] = useState([]);
-  const [gameFinished, setGameFinished] = useState(false);
-
-  const gameFinishes = useCallback(() => {
-    setGameFinished(true);
-  }, []);
-
-  const gameContinues = useCallback(() => {
-    if (inputRef.current) {
-      inputRef.current.value = "";
-    }
-    setAnswerIsCorrect(false);
-    setAnswerIsIncorrect(false);
-    setGameRunning(true);
-    generateNums(difficulty);
-  }, [difficulty]);
-
-  useEffect(() => {
-    if (!gameRunning) {
-      return;
-    }
-    generateNums(difficulty);
-  }, [difficulty, gameRunning]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      questionsToComplete === totalQuestionsCompleted
-        ? gameFinishes()
-        : gameContinues();
-    }, 800);
-    return () => clearTimeout(timer);
-  }, [
-    questionsToComplete,
-    totalQuestionsCompleted,
-    gameFinished,
-    gameFinishes,
-    gameContinues,
-  ]);
-
-  ////** VARIABLES **////
-  const pageTitle = "Addition";
-
-  ////** FUNCTIONS **////
+  //Alter difficulty - user controlled
   function handleDifficultyChange(e) {
     setDifficulty(Number(e.target.value));
+    setInputValue("");
+    inputRef.current = "";
   }
+  //Alter the number of question to be asked - user controlled
   function handleQuestionsToCompleteChange(e) {
     setQuestionsToComplete(Number(e.target.value));
   }
-  function generateNums(difficultySetting) {
-    const max = Math.pow(10, difficultySetting) - 1;
+  //genreates 2 random numbers dependent on the difficulty level
+  function generateNums() {
+    const max = Math.pow(10, difficulty) - 1;
     setNums([randomNumber(1, max), randomNumber(1, max)]);
   }
-
+  //ensures the number inputted aligns beneath the numbers added, i.e. from right to left
+  function handleInputChange(e) {
+    const value = e.target.value;
+    if (difficulty === 1) {
+      setInputValue(value);
+    } else {
+      setInputValue((prevValue) => {
+        const newValue = value.charAt(value.length - 1) + prevValue;
+        return newValue;
+      });
+    }
+  }
+  //game logic once the addition number is entered - use controlled
   function handleAnswerSubmission(e) {
     e.preventDefault();
     setGameRunning(false);
     setTotalQuestionsCompleted((prev) => prev + 1);
     analyseAnswer(nums, Number(inputRef.current.value));
   }
-
+  //checks if the answer is correct or incorrect
   function analyseAnswer(nums, inputValue) {
     if (nums[0] + nums[1] === inputValue) {
       setAnswerIsCorrect(true);
@@ -128,7 +107,38 @@ const SimpleExercises1 = ({ pageContext }) => {
         ...prevLog,
       ]);
     }
+    checkGameEnd();
   }
+
+  function checkGameEnd() {
+    questionsToComplete === totalQuestionsCompleted
+      ? gameFinishes()
+      : gameContinues();
+  }
+
+  function gameFinishes() {
+    setGameRunning(true);
+    setGameFinished(true);
+  }
+
+  function gameContinues() {
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
+    setAnswerIsCorrect(false);
+    setAnswerIsIncorrect(false);
+    setGameRunning(true);
+    generateNums();
+  }
+
+  ////** USE EFFECT **////
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {}, 800);
+  //   return () => clearTimeout(timer);
+  // }, [gameFinishes, gameContinues]);
+
+  ////** VARIABLES **////
+  const pageTitle = "Addition";
 
   ////** MARK UP **////
   return (
@@ -159,21 +169,35 @@ const SimpleExercises1 = ({ pageContext }) => {
           <div className={`${game} ${marginAuto} flexCol`}>
             {!gameFinished ? (
               <>
-                <div className={`${gameQuestionBox}${marginAuto} flexCol`}>
+                <div className={`${gameQuestionBox} ${marginAuto} flexCol`}>
                   <span className={largeFont}>{nums && nums[0]}</span>
-                  <span className={`${largeFont} ${mathsSymbol}`}>+</span>
+                  <span
+                    className={`${largeFont} ${mathsSymbol}`}
+                    style={{ marginRight: `${difficulty * 2}rem` }}>
+                    +
+                  </span>
                   <span className={largeFont}>{nums && nums[1]}</span>
                   <div className={`${gameForm} flexRow`}>
                     <form
                       className="flexRow"
                       onSubmit={handleAnswerSubmission}>
-                      <label htmlFor="inputforAddition1">{""}</label>
+                      <label
+                        htmlFor="inputforAddition1"
+                        aria-label="Answer input field">
+                        {""}
+                      </label>
                       <input
                         type="text"
                         id="inputforAddition1"
                         className={largeFont}
+                        style={{
+                          width: `${difficulty * 2 + 2}rem`,
+                        }}
+                        onChange={handleInputChange}
                         ref={inputRef}
+                        value={inputValue}
                         aria-autocomplete="none"
+                        dir={difficulty > 1 ? "ltr" : "rtl"}
                       />
                     </form>
                     {answerIsCorrect && (

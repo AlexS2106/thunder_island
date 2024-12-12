@@ -87,7 +87,7 @@ export const byOptions = [
   "meal-in-one",
   "pies",
   "simple",
-  "take-out",
+  "copycat-takeouts",
 ];
 export const byIngredients = [
   "beef-and-lamb",
