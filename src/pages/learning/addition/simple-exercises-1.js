@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
-
 import {
   gameOptions,
   game,
   gameQuestionBox,
   mathsSymbol,
   gameForm,
+  evaluationWrapper,
   isCorrect,
   isIncorrect,
   marginAuto,
   largeFont,
 } from "./index.module.css";
-
 import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Dropdown from "../../../components/user-interactive/dropdown/dropdown";
@@ -22,16 +21,13 @@ import PageTitle from "../../../components/typography/pageTitle/PageTitle";
 import Seo from "../../../components/seo/seo";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
-
 import { tick, cross } from "../../../support/functions/iconFunctions";
 import { randomNumber } from "../../../support/functions/utility";
-
 import {
   completionAmounts,
   additionDifficultyLevels,
 } from "../../../support/types/maths";
 
-////** COMPONENT **////
 const SimpleExercises1 = ({ pageContext }) => {
   ////** STATE **////
   const inputRef = useRef(null);
@@ -46,107 +42,92 @@ const SimpleExercises1 = ({ pageContext }) => {
   const [incorrectAnswersLog, setIncorrectAnswersLog] = useState([]);
   const [gameFinished, setGameFinished] = useState(false);
 
-  ////** FUNCTIONS **////
   //Breadcrumb logic
   const {
     breadcrumb: { crumbs },
   } = pageContext;
   const crumbPaths = crumbs.map((crumb) =>
     crumb.crumbLabel === "addition"
-      ? {
-          ...crumb,
-          pathname: "/learning",
-        }
+      ? { ...crumb, pathname: "/learning" }
       : crumb,
   );
-  //Alter difficulty - user controlled
-  function handleDifficultyChange(e) {
-    setDifficulty(Number(e.target.value));
+  ////** USE CALLBACK **////
+  const resetGame = useCallback(() => {
     setInputValue("");
-    inputRef.current = "";
-  }
-  //Alter the number of question to be asked - user controlled
-  function handleQuestionsToCompleteChange(e) {
-    setQuestionsToComplete(Number(e.target.value));
-  }
-  //genreates 2 random numbers dependent on the difficulty level
-  function generateNums() {
+    inputRef.current.value = "";
+    setAnswerIsCorrect(false);
+    setAnswerIsIncorrect(false);
+  }, []);
+
+  const generateNums = useCallback(() => {
     const max = Math.pow(10, difficulty) - 1;
     setNums([randomNumber(1, max), randomNumber(1, max)]);
-  }
-  //ensures the number inputted aligns beneath the numbers added, i.e. from right to left
-  function handleInputChange(e) {
+    resetGame();
+  }, [difficulty, resetGame]);
+
+  ////**USE EFFECT**////
+  //whenever the gamerunning state is set to true new numbers are generated for the addition question
+  useEffect(() => {
+    if (gameRunning) {
+      generateNums();
+    }
+  }, [difficulty, gameRunning, generateNums]);
+
+  ////** FUNCTIONS **////
+  const handleDifficultyChange = (e) => {
+    setDifficulty(Number(e.target.value));
+    resetGame();
+  };
+
+  const handleQuestionsToCompleteChange = (e) => {
+    setQuestionsToComplete(Number(e.target.value));
+  };
+
+  const handleInputChange = (e) => {
     const value = e.target.value;
     if (difficulty === 1) {
       setInputValue(value);
     } else {
-      setInputValue((prevValue) => {
-        const newValue = value.charAt(value.length - 1) + prevValue;
-        return newValue;
-      });
+      const newValue = value.slice(-1) + inputValue;
+      setInputValue(newValue);
     }
-  }
-  //game logic once the addition number is entered - use controlled
-  function handleAnswerSubmission(e) {
+  };
+
+  const handleAnswerSubmission = (e) => {
     e.preventDefault();
     setGameRunning(false);
+    const inputValueNumber = Number(inputValue);
+    const isAnswerCorrect = nums[0] + nums[1] === inputValueNumber;
+    setAnswerIsCorrect(isAnswerCorrect);
+    setAnswerIsIncorrect(!isAnswerCorrect);
     setTotalQuestionsCompleted((prev) => prev + 1);
-    analyseAnswer(nums, Number(inputRef.current.value));
-  }
-  //checks if the answer is correct or incorrect
-  function analyseAnswer(nums, inputValue) {
-    if (nums[0] + nums[1] === inputValue) {
-      setAnswerIsCorrect(true);
-    } else {
-      setAnswerIsIncorrect(true);
+
+    if (!isAnswerCorrect) {
       setIncorrectAnswersLog((prevLog) => [
-        {
-          question: nums,
-          answer: inputValue,
-        },
         ...prevLog,
+        { question: nums, answer: inputValueNumber },
       ]);
     }
-    checkGameEnd();
-  }
+  };
 
-  function checkGameEnd() {
-    questionsToComplete === totalQuestionsCompleted
-      ? gameFinishes()
-      : gameContinues();
-  }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (questionsToComplete === totalQuestionsCompleted) {
+        setGameFinished(true);
+      } else {
+        setGameRunning(true);
+      }
+    }, 800);
 
-  function gameFinishes() {
-    setGameRunning(true);
-    setGameFinished(true);
-  }
+    return () => clearTimeout(timer);
+  }, [totalQuestionsCompleted, questionsToComplete]);
 
-  function gameContinues() {
-    if (inputRef.current) {
-      inputRef.current.value = "";
-    }
-    setAnswerIsCorrect(false);
-    setAnswerIsIncorrect(false);
-    setGameRunning(true);
-    generateNums();
-  }
-
-  ////** USE EFFECT **////
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {}, 800);
-  //   return () => clearTimeout(timer);
-  // }, [gameFinishes, gameContinues]);
-
-  ////** VARIABLES **////
-  const pageTitle = "Addition";
-
-  ////** MARK UP **////
   return (
     <Layout>
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title="Addition" />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -170,13 +151,13 @@ const SimpleExercises1 = ({ pageContext }) => {
             {!gameFinished ? (
               <>
                 <div className={`${gameQuestionBox} ${marginAuto} flexCol`}>
-                  <span className={largeFont}>{nums && nums[0]}</span>
+                  <span className={largeFont}>{nums[0]}</span>
                   <span
                     className={`${largeFont} ${mathsSymbol}`}
                     style={{ marginRight: `${difficulty * 2}rem` }}>
                     +
                   </span>
-                  <span className={largeFont}>{nums && nums[1]}</span>
+                  <span className={largeFont}>{nums[1]}</span>
                   <div className={`${gameForm} flexRow`}>
                     <form
                       className="flexRow"
@@ -200,12 +181,14 @@ const SimpleExercises1 = ({ pageContext }) => {
                         dir={difficulty > 1 ? "ltr" : "rtl"}
                       />
                     </form>
-                    {answerIsCorrect && (
-                      <span className={isCorrect}>{tick()}</span>
-                    )}
-                    {answerIsIncorrect && (
-                      <span className={isIncorrect}>{cross()}</span>
-                    )}
+                    <div className={evaluationWrapper}>
+                      {answerIsCorrect && (
+                        <span className={isCorrect}>{tick()}</span>
+                      )}
+                      {answerIsIncorrect && (
+                        <span className={isIncorrect}>{cross()}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
                 {totalQuestionsCompleted > 0 && (
@@ -213,7 +196,7 @@ const SimpleExercises1 = ({ pageContext }) => {
                     <Spacer size={3} />
                     <p className="textCenter">
                       You got{" "}
-                      {incorrectAnswersLog.length - totalQuestionsCompleted} out
+                      {totalQuestionsCompleted - incorrectAnswersLog.length} out
                       of {totalQuestionsCompleted}.
                     </p>
                   </div>
@@ -222,9 +205,9 @@ const SimpleExercises1 = ({ pageContext }) => {
             ) : (
               <div className="flexCol">
                 <p>You finished!</p>
-                {incorrectAnswersLog.map((log) => (
-                  <div>
-                    <p>{log.question[1] + log.question[2]}</p>
+                {incorrectAnswersLog.map((log, index) => (
+                  <div key={index}>
+                    <p>Question: {log.question.join(" + ")}</p>
                     <p>You answered: {log.answer}</p>
                     <p>
                       The correct answer is {log.question[0] + log.question[1]}
@@ -251,9 +234,8 @@ const SimpleExercises1 = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Maths: Times Tables" />;
+export const Head = () => <Seo title="Thunder Island | Maths: Addition" />;
 
-//// ** PROP TYPES ** ////
 SimpleExercises1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };
