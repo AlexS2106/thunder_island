@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
-
 import {
   gameOptions,
   game,
   gameQuestionBox,
   mathsSymbol,
   gameForm,
+  evaluationWrapper,
   isCorrect,
   isIncorrect,
   marginAuto,
   largeFont,
 } from "./index.module.css";
-
 import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Dropdown from "../../../components/user-interactive/dropdown/dropdown";
@@ -22,121 +21,113 @@ import PageTitle from "../../../components/typography/pageTitle/PageTitle";
 import Seo from "../../../components/seo/seo";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
-
 import { tick, cross } from "../../../support/functions/iconFunctions";
 import { randomNumber } from "../../../support/functions/utility";
-
 import {
   completionAmounts,
   additionDifficultyLevels,
 } from "../../../support/types/maths";
 
-////** COMPONENT **////
 const SimpleExercises1 = ({ pageContext }) => {
   ////** STATE **////
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext;
-  const crumbPaths = crumbs.map((crumb) =>
-    crumb.crumbLabel === "addition"
-      ? {
-          ...crumb,
-          pathname: "/learning",
-        }
-      : crumb,
-  );
-
   const inputRef = useRef(null);
   const [gameRunning, setGameRunning] = useState(false);
   const [difficulty, setDifficulty] = useState(1);
   const [questionsToComplete, setQuestionsToComplete] = useState(5);
-  const [nums, setNums] = useState();
-  const [totalQuestionsCompleted, setTotalQuestionsCompleted] = useState();
+  const [nums, setNums] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [totalQuestionsCompleted, setTotalQuestionsCompleted] = useState(0);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
   const [answerIsIncorrect, setAnswerIsIncorrect] = useState(false);
   const [incorrectAnswersLog, setIncorrectAnswersLog] = useState([]);
   const [gameFinished, setGameFinished] = useState(false);
 
-  const gameFinishes = useCallback(() => {
-    setGameFinished(true);
-  }, []);
-
-  const gameContinues = useCallback(() => {
-    if (inputRef.current) {
-      inputRef.current.value = "";
-    }
+  //Breadcrumb logic
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext;
+  const crumbPaths = crumbs.map((crumb) =>
+    crumb.crumbLabel === "addition"
+      ? { ...crumb, pathname: "/learning" }
+      : crumb,
+  );
+  ////** USE CALLBACK **////
+  const resetGame = useCallback(() => {
+    setInputValue("");
+    inputRef.current.value = "";
     setAnswerIsCorrect(false);
     setAnswerIsIncorrect(false);
-    setGameRunning(true);
-    generateNums(difficulty);
-  }, [difficulty]);
+  }, []);
 
+  const generateNums = useCallback(() => {
+    const max = Math.pow(10, difficulty) - 1;
+    setNums([randomNumber(1, max), randomNumber(1, max)]);
+    resetGame();
+  }, [difficulty, resetGame]);
+
+  ////**USE EFFECT**////
+  //whenever the gamerunning state is set to true new numbers are generated for the addition question
   useEffect(() => {
-    if (!gameRunning) {
-      return;
+    if (gameRunning) {
+      generateNums();
     }
-    generateNums(difficulty);
-  }, [difficulty, gameRunning]);
+  }, [difficulty, gameRunning, generateNums]);
+
+  ////** FUNCTIONS **////
+  const handleDifficultyChange = (e) => {
+    setDifficulty(Number(e.target.value));
+    resetGame();
+  };
+
+  const handleQuestionsToCompleteChange = (e) => {
+    setQuestionsToComplete(Number(e.target.value));
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (difficulty === 1) {
+      setInputValue(value);
+    } else {
+      const newValue = value.slice(-1) + inputValue;
+      setInputValue(newValue);
+    }
+  };
+
+  const handleAnswerSubmission = (e) => {
+    e.preventDefault();
+    setGameRunning(false);
+    const inputValueNumber = Number(inputValue);
+    const isAnswerCorrect = nums[0] + nums[1] === inputValueNumber;
+    setAnswerIsCorrect(isAnswerCorrect);
+    setAnswerIsIncorrect(!isAnswerCorrect);
+    setTotalQuestionsCompleted((prev) => prev + 1);
+
+    if (!isAnswerCorrect) {
+      setIncorrectAnswersLog((prevLog) => [
+        ...prevLog,
+        { question: nums, answer: inputValueNumber },
+      ]);
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      questionsToComplete === totalQuestionsCompleted
-        ? gameFinishes()
-        : gameContinues();
+      if (questionsToComplete === totalQuestionsCompleted) {
+        setGameFinished(true);
+      } else {
+        setGameRunning(true);
+      }
     }, 800);
+
     return () => clearTimeout(timer);
-  }, [
-    questionsToComplete,
-    totalQuestionsCompleted,
-    gameFinished,
-    gameFinishes,
-    gameContinues,
-  ]);
+  }, [totalQuestionsCompleted, questionsToComplete]);
 
-  ////** VARIABLES **////
-  const pageTitle = "Addition";
-
-  ////** FUNCTIONS **////
-  function handleDifficultyChange(e) {
-    setDifficulty(Number(e.target.value));
-  }
-  function handleQuestionsToCompleteChange(e) {
-    setQuestionsToComplete(Number(e.target.value));
-  }
-  function generateNums(difficultySetting) {
-    const max = Math.pow(10, difficultySetting) - 1;
-    setNums([randomNumber(1, max), randomNumber(1, max)]);
-  }
-
-  function handleAnswerSubmission(e) {
-    e.preventDefault();
-    setGameRunning(false);
-    setTotalQuestionsCompleted((prev) => prev + 1);
-    analyseAnswer(nums, Number(inputRef.current.value));
-  }
-
-  function analyseAnswer(nums, inputValue) {
-    if (nums[0] + nums[1] === inputValue) {
-      setAnswerIsCorrect(true);
-    } else {
-      setAnswerIsIncorrect(true);
-      setIncorrectAnswersLog((prevLog) => [
-        {
-          question: nums,
-          answer: inputValue,
-        },
-        ...prevLog,
-      ]);
-    }
-  }
-
-  ////** MARK UP **////
   return (
     <Layout>
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle} />
+      <PageTitle title="Addition" />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -159,29 +150,44 @@ const SimpleExercises1 = ({ pageContext }) => {
           <div className={`${game} ${marginAuto} flexCol`}>
             {!gameFinished ? (
               <>
-                <div className={`${gameQuestionBox}${marginAuto} flexCol`}>
-                  <span className={largeFont}>{nums && nums[0]}</span>
-                  <span className={`${largeFont} ${mathsSymbol}`}>+</span>
-                  <span className={largeFont}>{nums && nums[1]}</span>
+                <div className={`${gameQuestionBox} ${marginAuto} flexCol`}>
+                  <span className={largeFont}>{nums[0]}</span>
+                  <span
+                    className={`${largeFont} ${mathsSymbol}`}
+                    style={{ marginRight: `${difficulty * 2}rem` }}>
+                    +
+                  </span>
+                  <span className={largeFont}>{nums[1]}</span>
                   <div className={`${gameForm} flexRow`}>
                     <form
                       className="flexRow"
                       onSubmit={handleAnswerSubmission}>
-                      <label htmlFor="inputforAddition1">{""}</label>
+                      <label
+                        htmlFor="inputforAddition1"
+                        aria-label="Answer input field">
+                        {""}
+                      </label>
                       <input
                         type="text"
                         id="inputforAddition1"
                         className={largeFont}
+                        style={{
+                          width: `${difficulty * 2 + 2}rem`,
+                        }}
+                        onChange={handleInputChange}
                         ref={inputRef}
+                        value={inputValue}
                         aria-autocomplete="none"
                       />
                     </form>
-                    {answerIsCorrect && (
-                      <span className={isCorrect}>{tick()}</span>
-                    )}
-                    {answerIsIncorrect && (
-                      <span className={isIncorrect}>{cross()}</span>
-                    )}
+                    <div className={evaluationWrapper}>
+                      {answerIsCorrect && (
+                        <span className={isCorrect}>{tick()}</span>
+                      )}
+                      {answerIsIncorrect && (
+                        <span className={isIncorrect}>{cross()}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
                 {totalQuestionsCompleted > 0 && (
@@ -189,7 +195,7 @@ const SimpleExercises1 = ({ pageContext }) => {
                     <Spacer size={3} />
                     <p className="textCenter">
                       You got{" "}
-                      {incorrectAnswersLog.length - totalQuestionsCompleted} out
+                      {totalQuestionsCompleted - incorrectAnswersLog.length} out
                       of {totalQuestionsCompleted}.
                     </p>
                   </div>
@@ -198,9 +204,9 @@ const SimpleExercises1 = ({ pageContext }) => {
             ) : (
               <div className="flexCol">
                 <p>You finished!</p>
-                {incorrectAnswersLog.map((log) => (
-                  <div>
-                    <p>{log.question[1] + log.question[2]}</p>
+                {incorrectAnswersLog.map((log, index) => (
+                  <div key={index}>
+                    <p>Question: {log.question.join(" + ")}</p>
                     <p>You answered: {log.answer}</p>
                     <p>
                       The correct answer is {log.question[0] + log.question[1]}
@@ -227,9 +233,8 @@ const SimpleExercises1 = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Maths: Times Tables" />;
+export const Head = () => <Seo title="Thunder Island | Maths: Addition" />;
 
-//// ** PROP TYPES ** ////
 SimpleExercises1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };

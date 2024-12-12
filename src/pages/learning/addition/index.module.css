@@ -13,9 +13,9 @@
   align-items: center;
 }
 .game-question-box {
-  align-items: center;
+  align-items: end;
 }
-.game-question-box .maths-symbol {
+.maths-symbol {
   align-self: start;
 }
 .game-form {
@@ -26,14 +26,16 @@
   align-self: center;
 }
 .game-form input {
-  text-align: center;
+  text-align: right;
   padding: 0.5rem;
-  width: 5rem;
   height: 2rem;
 }
 .game span {
   padding: 0rem 1rem;
-  align-self: right;
+}
+.evaluationWrapper {
+  width: 0rem;
+  transform: translateX(2rem);
 }
 .is-incorrect svg {
   color: var(--color-incorrect);
