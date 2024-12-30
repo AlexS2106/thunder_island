@@ -145,6 +145,31 @@ export const taran_word_groups = {
         },
       ],
     },
+    {
+      name: "christmas",
+      list: [
+        {
+          english: "christmas",
+          malti: "milied",
+        },
+        {
+          english: "reindeer",
+          malti: "ċerva",
+        },
+        {
+          english: "presents",
+          malti: "rigali",
+        },
+        {
+          english: "tree",
+          malti: "siġra",
+        },
+        {
+          english: "snow",
+          malti: "borra",
+        },
+      ],
+    },
   ],
 };
 export const numbers = {
