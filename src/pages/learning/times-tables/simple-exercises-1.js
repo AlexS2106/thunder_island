@@ -16,7 +16,7 @@ import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
@@ -315,7 +315,9 @@ const SimpleExercises1 = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Maths: Times Tables" />;
+export const Head = () => (
+  <SearchEngineOptimisation title="Thunder Island | Maths: Times Tables" />
+);
 
 //// ** PROP TYPES ** ////
 SimpleExercises1.propTypes = {

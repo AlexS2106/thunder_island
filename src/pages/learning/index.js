@@ -17,7 +17,7 @@ import Breadcrumbs from "../../components/navigation/page-navigation/breadcrumbs
 import Layout from "../../components/layout/containers/Layout";
 import Main from "../../components/layout/containers/Main";
 import PageTitle from "../../components/typography/pageTitle/PageTitle";
-import Seo from "../../components/seo/seo";
+import SearchEngineOptimisation from "../../components/seo/SearchEngineOptimisation";
 import Spacer from "../../components/layout/spacing/Spacer";
 
 import { makeTitle } from "../../support/functions/utility";
@@ -84,7 +84,9 @@ const LearningPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Learning" />;
+export const Head = () => (
+  <SearchEngineOptimisation title="Thunder Island | Learning" />
+);
 
 ////** PROP TYPES **////
 LearningPage.propTypes = {

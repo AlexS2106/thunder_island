@@ -19,7 +19,7 @@ import Main from "../components/layout/containers/Main";
 import MediumPostList from "../components/postLists/mediumPostList/MediumPostList";
 import OptionBoxes from "../components/navigation/menus/OptionBoxes";
 import Pagination from "../components/navigation/page-navigation/pagination/Pagination";
-import Seo from "../components/seo/seo";
+import SearchEngineOptimisation from "../components/seo/SearchEngineOptimisation";
 import Signature from "../components/typography/signature/Signature";
 import Spacer from "../components/layout/spacing/Spacer";
 import StandardGrid from "../components/layout/grids/StandardGrid";
@@ -257,7 +257,7 @@ const HomeTemplate = ({ data: { allPosts }, pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Thunder Island | Recipes, Learning, Writing" />
+  <SearchEngineOptimisation title="Thunder Island | Recipes, Learning, Writing" />
 );
 
 ////** PROP TYPES **////

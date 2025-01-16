@@ -99,8 +99,8 @@ export function makeUniqueRandomNumberArray(lengthOfArray) {
   }
   return [...randomSet.values()];
 }
-//takes an array of objects with 2 values (the beginning value must be attached to value1) and adapts it into an array of objects suitable for using with the component <mixmatch1> as the exerciseData prop
-export function makeMixMatchExerciseDataObjectArray(arr) {
+//takes an array of objects with 2 values (the beginning value must be attached to value1) and adapts it into an array of objects suitable for using with the component <wordmatch1> as the exerciseData prop
+export function makeWordMatchExerciseDataObjectArray(arr) {
   const randomSet1 = makeUniqueRandomNumberArray(arr.length);
   const randomSet2 = makeUniqueRandomNumberArray(arr.length);
 
@@ -121,23 +121,20 @@ export function redefineLanguageValuesAsValue1AndValue2ForData(
   languageValue2,
 ) {
   let returningObj;
-  if (
-    languageValue1.toLowerCase() === "english" &&
-    languageValue2.toLowerCase() === "malti"
-  ) {
-    if (Array.isArray(obj)) {
-      returningObj = obj.map((item) => ({
-        value1: item.english,
-        value2: item.malti,
-      }));
-    } else {
-      returningObj = {
-        value1: obj.english,
-        value2: obj.malti,
-      };
-    }
-    return returningObj;
+  if (Array.isArray(obj)) {
+    returningObj = obj.map((item) => ({
+      value1: item.english,
+      value2:
+        languageValue2.toLowerCase() === "malti" ? item.malti : item.espanyol,
+    }));
+  } else {
+    returningObj = {
+      value1: obj.english,
+      value2:
+        languageValue2.toLowerCase() === "malti" ? obj.malti : obj.espanyol,
+    };
   }
+  return returningObj;
 }
 
 //creates a debounce function useful for adding a pause to an intensive function that might be called multiple times in a short time frame e.g. a search

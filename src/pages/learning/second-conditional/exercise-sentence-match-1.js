@@ -5,24 +5,24 @@ import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
-import MixNMatch1 from "../../../components/user-interactive/mix-n-match/mix-n-match";
+import WordMatch1 from "../../../components/user-interactive/word-match/Word-Match";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
-import { zeroConditional1 } from "../../../support/types/english";
+import { secondConditional1 } from "../../../support/types/english";
 
 ////** COMPONENT **////
-const ExerciseMixMatch1 = ({ pageContext }) => {
+const ExerciseSentenceMatch1 = ({ pageContext }) => {
   ////** CONTEXT **////
   //Breadcrumb state
   const {
     breadcrumb: { crumbs },
   } = pageContext;
   const crumbPaths = crumbs.map((crumb) =>
-    crumb.crumbLabel === "zero-conditional"
+    crumb.crumbLabel === "second-conditional"
       ? {
           ...crumb,
           pathname: "/learning",
@@ -31,7 +31,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
   );
 
   ////** VARIABLES **////
-  const pageTitle2 = "The Zero Conditional - A Mix 'N' Match";
+  const pageTitle1 = "An Exercise Using The Second Conditional.";
 
   ////** MARK UP **////
   return (
@@ -39,7 +39,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
       <Spacer size={3} />
       <Breadcrumbs crumbs={crumbPaths} />
       <Spacer size={3} />
-      <PageTitle title={pageTitle2} />
+      <PageTitle title={pageTitle1} />
       <Spacer size={3} />
       <AsideRight>
         <Main size={1}>
@@ -49,16 +49,17 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
               Match the if clause on the left to the result clause on the right.
             </p>
           </TextEmphasisBoxMinor>
-          <Spacer size={3} />
-          <MixNMatch1 exerciseData={zeroConditional1} />
+          <Spacer size={2} />
+          <WordMatch1 exerciseData={secondConditional1} />
           <Spacer size={2} />
         </Main>
         <aside className="sideBorderLight sideBorderPad">
-          <h3 className="shadowText">Lessons on The Zero Conditional</h3>
+          <h3 className="shadowText">Lessons on The Second Conditional</h3>
+          <Spacer size={4} />
           <SimpleLink
-            linkTo="/learning/zero-conditional/complete-lesson"
+            linkTo="/learning/second-conditional/complete-lesson"
             activeClassName="isActive"
-            innerText="The Zero Conditional - A Complete Lesson"
+            innerText="The Second Conditional - A Complete Lesson"
           />
           <Spacer size={2} />
         </aside>
@@ -68,12 +69,12 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Thunder Island | Learning: Zero Conditional" />
+  <SearchEngineOptimisation title="Thunder Island | Learning: Second Conditional" />
 );
 
-//// ** PROP TYPES ** ////
-ExerciseMixMatch1.propTypes = {
+//// *** PROP TYPES *** ////
+ExerciseSentenceMatch1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };
 
-export default ExerciseMixMatch1;
+export default ExerciseSentenceMatch1;

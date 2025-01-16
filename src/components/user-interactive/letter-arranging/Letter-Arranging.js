@@ -7,13 +7,13 @@ import {
   boxText,
   isCorrect,
   isIncorrect,
-} from "./spell-words.module.css";
+} from "./Letter-Arranging.module.css";
 
 import Button from "../../buttons/Button";
 
 import { redefineLanguageValuesAsValue1AndValue2ForData } from "../../../support/functions/utility";
 
-const SpellWords = ({ data, lang1, lang2, onReset }) => {
+const LetterArranging = ({ data, lang1, lang2, onReset }) => {
   const [letters, setLetters] = useState([]);
   const [mixedLetters, setMixedLetters] = useState([]);
   const [slots, setSlots] = useState([]);
@@ -130,8 +130,8 @@ const SpellWords = ({ data, lang1, lang2, onReset }) => {
 };
 
 //// ** PROP TYPES ** ////
-SpellWords.propTypes = {
+LetterArranging.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default SpellWords;
+export default LetterArranging;

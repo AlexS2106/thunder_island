@@ -9,9 +9,9 @@ import Breadcrumbs from "../../../components/navigation/page-navigation/breadcru
 import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
-import SpellWords from "../../../components/user-interactive/spell-words/spell-words";
+import LetterArranging from "../../../components/user-interactive/letter-arranging/Letter-Arranging";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
@@ -20,7 +20,7 @@ import { taran_word_groups, numbers } from "../../../support/types/maltese";
 import { makeTitle } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
-const ExerciseSpellWords1 = ({ pageContext }) => {
+const ExerciseLetterArranging1 = ({ pageContext }) => {
   ////** CONTEXT **////
   //Breadcrumb state
   const {
@@ -60,7 +60,7 @@ const ExerciseSpellWords1 = ({ pageContext }) => {
   }, [wordSetCount, userSelectedSubGroups, wordSetComplete]);
 
   //// *** VARIABLES *** ////
-  const pageTitle1 = "Maltese Spellwords";
+  const pageTitle1 = "Maltese Letter Arranging";
   //array containing imported wordgroup objects
   const _allWordGroups = [taran_word_groups, numbers];
 
@@ -85,7 +85,7 @@ const ExerciseSpellWords1 = ({ pageContext }) => {
       }
     }
   }
-  function resetSpellWords() {
+  function resetLetterArranging() {
     setWordSetCount((prevCount) => {
       const newCount = prevCount + 1;
       setCurrentWordSet(memoizedUserSelectedSubGroups[0]?.list[newCount]);
@@ -146,11 +146,11 @@ const ExerciseSpellWords1 = ({ pageContext }) => {
                 <Spacer size={3} />
                 <h6>{makeTitle(userSelectedSubGroups[0].name)}</h6>
                 <Spacer size={3} />
-                <SpellWords
+                <LetterArranging
                   data={currentWordSet}
                   lang1="english"
                   lang2="malti"
-                  onReset={resetSpellWords}
+                  onReset={resetLetterArranging}
                 />
               </div>
             )}
@@ -165,11 +165,13 @@ const ExerciseSpellWords1 = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Learning: Maltese" />;
+export const Head = () => (
+  <SearchEngineOptimisation title="Thunder Island | Learning: Maltese" />
+);
 
 //// ** PROP TYPES ** ////
-ExerciseSpellWords1.propTypes = {
+ExerciseLetterArranging1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };
 
-export default ExerciseSpellWords1;
+export default ExerciseLetterArranging1;

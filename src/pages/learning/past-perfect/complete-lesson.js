@@ -11,7 +11,7 @@ import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/T
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 
@@ -601,7 +601,7 @@ const AdvancedLesson = ({ pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Thunder Island | Learning: Past Perfect" />
+  <SearchEngineOptimisation title="Thunder Island | Learning: Past Perfect" />
 );
 
 ////** PROP TYPES **////

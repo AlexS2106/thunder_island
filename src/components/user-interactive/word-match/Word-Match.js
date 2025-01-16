@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import PropTypes from "prop-types";
 
-import { grid, isCorrect, isIncorrect } from "./mix-n-match.module.css";
+import { grid, isCorrect, isIncorrect } from "./Word-Match.module.css";
 
-import Spacer from "../../../components/layout/spacing/Spacer";
+import Spacer from "../../layout/spacing/Spacer";
 
-import { makeMixMatchExerciseDataObjectArray } from "../../../support/functions/utility";
+import { makeWordMatchExerciseDataObjectArray } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
-const MixNMatch1 = ({ exerciseData }) => {
+const WordMatch1 = ({ exerciseData }) => {
   ////** STATE **////
   //Initial state for answers
   const [data, setData] = useState(
-    makeMixMatchExerciseDataObjectArray(exerciseData),
+    makeWordMatchExerciseDataObjectArray(exerciseData),
   );
   //Sort answers into a new order as per random sorting by utility function
   const [arrayOfLocs1, setArrayOfLocs1] = useState(
@@ -150,8 +150,8 @@ const MixNMatch1 = ({ exerciseData }) => {
 };
 
 ////** PROP TYPES **////
-MixNMatch1.propTypes = {
+WordMatch1.propTypes = {
   exerciseData: PropTypes.array.isRequired,
 };
 
-export default MixNMatch1;
+export default WordMatch1;

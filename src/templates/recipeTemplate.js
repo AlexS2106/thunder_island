@@ -20,7 +20,7 @@ import Layout from "../components/layout/containers/Layout";
 import Main from "../components/layout/containers/Main";
 import StandardGrid from "../components/layout/grids/StandardGrid";
 import PageTitle from "../components/typography/pageTitle/PageTitle";
-import Seo from "../components/seo/seo";
+import SearchEngineOptimisation from "../components/seo/SearchEngineOptimisation";
 import Signature from "../components/typography/signature/Signature";
 import SmallPostList from "../components/postLists/smallPostList/SmallPostList";
 import Spacer from "../components/layout/spacing/Spacer";
@@ -160,7 +160,7 @@ const RecipeTemplate = ({
 };
 
 export const Head = ({ data: { post } }) => (
-  <Seo
+  <SearchEngineOptimisation
     title={`Thunder Island | Recipe: ${post.frontmatter.title}`}
     description={post.description}
   />

@@ -11,7 +11,7 @@ import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/T
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 
@@ -554,9 +554,9 @@ const AdvancedLesson = ({ pageContext }) => {
           <h3 className="shadowText">Exercises</h3>
           <Spacer size={4} />
           <SimpleLink
-            linkTo="/learning/zero-conditional/exercise-mix-match-1"
+            linkTo="/learning/zero-conditional/exercise-word--match-1"
             activeClassName="isActive"
-            innerText="The Zero Conditional - A Mix 'N' Match Exercise."
+            innerText="The Zero Conditional - A Word Match Exercise."
           />
           <Spacer size={2} />
         </aside>
@@ -566,7 +566,7 @@ const AdvancedLesson = ({ pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Thunder Island | Learning: Zero Conditional" />
+  <SearchEngineOptimisation title="Thunder Island | Learning: Zero Conditional" />
 );
 
 ////** PROP TYPES **////

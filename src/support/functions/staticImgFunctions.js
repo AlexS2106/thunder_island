@@ -394,6 +394,17 @@ export function skyWatchOfDinosaurCometImg() {
     />
   );
 }
+export function spanishImg() {
+  return (
+    <StaticImage
+      src="../../images/spanish-landscape.png"
+      alt="the spanish flag"
+      aria-hidden="true"
+      placeholder="blurred"
+      objectFit="cover"
+    />
+  );
+}
 export function sunlitLandscapeImg() {
   return (
     <StaticImage

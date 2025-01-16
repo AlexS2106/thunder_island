@@ -25,7 +25,7 @@ import Layout from "../../components/layout/containers/Layout";
 import Main from "../../components/layout/containers/Main";
 import OptionBoxes from "../../components/navigation/menus/OptionBoxes";
 import PageTitle from "../../components/typography/pageTitle/PageTitle";
-import Seo from "../../components/seo/seo";
+import SearchEngineOptimisation from "../../components/seo/SearchEngineOptimisation";
 import Spacer from "../../components/layout/spacing/Spacer";
 import LinkAsButton from "../../components/navigation/links/LinkAsButton";
 
@@ -195,7 +195,6 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
 
   const handleMenuClick = (e) => {
     const id = `${makeSlug(e.target.innerText)}`;
-    console.log(e.target.innerText);
     if (id === "thunder-island-code") {
       window.location.href = "https://github.com/AlexS2106/thunder_island.git";
     } else {
@@ -236,7 +235,9 @@ const PortfolioPage = ({ data: { allPosts }, pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Portfolio" />;
+export const Head = () => (
+  <SearchEngineOptimisation title="Thunder Island | Portfolio" />
+);
 
 ////** PROP TYPES **////
 PortfolioPage.propTypes = {

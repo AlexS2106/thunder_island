@@ -9,7 +9,7 @@ import Breadcrumbs from "../../../components/navigation/page-navigation/breadcru
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import SimpleLink from "../../../components/navigation/links/SimpleLink";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
@@ -300,15 +300,15 @@ const Overview = ({ pageContext }) => {
           <h3 className="shadowText">Exercises</h3>
           <Spacer size={4} />
           <SimpleLink
-            linkTo="/learning/zero-conditional/exercise-mix-match-1"
+            linkTo="/learning/zero-conditional/exercise-word-match-1"
             activeClassName="isActive"
-            innerText="The Zero Conditional - A Mix 'N' Match"
+            innerText="The Zero Conditional - Word Match"
           />
           <Spacer size={4} />
           <SimpleLink
-            linkTo="/learning/third-conditional/exercise-mix-match-1"
+            linkTo="/learning/third-conditional/exercise-word-match-1"
             activeClassName="isActive"
-            innerText="The Third Conditional - A Mix 'N' Match"
+            innerText="The Third Conditional - Word Match"
           />
           <Spacer size={2} />
         </aside>
@@ -318,7 +318,7 @@ const Overview = ({ pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Thunder Island | Learning : English Tenses" />
+  <SearchEngineOptimisation title="Thunder Island | Learning : English Tenses" />
 );
 
 ////** PROP TYPES **////

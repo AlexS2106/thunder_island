@@ -170,6 +170,59 @@ export const taran_word_groups = {
         },
       ],
     },
+    {
+      name: "months",
+      list: [
+        {
+          english: "january",
+          malti: "jannar",
+        },
+        {
+          english: "february",
+          malti: "frar",
+        },
+        {
+          english: "march",
+          malti: "marzu",
+        },
+        {
+          english: "april",
+          malti: "april",
+        },
+        {
+          english: "may",
+          malti: "mejju",
+        },
+        {
+          english: "june",
+          malti: "ġunju",
+        },
+        {
+          english: "july",
+          malti: "ġunju",
+        },
+        {
+          english: "august",
+          malti: "awwissu",
+        },
+        {
+          english: "september",
+          malti: "settembru",
+        },
+        {
+          english: "october",
+          malti: "ottubru",
+        },
+        {
+          english: "november",
+          malti: "novembru",
+        },
+        {
+          english: "december",
+          malti: "diċembru",
+        },
+      ],
+    },
   ],
 };
 export const numbers = {

@@ -9,13 +9,16 @@ import Breadcrumbs from "../../../components/navigation/page-navigation/breadcru
 import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
-import MixNMatch1 from "../../../components/user-interactive/mix-n-match/mix-n-match";
+import WordMatch1 from "../../../components/user-interactive/word-match/Word-Match";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
-import Seo from "../../../components/seo/seo";
+import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
-import { taran_word_groups, numbers } from "../../../support/types/maltese";
+import {
+  pocoyo_le_cuento,
+  pocoyo_arriba_y_abajo,
+} from "../../../support/types/spanish";
 
 import {
   makeTitle,
@@ -23,14 +26,14 @@ import {
 } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
-const ExerciseMixMatch1 = ({ pageContext }) => {
+const ExerciseWordMatch1 = ({ pageContext }) => {
   ////** CONTEXT **////
   //Breadcrumb state
   const {
     breadcrumb: { crumbs },
   } = pageContext;
   const crumbPaths = crumbs.map((crumb) =>
-    crumb.crumbLabel === "maltese"
+    crumb.crumbLabel === "spanish"
       ? {
           ...crumb,
           pathname: "/learning",
@@ -43,9 +46,9 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
   const [userSelectedSubGroups, setUserSelectedSubGroups] = useState([]);
 
   //// *** VARIABLES *** ////
-  const pageTitle1 = "Maltese Mix N Match";
+  const pageTitle1 = "Spanish Word Matching";
   //array containing imported wordgroup objects
-  const _allWordGroups = [taran_word_groups, numbers];
+  const _allWordGroups = [pocoyo_le_cuento, pocoyo_arriba_y_abajo];
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {
@@ -104,7 +107,7 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
                 <Spacer size={3} />
                 <TextEmphasisBoxMinor>
                   <p className="textCenter">
-                    Match the Maltese to the English.
+                    Match the Spanish to the English.
                   </p>
                 </TextEmphasisBoxMinor>
               </>
@@ -114,11 +117,11 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
                 <Spacer size={3} />
                 <h6>{makeTitle(subGroup.name)}</h6>
                 <Spacer size={3} />
-                <MixNMatch1
+                <WordMatch1
                   exerciseData={redefineLanguageValuesAsValue1AndValue2ForData(
                     subGroup.list,
                     "english",
-                    "malti",
+                    "espanyol",
                   )}
                 />
               </div>
@@ -134,11 +137,13 @@ const ExerciseMixMatch1 = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Learning: Maltese" />;
+export const Head = () => (
+  <SearchEngineOptimisation title="Thunder Island | Learning: Spanish" />
+);
 
 //// ** PROP TYPES ** ////
-ExerciseMixMatch1.propTypes = {
+ExerciseWordMatch1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };
 
-export default ExerciseMixMatch1;
+export default ExerciseWordMatch1;

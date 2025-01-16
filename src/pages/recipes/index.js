@@ -12,7 +12,7 @@ import Main from "../../components/layout/containers/Main";
 import MediumPostList from "../../components/postLists/mediumPostList/MediumPostList";
 import OptionBoxes from "../../components/navigation/menus/OptionBoxes";
 import PageTitle from "../../components/typography/pageTitle/PageTitle";
-import Seo from "../../components/seo/seo";
+import SearchEngineOptimisation from "../../components/seo/SearchEngineOptimisation";
 import SmallPostList from "../../components/postLists/smallPostList/SmallPostList";
 import Spacer from "../../components/layout/spacing/Spacer";
 import StandardGrid from "../../components/layout/grids/StandardGrid";
@@ -313,7 +313,9 @@ const RecipesPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Thunder Island | Recipes" />;
+export const Head = () => (
+  <SearchEngineOptimisation title="Thunder Island | Recipes" />
+);
 
 ////** PROP TYPES **////
 RecipesPage.propTypes = {

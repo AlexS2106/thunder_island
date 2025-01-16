@@ -14,7 +14,7 @@ import Intro from "../components/typography/intro/Intro";
 import Layout from "../components/layout/containers/Layout";
 import Main from "../components/layout/containers/Main";
 import PageTitle from "../components/typography/pageTitle/PageTitle";
-import Seo from "../components/seo/seo";
+import SearchEngineOptimisation from "../components/seo/SearchEngineOptimisation";
 import Signature from "../components/typography/signature/Signature";
 import Spacer from "../components/layout/spacing/Spacer";
 
@@ -112,7 +112,7 @@ const ArticleTemplate = ({
 };
 
 export const Head = ({ data: { post } }) => (
-  <Seo
+  <SearchEngineOptimisation
     title={`Thunder Island | Writing: ${post.frontmatter.title}`}
     description={post.description}
   />
