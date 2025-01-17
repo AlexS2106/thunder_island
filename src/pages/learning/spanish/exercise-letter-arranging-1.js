@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import { v4 as uuid } from "uuid";
 
@@ -44,6 +44,7 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
   const [wordSetCount, setWordSetCount] = useState(0);
   const [currentWordSet, setCurrentWordSet] = useState();
   const [wordSetComplete, setWordSetComplete] = useState(false);
+  const shuffledWordsRef = useRef([]);
 
   const memoizedUserSelectedSubGroups = useMemo(
     () => userSelectedSubGroups,
@@ -51,16 +52,29 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
   );
 
   useEffect(() => {
-    setCurrentWordSet(memoizedUserSelectedSubGroups[0]?.list[wordSetCount]);
-  }, [memoizedUserSelectedSubGroups, wordSetCount]);
+    if (
+      memoizedUserSelectedSubGroups &&
+      memoizedUserSelectedSubGroups.length > 0 &&
+      memoizedUserSelectedSubGroups[0]?.list
+    ) {
+      const words = memoizedUserSelectedSubGroups[0].list;
+      shuffledWordsRef.current = shuffleArray(words);
+      setCurrentWordSet(shuffledWordsRef.current[0] || null);
+    }
+  }, [memoizedUserSelectedSubGroups]);
 
   useEffect(() => {
-    if (!userSelectedSubGroups || wordSetCount < 1) {
-      return;
-    } else if (wordSetCount === userSelectedSubGroups[0]?.list.length) {
+    if (wordSetCount === 0) {
+      setWordSetComplete(false);
+    } else if (
+      shuffledWordsRef.current &&
+      wordSetCount < shuffledWordsRef.current.length
+    ) {
+      setCurrentWordSet(shuffledWordsRef.current[wordSetCount] || null);
+    } else {
       setWordSetComplete(true);
     }
-  }, [wordSetCount, userSelectedSubGroups, wordSetComplete]);
+  }, [wordSetCount]);
 
   //// *** VARIABLES *** ////
   const pageTitle1 = "Spanish Letter Arranging";
@@ -69,31 +83,41 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {
-    setWordSetCount(0);
-    setWordSetComplete(false);
+    resetGameState();
+
     if (type === "wordgroup") {
-      const check = userSelectedWordGroups.some((group) => group === selected);
-      if (check) {
-        return;
-      } else {
-        setUserSelectedWordGroups([selected]);
-        setUserSelectedSubGroups([]);
-      }
+      setUserSelectedWordGroups((prev) =>
+        prev.includes(selected) ? prev : [selected],
+      );
+      setUserSelectedSubGroups([]);
     } else if (type === "subgroup") {
-      const check = userSelectedSubGroups.some((group) => group === selected);
-      if (check) {
-        return;
-      } else {
-        setUserSelectedSubGroups([selected]);
-      }
+      setUserSelectedSubGroups((prev) =>
+        prev.includes(selected) ? prev : [selected],
+      );
     }
   }
+
+  function resetGameState() {
+    setWordSetCount(0);
+    setWordSetComplete(false);
+    setCurrentWordSet(null);
+    shuffledWordsRef.current = [];
+  }
+
   function resetLetterArranging() {
-    setWordSetCount((prevCount) => {
-      const newCount = prevCount + 1;
-      setCurrentWordSet(memoizedUserSelectedSubGroups[0]?.list[newCount]);
-      return newCount;
-    });
+    setWordSetCount((prevCount) => prevCount + 1);
+  }
+
+  function shuffleArray(array) {
+    let shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    return shuffledArray;
   }
 
   ////** MARK UP **////
@@ -138,24 +162,28 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
                 </TextEmphasisBoxMinor>
               </>
             ) : null}
-            {wordSetComplete && (
+            {wordSetComplete ? (
               <div>
                 <p>You finished!</p>
                 <p>Awesome you!</p>
               </div>
-            )}
-            {currentWordSet && (
-              <div key={uuid()}>
-                <Spacer size={3} />
-                <h6>{makeTitle(userSelectedSubGroups[0].name)}</h6>
-                <Spacer size={3} />
-                <LetterArranging
-                  data={currentWordSet}
-                  lang1="english"
-                  lang2="spanish"
-                  onReset={resetLetterArranging}
-                />
-              </div>
+            ) : (
+              currentWordSet && (
+                <div key={uuid()}>
+                  <Spacer size={3} />
+                  <h6>
+                    {userSelectedSubGroups[0]?.name &&
+                      makeTitle(userSelectedSubGroups[0].name)}
+                  </h6>
+                  <Spacer size={3} />
+                  <LetterArranging
+                    data={currentWordSet}
+                    lang1="english"
+                    lang2="spanish"
+                    onReset={resetLetterArranging}
+                  />
+                </div>
+              )
             )}
           </div>
           <Spacer size={2} />

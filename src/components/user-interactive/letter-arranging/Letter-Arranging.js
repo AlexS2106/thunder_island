@@ -11,7 +11,10 @@ import {
 
 import Button from "../../buttons/Button";
 
-import { redefineLanguageValuesAsValue1AndValue2ForData } from "../../../support/functions/utility";
+import {
+  makeTitle,
+  redefineLanguageValuesAsValue1AndValue2ForData,
+} from "../../../support/functions/utility";
 
 const LetterArranging = ({ data, lang1, lang2, onReset }) => {
   const [letters, setLetters] = useState([]);
@@ -87,7 +90,8 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
   return (
     <div>
       <p>
-        Arrange the letters to mean <em>{translation}</em> in Maltese.
+        Arrange the letters to mean <em>{translation}</em> in {makeTitle(lang2)}
+        .
       </p>
       <div className={`flexRow`}>
         {mixedLetters.map((letter, index) => (
@@ -132,6 +136,9 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
 //// ** PROP TYPES ** ////
 LetterArranging.propTypes = {
   data: PropTypes.object.isRequired,
+  lang1: PropTypes.string.isRequired,
+  lang2: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired,
 };
 
 export default LetterArranging;
