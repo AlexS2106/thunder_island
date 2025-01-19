@@ -8,6 +8,7 @@ import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
+import LinkAsButton from "../../../components/navigation/links/LinkAsButton";
 import Main from "../../../components/layout/containers/Main";
 import LetterArranging from "../../../components/user-interactive/letter-arranging/Letter-Arranging";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
@@ -16,7 +17,7 @@ import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
 import {
-  pocoyo_le_cuento,
+  pocoyo_el_cuento_de_colores,
   pocoyo_arriba_y_abajo,
 } from "../../../support/types/spanish";
 
@@ -40,6 +41,7 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
 
   //// *** STATE *** ////
   const [userSelectedWordGroups, setUserSelectedWordGroups] = useState([]);
+  const [addLink, setAddLink] = useState("");
   const [userSelectedSubGroups, setUserSelectedSubGroups] = useState([]);
   const [wordSetCount, setWordSetCount] = useState(0);
   const [currentWordSet, setCurrentWordSet] = useState();
@@ -79,7 +81,7 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
   //// *** VARIABLES *** ////
   const pageTitle1 = "Spanish Letter Arranging";
   //array containing imported wordgroup objects
-  const _allWordGroups = [pocoyo_le_cuento, pocoyo_arriba_y_abajo];
+  const _allWordGroups = [pocoyo_el_cuento_de_colores, pocoyo_arriba_y_abajo];
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {
@@ -88,6 +90,9 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
     if (type === "wordgroup") {
       setUserSelectedWordGroups((prev) =>
         prev.includes(selected) ? prev : [selected],
+      );
+      setAddLink((prev) =>
+        prev.includes(selected.link) ? prev : selected.link,
       );
       setUserSelectedSubGroups([]);
     } else if (type === "subgroup") {
@@ -102,6 +107,7 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
     setWordSetComplete(false);
     setCurrentWordSet(null);
     shuffledWordsRef.current = [];
+    setAddLink("");
   }
 
   function resetLetterArranging() {
@@ -166,6 +172,11 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
               <div>
                 <p>You finished!</p>
                 <p>Awesome you!</p>
+                <LinkAsButton
+                  innerText="Watch the episode!"
+                  linkTo={addLink}
+                  linkOut={true}
+                />
               </div>
             ) : (
               currentWordSet && (

@@ -1,5 +1,6 @@
-export const pocoyo_le_cuento = {
+export const pocoyo_el_cuento_de_colores = {
   name: "el cuento de colores",
+  link: "https://youtu.be/g8KuwGC0QYQ",
   subWordGroups: [
     {
       name: "los colores",
@@ -36,12 +37,66 @@ export const pocoyo_le_cuento = {
           english: "white",
           espanyol: "blanco",
         },
+        {
+          english: "purple",
+          espanyol: "morado",
+        },
+        {
+          english: "mixed",
+          espanyol: "mezclado",
+        },
+      ],
+    },
+    {
+      name: "grupo dos",
+      list: [
+        {
+          english: "mirror",
+          espanyol: "spejo",
+        },
+        {
+          english: "hello",
+          espanyol: "hola",
+        },
+        {
+          english: "but",
+          espanyol: "pero",
+        },
+        {
+          english: "seguro",
+          espanyol: "sure",
+        },
+        {
+          english: "mine",
+          espanyol: "mio",
+        },
+        {
+          english: "mira",
+          espanyol: "she looks",
+        },
+        {
+          english: "great idea",
+          espanyol: "gran idea",
+        },
+        {
+          english: "it is",
+          espanyol: "es",
+        },
+        {
+          english: "my book",
+          espanyol: "mi cuento",
+        },
+        {
+          english: "venga",
+          espanyol: "hurry up",
+        },
       ],
     },
   ],
 };
 export const pocoyo_arriba_y_abajo = {
   name: "arriba y abajo",
+  link: "https://www.youtube.com/watch?v=bSN1jP6-qcM",
   subWordGroups: [
     {
       name: "grupo uno",

@@ -8,6 +8,7 @@ import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
+import LinkAsButton from "../../../components/navigation/links/LinkAsButton";
 import Main from "../../../components/layout/containers/Main";
 import WordMatch1 from "../../../components/user-interactive/word-match/Word-Match";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
@@ -16,7 +17,7 @@ import Spacer from "../../../components/layout/spacing/Spacer";
 import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/TextEmphasisBoxMinor";
 
 import {
-  pocoyo_le_cuento,
+  pocoyo_el_cuento_de_colores,
   pocoyo_arriba_y_abajo,
 } from "../../../support/types/spanish";
 
@@ -44,29 +45,26 @@ const ExerciseWordMatch1 = ({ pageContext }) => {
   //// *** STATE *** ////
   const [userSelectedWordGroups, setUserSelectedWordGroups] = useState([]);
   const [userSelectedSubGroups, setUserSelectedSubGroups] = useState([]);
-
+  const [addLink, setAddLink] = useState("");
   //// *** VARIABLES *** ////
   const pageTitle1 = "Spanish Word Matching";
   //array containing imported wordgroup objects
-  const _allWordGroups = [pocoyo_le_cuento, pocoyo_arriba_y_abajo];
+  const _allWordGroups = [pocoyo_el_cuento_de_colores, pocoyo_arriba_y_abajo];
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {
     if (type === "wordgroup") {
-      const check = userSelectedWordGroups.some((group) => group === selected);
-      if (check) {
-        return;
-      } else {
-        setUserSelectedWordGroups([selected]);
-        setUserSelectedSubGroups([]);
-      }
+      setUserSelectedWordGroups((prev) =>
+        prev.includes(selected) ? prev : [selected],
+      );
+      setAddLink((prev) =>
+        prev.includes(selected.link) ? prev : selected.link,
+      );
+      setUserSelectedSubGroups([]);
     } else if (type === "subgroup") {
-      const check = userSelectedSubGroups.some((group) => group === selected);
-      if (check) {
-        return;
-      } else {
-        setUserSelectedSubGroups([selected]);
-      }
+      setUserSelectedSubGroups((prev) =>
+        prev.includes(selected) ? prev : [selected],
+      );
     }
   }
 
@@ -117,11 +115,19 @@ const ExerciseWordMatch1 = ({ pageContext }) => {
                 <Spacer size={3} />
                 <h6>{makeTitle(subGroup.name)}</h6>
                 <Spacer size={3} />
+                {addLink && (
+                  <LinkAsButton
+                    linkTo={addLink}
+                    innerText="Watch the Video"
+                    linkOut={true}
+                  />
+                )}
+                <Spacer size={3} />
                 <WordMatch1
                   exerciseData={redefineLanguageValuesAsValue1AndValue2ForData(
                     subGroup.list,
                     "english",
-                    "espanyol",
+                    "espanol",
                   )}
                 />
               </div>
