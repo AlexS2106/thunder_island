@@ -63,16 +63,16 @@ export const pocoyo_el_cuento_de_colores = {
           espanyol: "pero",
         },
         {
-          english: "seguro",
-          espanyol: "sure",
+          english: "sure",
+          espanyol: "seguro",
         },
         {
           english: "mine",
           espanyol: "mio",
         },
         {
-          english: "mira",
-          espanyol: "she looks",
+          english: "she looks",
+          espanyol: "mira",
         },
         {
           english: "great idea",
@@ -87,8 +87,8 @@ export const pocoyo_el_cuento_de_colores = {
           espanyol: "mi cuento",
         },
         {
-          english: "venga",
-          espanyol: "hurry up",
+          english: "hurry up",
+          espanyol: "venga",
         },
       ],
     },

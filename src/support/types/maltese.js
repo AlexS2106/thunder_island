@@ -223,6 +223,27 @@ export const taran_word_groups = {
         },
       ],
     },
+    {
+      name: "my family",
+      list: [
+        {
+          english: "my mother",
+          malti: "ommi",
+        },
+        {
+          english: "my father",
+          malti: "missieri",
+        },
+        {
+          english: "my sister",
+          malti: "oħti",
+        },
+        {
+          english: "my brother",
+          malti: "ħija",
+        },
+      ],
+    },
   ],
 };
 export const numbers = {
