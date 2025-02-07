@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -7,6 +7,7 @@ import {
   boxText,
   isCorrect,
   isIncorrect,
+  ghostElement,
 } from "./Letter-Arranging.module.css";
 
 import Button from "../../buttons/Button";
@@ -23,6 +24,13 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
   const [translation, setTranslation] = useState("");
   const [matching, setMatching] = useState([]);
   const [gameFinished, setGameFinished] = useState(false);
+  //Generates a "ghost element" to follow the user's finger around the screen
+  const [ghost, setGhost] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+    content: "",
+  });
 
   const initialiseGame = useCallback(() => {
     const redefinedData = redefineLanguageValuesAsValue1AndValue2ForData(
@@ -60,6 +68,31 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
     }
   }, [matching]);
 
+  //Sets refs for drag and drop functionality.
+  const dragged = useRef(null);
+  const draggedOver = useRef(null);
+  //holds the grid still during touchscreen event
+  const gridRef = useRef(null);
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const container = gridRef.current;
+    const preventTouchScroll = (e) => e.preventDefault();
+
+    // Explicitly set passive to false to allow preventDefault()
+    container.addEventListener("touchstart", preventTouchScroll, {
+      passive: false,
+    });
+    container.addEventListener("touchmove", preventTouchScroll, {
+      passive: false,
+    });
+
+    return () => {
+      container.removeEventListener("touchstart", preventTouchScroll);
+      container.removeEventListener("touchmove", preventTouchScroll);
+    };
+  }, []);
+
   const handleDragStart = (event, index) => {
     event.dataTransfer.setData("text/plain", index);
   };
@@ -86,9 +119,67 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
   const handleDragOver = (event) => {
     event.preventDefault();
   };
+  function handleOnTouchStart(e, index) {
+    const touch = e.touches[0]; // Get touch position
+    dragged.current = index; // Store the index of the element being touched
+    // Get the content of the dragged element
+    const itemContent = e.target.textContent || "";
+
+    setGhost({
+      visible: true,
+      x: touch.clientX,
+      y: touch.clientY,
+      content: itemContent, // Store the text or content of the element
+    });
+  }
+
+  function handleOnTouchMove(e) {
+    const touch = e.touches[0]; // Get touch position
+    setGhost((prev) => ({
+      ...prev,
+      x: touch.clientX,
+      y: touch.clientY,
+    }));
+
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (!element) return;
+
+    const index = element.getAttribute("data-index");
+    if (index !== null) {
+      draggedOver.current = parseInt(index, 10);
+    }
+  }
+  function handleOnTouchEnd(e) {
+    if (dragged.current !== null && draggedOver.current !== null) {
+      const letter = mixedLetters[dragged.current];
+      const slotIndex = draggedOver.current;
+
+      const newSlots = [...slots];
+      newSlots[slotIndex] = letter;
+      setSlots(newSlots);
+
+      if (letter === letters[slotIndex]) {
+        setMatching((prevArray) =>
+          prevArray.map((item, index) => (index === slotIndex ? true : item)),
+        );
+      } else {
+        setMatching((prevArray) =>
+          prevArray.map((item, index) => (index === slotIndex ? false : item)),
+        );
+      }
+    }
+
+    // Reset refs after dropping
+    dragged.current = null;
+    draggedOver.current = null;
+
+    // Hide ghost element
+    setGhost({ visible: false, x: 0, y: 0, content: "" });
+  }
 
   return (
-    <div>
+    <div ref={gridRef}>
       <p>
         Arrange the letters to mean <em>{translation}</em> in {makeTitle(lang2)}
         .
@@ -101,8 +192,13 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
             style={{}}
             role="button"
             tabIndex={0}
+            data-first="true"
+            data-index={index}
             draggable
-            onDragStart={(event) => handleDragStart(event, index)}>
+            onDragStart={(event) => handleDragStart(event, index)}
+            onTouchStart={(e) => handleOnTouchStart(e, index)}
+            onTouchMove={(e) => handleOnTouchMove(e, index)}
+            onTouchEnd={(e) => handleOnTouchEnd(e)}>
             {letter}
           </div>
         ))}
@@ -114,12 +210,27 @@ const LetterArranging = ({ data, lang1, lang2, onReset }) => {
             className={`${endingBoxes} ${boxText} flexRow ${matching[index] ? isCorrect : isIncorrect}`}
             role="button"
             tabIndex={0}
+            data-first="true"
+            data-index={index}
             onDrop={(event) => handleDrop(event, index)}
-            onDragOver={handleDragOver}>
+            onDragOver={handleDragOver}
+            onTouchStart={(e) => handleOnTouchStart(e, index)}
+            onTouchMove={(e) => handleOnTouchMove(e, index)}
+            onTouchEnd={(e) => handleOnTouchEnd(e)}>
             {slot}
           </div>
         ))}
       </div>
+      {ghost.visible && (
+        <div
+          className={ghostElement}
+          style={{
+            top: `${ghost.y}px`,
+            left: `${ghost.x}px`,
+          }}>
+          {ghost.content}
+        </div>
+      )}
       {gameFinished && (
         <div>
           <p>Well done!</p>

@@ -14,7 +14,7 @@ import {
 import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Button from "../../../components/buttons/Button";
-import Dropdown from "../../../components/user-interactive/dropdown/dropdown";
+import Dropdown from "../../../components/user-interactive/dropdown/Dropdown";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
@@ -189,6 +189,14 @@ const SimpleExercises1 = ({ pageContext }) => {
                         onChange={handleInputChange}
                         ref={inputRef}
                         value={inputValue}
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        onFocus={(e) =>
+                          e.target.setSelectionRange(
+                            e.target.value.length,
+                            e.target.value.length,
+                          )
+                        }
                         aria-autocomplete="none"
                         dir={difficulty > 1 ? "ltr" : "rtl"}
                       />
@@ -243,6 +251,7 @@ const SimpleExercises1 = ({ pageContext }) => {
                 <Button
                   innerText="Play again?"
                   onClick={resetAll}
+                  ontouchStart={resetAll}
                 />
               </div>
             )}

@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import PropTypes from "prop-types";
 
-import { grid, isCorrect, isIncorrect } from "./Word-Match.module.css";
+import {
+  grid,
+  isCorrect,
+  isIncorrect,
+  ghostElement,
+} from "./Word-Match.module.css";
 
 import Spacer from "../../layout/spacing/Spacer";
 
@@ -23,10 +28,39 @@ const WordMatch1 = ({ exerciseData }) => {
   );
   //Awaits a successfully completed exercise
   const [success, setSuccess] = useState(false);
+  //Generates a "ghost element" to follow the user's finger around the screen
+  const [ghost, setGhost] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+    content: "",
+  });
 
   //Sets refs for drag and drop functionality.
   const dragged = useRef(null);
   const draggedOver = useRef(null);
+  //holds the grid still during touchscreen event
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const container = gridRef.current;
+    const preventTouchScroll = (e) => e.preventDefault();
+
+    // Explicitly set passive to false to allow preventDefault()
+    container.addEventListener("touchstart", preventTouchScroll, {
+      passive: false,
+    });
+    container.addEventListener("touchmove", preventTouchScroll, {
+      passive: false,
+    });
+
+    return () => {
+      container.removeEventListener("touchstart", preventTouchScroll);
+      container.removeEventListener("touchmove", preventTouchScroll);
+    };
+  }, []);
 
   //Set memoisation
   const memoizedArrayOfLocs1 = useMemo(() => arrayOfLocs1, [arrayOfLocs1]);
@@ -53,47 +87,109 @@ const WordMatch1 = ({ exerciseData }) => {
 
   ////** FUNCTIONS **////
   //Drag function logic
-  function handleOnDragStart(e, index) {
+  function handleOnDragStart(index) {
     if (!success) {
       dragged.current = index;
     }
   }
-
-  function handleOnDragOver(e, index) {
-    e.preventDefault();
+  function handleOnDragOver(index) {
     if (!success) {
       draggedOver.current = index;
     }
   }
-
   function handleOnDragEnd(e) {
-    if (!success) {
+    if (!success && dragged.current !== null && draggedOver.current !== null) {
       const draggedLoc = dragged.current;
       const draggedOverLoc = draggedOver.current;
 
-      if (draggedLoc === null || draggedOverLoc === null) return;
+      const isFirstSet = e.target.hasAttribute("data-first");
+      const updatedLocs = isFirstSet ? [...arrayOfLocs1] : [...arrayOfLocs2];
 
-      const updatedLocs = e.target.hasAttribute("data-first")
-        ? [...arrayOfLocs1]
-        : [...arrayOfLocs2];
+      // Swap elements manually
+      [updatedLocs[draggedLoc], updatedLocs[draggedOverLoc]] = [
+        updatedLocs[draggedOverLoc],
+        updatedLocs[draggedLoc],
+      ];
 
-      const draggedOverItem = updatedLocs[draggedOverLoc];
-      const draggedItem = updatedLocs[draggedLoc];
-      updatedLocs[draggedLoc] = draggedOverItem;
-      updatedLocs[draggedOverLoc] = draggedItem;
+      if (isFirstSet) {
+        setArrayOfLocs1(updatedLocs);
+      } else {
+        setArrayOfLocs2(updatedLocs);
+      }
 
-      e.target.hasAttribute("data-first")
-        ? setArrayOfLocs1(updatedLocs)
-        : setArrayOfLocs2(updatedLocs);
-
+      // Reset refs
       dragged.current = null;
       draggedOver.current = null;
     }
   }
+
+  function handleOnTouchStart(e, index) {
+    const touch = e.touches[0]; // Get touch position
+    dragged.current = index; // Store the index of the element being touched
+    // Get the content of the dragged element
+    const itemContent = e.target.textContent || "";
+
+    setGhost({
+      visible: true,
+      x: touch.clientX,
+      y: touch.clientY,
+      content: itemContent, // Store the text or content of the element
+    });
+  }
+
+  function handleOnTouchMove(e) {
+    const touch = e.touches[0]; // Get touch position
+    setGhost((prev) => ({
+      ...prev,
+      x: touch.clientX,
+      y: touch.clientY,
+    }));
+
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (!element) return;
+
+    const index = element.getAttribute("data-index");
+    if (index !== null) {
+      draggedOver.current = parseInt(index, 10);
+    }
+  }
+
+  function handleOnTouchEnd(e) {
+    if (dragged.current !== null && draggedOver.current !== null) {
+      const draggedLoc = dragged.current;
+      const draggedOverLoc = draggedOver.current;
+
+      // Check which array we are in
+      const isFirstSet = e.target.hasAttribute("data-first");
+      const updatedLocs = isFirstSet ? [...arrayOfLocs1] : [...arrayOfLocs2];
+
+      // Swap elements
+      [updatedLocs[draggedLoc], updatedLocs[draggedOverLoc]] = [
+        updatedLocs[draggedOverLoc],
+        updatedLocs[draggedLoc],
+      ];
+
+      // Update the state
+      if (isFirstSet) {
+        setArrayOfLocs1(updatedLocs);
+      } else {
+        setArrayOfLocs2(updatedLocs);
+      }
+      // Hide the ghost element
+      setGhost({ visible: false, x: 0, y: 0, content: "" });
+      // Reset refs
+      dragged.current = null;
+      draggedOver.current = null;
+    }
+  }
+
   ////** MARK UP **////
   return (
     <>
-      <div className={grid}>
+      <div
+        className={grid}
+        ref={gridRef}>
         <div>
           {arrayOfLocs1.map((item, index) => (
             <div
@@ -109,10 +205,14 @@ const WordMatch1 = ({ exerciseData }) => {
               role="button"
               tabIndex={0}
               data-first="true"
+              data-index={index}
               draggable
               onDragStart={(e) => handleOnDragStart(e, index)}
               onDragOver={(e) => handleOnDragOver(e, index)}
-              onDragEnd={(e) => handleOnDragEnd(e)}>
+              onDragEnd={(e) => handleOnDragEnd(e)}
+              onTouchStart={(e) => handleOnTouchStart(e, index)}
+              onTouchMove={(e) => handleOnTouchMove(e, index)}
+              onTouchEnd={(e) => handleOnTouchEnd(e)}>
               {item.itemAtLoc1}
             </div>
           ))}
@@ -133,13 +233,27 @@ const WordMatch1 = ({ exerciseData }) => {
               tabIndex={0}
               data-second="true"
               draggable
+              data-index={index}
               onDragStart={(e) => handleOnDragStart(e, index)}
               onDragOver={(e) => handleOnDragOver(e, index)}
-              onDragEnd={(e) => handleOnDragEnd(e)}>
+              onDragEnd={(e) => handleOnDragEnd(e)}
+              onTouchStart={(e) => handleOnTouchStart(e, index)}
+              onTouchMove={(e) => handleOnTouchMove(e, index)}
+              onTouchEnd={(e) => handleOnTouchEnd(e)}>
               {item.itemAtLoc2}
             </div>
           ))}
         </div>
+        {ghost.visible && (
+          <div
+            className={ghostElement}
+            style={{
+              top: `${ghost.y}px`,
+              left: `${ghost.x}px`,
+            }}>
+            {ghost.content}
+          </div>
+        )}
       </div>
       <Spacer size={3} />
       {success ? (

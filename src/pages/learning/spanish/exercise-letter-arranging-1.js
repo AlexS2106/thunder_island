@@ -88,12 +88,13 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
     resetGameState();
 
     if (type === "wordgroup") {
-      setUserSelectedWordGroups((prev) =>
-        prev.includes(selected) ? prev : [selected],
-      );
-      setAddLink((prev) =>
-        prev.includes(selected.link) ? prev : selected.link,
-      );
+      setUserSelectedWordGroups((prev) => {
+        // Check if the selected word group is different from the current one
+        if (prev.length === 0 || prev[0] !== selected) {
+          setAddLink(selected.link); // Update `addLink` only if word group changes
+        }
+        return prev.includes(selected) ? prev : [selected];
+      });
       setUserSelectedSubGroups([]);
     } else if (type === "subgroup") {
       setUserSelectedSubGroups((prev) =>
@@ -107,7 +108,6 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
     setWordSetComplete(false);
     setCurrentWordSet(null);
     shuffledWordsRef.current = [];
-    setAddLink("");
   }
 
   function resetLetterArranging() {
@@ -125,7 +125,7 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
     }
     return shuffledArray;
   }
-
+  console.log(addLink);
   ////** MARK UP **////
   return (
     <Layout>
@@ -174,6 +174,7 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
                     linkOut={true}
                   />
                 )}
+                <Spacer size={3} />
               </div>
             ) : null}
             {wordSetComplete ? (
