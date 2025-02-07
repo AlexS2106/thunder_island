@@ -242,6 +242,22 @@ export const taran_word_groups = {
           english: "my brother",
           malti: "ħija",
         },
+        {
+          english: "grandma",
+          malti: "nanna",
+        },
+        {
+          english: "grandpa",
+          malti: "nannu",
+        },
+        {
+          english: "aunt",
+          malti: "zija",
+        },
+        {
+          english: "uncle",
+          malti: "ziju",
+        },
       ],
     },
   ],

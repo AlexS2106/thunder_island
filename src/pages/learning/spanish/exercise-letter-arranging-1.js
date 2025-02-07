@@ -159,24 +159,27 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
               </div>
             ))}
             {userSelectedSubGroups ? (
-              <>
+              <div key={uuid()}>
                 <Spacer size={3} />
                 <TextEmphasisBoxMinor>
                   <p className="textCenter">
                     Match the Spanish to the English.
                   </p>
                 </TextEmphasisBoxMinor>
-              </>
+                <Spacer size={3} />
+                {addLink && (
+                  <LinkAsButton
+                    innerText="Watch the episode!"
+                    linkTo={addLink}
+                    linkOut={true}
+                  />
+                )}
+              </div>
             ) : null}
             {wordSetComplete ? (
               <div>
                 <p>You finished!</p>
                 <p>Awesome you!</p>
-                <LinkAsButton
-                  innerText="Watch the episode!"
-                  linkTo={addLink}
-                  linkOut={true}
-                />
               </div>
             ) : (
               currentWordSet && (

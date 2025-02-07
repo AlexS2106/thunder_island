@@ -143,5 +143,50 @@ export const pocoyo_arriba_y_abajo = {
         },
       ],
     },
+    {
+      name: "grupo duo",
+      list: [
+        {
+          english: "martian",
+          espanyol: "martiano",
+        },
+        {
+          english: "above",
+          espanyol: "abajo",
+        },
+        {
+          english: "behind",
+          espanyol: "detrás",
+        },
+        {
+          english: "in front",
+          espanyol: "delante",
+        },
+        {
+          english: "what are you doing",
+          espanyol: "qué estás haciendo",
+        },
+        {
+          english: "carrots",
+          espanyol: "zanahorias",
+        },
+        {
+          english: "pay attention",
+          espanyol: "prestar atención",
+        },
+        {
+          english: "hearts",
+          espanyol: "corazones",
+        },
+        {
+          english: "good job",
+          espanyol: "estupendo",
+        },
+        {
+          english: "where is he going",
+          espanyol: "a dónde va",
+        },
+      ],
+    },
   ],
 };
