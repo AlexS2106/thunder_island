@@ -14,7 +14,7 @@ import {
 import AsideRight from "../../../components/layout/grids/AsideRight";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Button from "../../../components/buttons/Button";
-import Dropdown from "../../../components/user-interactive/dropdown/Dropdown";
+import Dropdown from "../../../components/user-interactive/dropdown/dropdown";
 import Layout from "../../../components/layout/containers/Layout";
 import Main from "../../../components/layout/containers/Main";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
