@@ -74,50 +74,67 @@ const WordMatch1 = ({ exerciseData }) => {
     setData((prevData) =>
       prevData.map((item) => ({
         ...item,
-        success: matchingIds.includes(item.id) ? true : false,
+        success: matchingIds.includes(item.id),
       })),
     );
   }, [memoizedArrayOfLocs1, memoizedArrayOfLocs2]);
 
   //Checks if all answers are successfully completed and sets the success state to true
   useEffect(() => {
-    const allCorrect = data.every((item) => item.success);
-    setSuccess(allCorrect);
+    setSuccess(data.every((item) => item.success));
   }, [data]);
 
   ////** FUNCTIONS **////
   //Drag function logic
-  function handleOnDragStart(index) {
+  function handleOnDragStart(e, index) {
     if (!success) {
       dragged.current = index;
+      draggedOver.current = null; // Reset draggedOver on new drag
     }
   }
-  function handleOnDragOver(index) {
+  function handleOnDragOver(e, index) {
+    e.preventDefault();
     if (!success) {
       draggedOver.current = index;
     }
+  }
+  function handleOnDrop(e) {
+    e.preventDefault();
+    handleOnDragEnd(e);
   }
   function handleOnDragEnd(e) {
     if (!success && dragged.current !== null && draggedOver.current !== null) {
       const draggedLoc = dragged.current;
       const draggedOverLoc = draggedOver.current;
 
-      const isFirstSet = e.target.hasAttribute("data-first");
-      const updatedLocs = isFirstSet ? [...arrayOfLocs1] : [...arrayOfLocs2];
+      // Ensure the target element exists
+      const element = document.elementFromPoint(ghost.x, ghost.y) || e.target;
+      if (!element) return;
 
-      // Swap elements manually
-      [updatedLocs[draggedLoc], updatedLocs[draggedOverLoc]] = [
-        updatedLocs[draggedOverLoc],
-        updatedLocs[draggedLoc],
+      // Determine which set is being interacted with
+      const isFirstSet = e.target.hasAttribute("data-first");
+      const isSecondSet = e.target.hasAttribute("data-second");
+      if (!isFirstSet && !isSecondSet) return; // Ensure valid drag-drop
+      // Choose correct array
+      const sourceArray = isFirstSet ? [...arrayOfLocs1] : [...arrayOfLocs2];
+
+      // Create a new array reference
+      const newArray = [...sourceArray];
+
+      // Swap items in the correct array
+      [newArray[draggedLoc], newArray[draggedOverLoc]] = [
+        newArray[draggedOverLoc],
+        newArray[draggedLoc],
       ];
 
+      // Update correct state
       if (isFirstSet) {
-        setArrayOfLocs1(updatedLocs);
+        setArrayOfLocs1(newArray);
       } else {
-        setArrayOfLocs2(updatedLocs);
+        setArrayOfLocs2(newArray);
       }
 
-      // Reset refs
+      // Reset drag references
       dragged.current = null;
       draggedOver.current = null;
     }
@@ -126,8 +143,7 @@ const WordMatch1 = ({ exerciseData }) => {
   function handleOnTouchStart(e, index) {
     const touch = e.touches[0]; // Get touch position
     dragged.current = index; // Store the index of the element being touched
-    // Get the content of the dragged element
-    const itemContent = e.target.textContent || "";
+    const itemContent = e.target.textContent || ""; // Get the content of the dragged element
 
     setGhost({
       visible: true,
@@ -146,7 +162,6 @@ const WordMatch1 = ({ exerciseData }) => {
     }));
 
     const element = document.elementFromPoint(touch.clientX, touch.clientY);
-
     if (!element) return;
 
     const index = element.getAttribute("data-index");
@@ -156,32 +171,23 @@ const WordMatch1 = ({ exerciseData }) => {
   }
 
   function handleOnTouchEnd(e) {
-    if (dragged.current !== null && draggedOver.current !== null) {
-      const draggedLoc = dragged.current;
-      const draggedOverLoc = draggedOver.current;
+    // Find the element where the touch ended
+    const element = document.elementFromPoint(ghost.x, ghost.y);
+    if (!element) return;
 
-      // Check which array we are in
-      const isFirstSet = e.target.hasAttribute("data-first");
-      const updatedLocs = isFirstSet ? [...arrayOfLocs1] : [...arrayOfLocs2];
+    // Get the index of the touched-over item
+    const index = element.getAttribute("data-index");
 
-      // Swap elements
-      [updatedLocs[draggedLoc], updatedLocs[draggedOverLoc]] = [
-        updatedLocs[draggedOverLoc],
-        updatedLocs[draggedLoc],
-      ];
-
-      // Update the state
-      if (isFirstSet) {
-        setArrayOfLocs1(updatedLocs);
-      } else {
-        setArrayOfLocs2(updatedLocs);
-      }
-      // Hide the ghost element
-      setGhost({ visible: false, x: 0, y: 0, content: "" });
-      // Reset refs
-      dragged.current = null;
-      draggedOver.current = null;
+    // Ensure valid values before calling
+    if (index !== null) {
+      draggedOver.current = parseInt(index, 10);
     }
+    // Call `handleOnDragEnd` to swap items
+    if (draggedOver.current !== null) {
+      handleOnDragEnd(e);
+    }
+    // Hide the ghost element
+    setGhost({ visible: false, x: 0, y: 0, content: "" });
   }
 
   ////** MARK UP **////
@@ -195,10 +201,7 @@ const WordMatch1 = ({ exerciseData }) => {
             <div
               key={`1${item}${index}`}
               className={
-                data.find(
-                  (dataItem) =>
-                    dataItem.id === item.id && dataItem.success === true,
-                )
+                data.find((dataItem) => dataItem.id === item.id)?.success
                   ? isCorrect
                   : isIncorrect
               }
@@ -209,9 +212,9 @@ const WordMatch1 = ({ exerciseData }) => {
               draggable
               onDragStart={(e) => handleOnDragStart(e, index)}
               onDragOver={(e) => handleOnDragOver(e, index)}
-              onDragEnd={(e) => handleOnDragEnd(e)}
+              onDrop={(e) => handleOnDrop(e)}
               onTouchStart={(e) => handleOnTouchStart(e, index)}
-              onTouchMove={(e) => handleOnTouchMove(e, index)}
+              onTouchMove={handleOnTouchMove}
               onTouchEnd={(e) => handleOnTouchEnd(e)}>
               {item.itemAtLoc1}
             </div>
@@ -222,10 +225,7 @@ const WordMatch1 = ({ exerciseData }) => {
             <div
               key={`2${item}${index}`}
               className={
-                data.find(
-                  (dataItem) =>
-                    dataItem.id === item.id && dataItem.success === true,
-                )
+                data.find((dataItem) => dataItem.id === item.id)?.success
                   ? isCorrect
                   : isIncorrect
               }
@@ -236,9 +236,9 @@ const WordMatch1 = ({ exerciseData }) => {
               data-index={index}
               onDragStart={(e) => handleOnDragStart(e, index)}
               onDragOver={(e) => handleOnDragOver(e, index)}
-              onDragEnd={(e) => handleOnDragEnd(e)}
+              onDrop={(e) => handleOnDrop(e)}
               onTouchStart={(e) => handleOnTouchStart(e, index)}
-              onTouchMove={(e) => handleOnTouchMove(e, index)}
+              onTouchMove={handleOnTouchMove}
               onTouchEnd={(e) => handleOnTouchEnd(e)}>
               {item.itemAtLoc2}
             </div>

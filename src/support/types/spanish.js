@@ -92,6 +92,51 @@ export const pocoyo_el_cuento_de_colores = {
         },
       ],
     },
+    {
+      name: "grupo tres",
+      list: [
+        {
+          english: "a red car",
+          espanyol: "un coche rojo",
+        },
+        {
+          english: "the colouring book",
+          espanyol: "el cuento de colores",
+        },
+        {
+          english: "magic",
+          espanyol: "mágico",
+        },
+        {
+          english: "or",
+          espanyol: "o",
+        },
+        {
+          english: "let's go and find",
+          espanyol: "vamos a buscar",
+        },
+        {
+          english: "the light",
+          espanyol: "la luz",
+        },
+        {
+          english: "no",
+          espanyol: "no",
+        },
+        {
+          english: "it worked",
+          espanyol: "funcionó",
+        },
+        {
+          english: "perhaps",
+          espanyol: "quizás",
+        },
+        {
+          english: "blueberry",
+          espanyol: "arándano",
+        },
+      ],
+    },
   ],
 };
 export const pocoyo_arriba_y_abajo = {
