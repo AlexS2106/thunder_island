@@ -19,6 +19,7 @@ import TextEmphasisBoxMinor from "../../../components/typography/text-emphasis/T
 import {
   pocoyo_el_cuento_de_colores,
   pocoyo_arriba_y_abajo,
+  pocoyo_dinosaurios,
 } from "../../../support/types/spanish";
 
 import { makeTitle } from "../../../support/functions/utility";
@@ -81,7 +82,11 @@ const ExerciseLetterArranging1 = ({ pageContext }) => {
   //// *** VARIABLES *** ////
   const pageTitle1 = "Spanish Letter Arranging";
   //array containing imported wordgroup objects
-  const _allWordGroups = [pocoyo_el_cuento_de_colores, pocoyo_arriba_y_abajo];
+  const _allWordGroups = [
+    pocoyo_el_cuento_de_colores,
+    pocoyo_arriba_y_abajo,
+    pocoyo_dinosaurios,
+  ];
 
   ////** FUNCTIONS **////
   function handleUserSelection(selected, type) {

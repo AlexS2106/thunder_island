@@ -5,12 +5,12 @@ import { v4 as uuid } from "uuid";
 import { game } from "./index.module.css";
 
 import AsideRight from "../../../components/layout/grids/AsideRight";
+import BalloonPop from "../../../components/user-interactive/balloon-pop/BalloonPop";
 import Breadcrumbs from "../../../components/navigation/page-navigation/breadcrumbs/Breadcrumbs";
 import Button from "../../../components/buttons/Button";
 import Layout from "../../../components/layout/containers/Layout";
 import LinkAsButton from "../../../components/navigation/links/LinkAsButton";
 import Main from "../../../components/layout/containers/Main";
-import WordMatch1 from "../../../components/user-interactive/word-match/Word-Match";
 import PageTitle from "../../../components/typography/pageTitle/PageTitle";
 import SearchEngineOptimisation from "../../../components/seo/SearchEngineOptimisation";
 import Spacer from "../../../components/layout/spacing/Spacer";
@@ -28,7 +28,7 @@ import {
 } from "../../../support/functions/utility";
 
 ////** COMPONENT **////
-const ExerciseWordMatch1 = ({ pageContext }) => {
+const ExerciseBalloonPop1 = ({ pageContext }) => {
   ////** CONTEXT **////
   //Breadcrumb state
   const {
@@ -48,7 +48,7 @@ const ExerciseWordMatch1 = ({ pageContext }) => {
   const [userSelectedSubGroups, setUserSelectedSubGroups] = useState([]);
   const [addLink, setAddLink] = useState("");
   //// *** VARIABLES *** ////
-  const pageTitle1 = "Spanish Word Matching";
+  const pageTitle1 = "Spanish Balloon Pop";
   //array containing imported wordgroup objects
   const _allWordGroups = [
     pocoyo_el_cuento_de_colores,
@@ -109,9 +109,7 @@ const ExerciseWordMatch1 = ({ pageContext }) => {
               <>
                 <Spacer size={3} />
                 <TextEmphasisBoxMinor>
-                  <p className="textCenter">
-                    Match the Spanish to the English.
-                  </p>
+                  <p className="textCenter">What is the word in Spanish?</p>
                 </TextEmphasisBoxMinor>
               </>
             ) : null}
@@ -128,7 +126,7 @@ const ExerciseWordMatch1 = ({ pageContext }) => {
                   />
                 )}
                 <Spacer size={3} />
-                <WordMatch1
+                <BalloonPop
                   exerciseData={redefineLanguageValuesAsValue1AndValue2ForData(
                     subGroup.list,
                     "english",
@@ -153,8 +151,8 @@ export const Head = () => (
 );
 
 //// ** PROP TYPES ** ////
-ExerciseWordMatch1.propTypes = {
+ExerciseBalloonPop1.propTypes = {
   pageContext: PropTypes.object.isRequired,
 };
 
-export default ExerciseWordMatch1;
+export default ExerciseBalloonPop1;

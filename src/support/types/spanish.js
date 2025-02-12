@@ -1,3 +1,19 @@
+////wordGroups
+// wordgroup struct = {
+// name: string
+// link: string
+// subWordGroups: [
+//   {
+//     name: string,
+//     list: [
+//       {
+//         english: string,
+//         espanyol: string,
+//       }
+//     ]
+//   }
+// ]
+// }
 export const pocoyo_el_cuento_de_colores = {
   name: "el cuento de colores",
   link: "https://youtu.be/g8KuwGC0QYQ",
@@ -137,6 +153,51 @@ export const pocoyo_el_cuento_de_colores = {
         },
       ],
     },
+    {
+      name: "grupo cuatro",
+      list: [
+        {
+          english: "apple",
+          espanyol: "manzana",
+        },
+        {
+          english: "ladybird",
+          espanyol: "mariquita",
+        },
+        {
+          english: "are you sure",
+          espanyol: "estás seguro",
+        },
+        {
+          english: "like you",
+          espanyol: "como tu",
+        },
+        {
+          english: "change color",
+          espanyol: "cambia de color",
+        },
+        {
+          english: "i think",
+          espanyol: "creo",
+        },
+        {
+          english: "lovely",
+          espanyol: "precioso",
+        },
+        {
+          english: "it worked",
+          espanyol: "funcionó",
+        },
+        {
+          english: "muy",
+          espanyol: "very",
+        },
+        {
+          english: "what",
+          espanyol: "qué",
+        },
+      ],
+    },
   ],
 };
 export const pocoyo_arriba_y_abajo = {
@@ -197,7 +258,7 @@ export const pocoyo_arriba_y_abajo = {
         },
         {
           english: "above",
-          espanyol: "abajo",
+          espanyol: "encima",
         },
         {
           english: "behind",
@@ -228,8 +289,149 @@ export const pocoyo_arriba_y_abajo = {
           espanyol: "estupendo",
         },
         {
+          english: "where",
+          espanyol: "dónde",
+        },
+      ],
+    },
+    {
+      name: "grupo tres",
+      list: [
+        {
+          english: "little bird",
+          espanyol: "pájarito",
+        },
+        {
           english: "where is he going",
           espanyol: "a dónde va",
+        },
+        {
+          english: "understand",
+          espanyol: "entiende",
+        },
+        {
+          english: "class",
+          espanyol: "clase",
+        },
+        {
+          english: "this is",
+          espanyol: "esto es",
+        },
+        {
+          english: "below",
+          espanyol: "debajo",
+        },
+        {
+          english: "going up or down",
+          espanyol: "subiendo o bajando",
+        },
+        {
+          english: "stairs",
+          espanyol: "escalera",
+        },
+        {
+          english: "thanks",
+          espanyol: "gracias",
+        },
+        {
+          english: "professor",
+          espanyol: "profesor",
+        },
+      ],
+    },
+  ],
+};
+export const pocoyo_dinosaurios = {
+  name: "dinosaurios",
+  link: "https://www.youtube.com/watch?v=ooIFCBUVk0k&t=52s",
+  subWordGroups: [
+    {
+      name: "grupo uno",
+      list: [
+        {
+          english: "dinosaur",
+          espanyol: "dinosaurio",
+        },
+        {
+          english: "history",
+          espanyol: "historia",
+        },
+        {
+          english: "competition",
+          espanyol: "competición",
+        },
+        {
+          english: "meteorite",
+          espanyol: "meteorito",
+        },
+        {
+          english: "goodbye",
+          espanyol: "adiós",
+        },
+        {
+          english: "quietly",
+          espanyol: "calladamente",
+        },
+        {
+          english: "nap time",
+          espanyol: "la siesta",
+        },
+        {
+          english: "plasticine",
+          espanyol: "plasticina",
+        },
+        {
+          english: "go",
+          espanyol: "vai",
+        },
+        {
+          english: "which one",
+          espanyol: "quales",
+        },
+      ],
+    },
+    {
+      name: "grupo dos",
+      list: [
+        {
+          english: "favourite dinosaur",
+          espanyol: "dinosaurio favorito",
+        },
+        {
+          english: "hurrah",
+          espanyol: "viva",
+        },
+        {
+          english: "next",
+          espanyol: "próxima",
+        },
+        {
+          english: "look on the bright side",
+          espanyol: "mira el lado positivo",
+        },
+        {
+          english: "i am",
+          espanyol: "soy yo",
+        },
+        {
+          english: "most fierce",
+          espanyol: "más feroz",
+        },
+        {
+          english: "friends",
+          espanyol: "amigos",
+        },
+        {
+          english: "with",
+          espanyol: "con",
+        },
+        {
+          english: "look out",
+          espanyol: "cuidado",
+        },
+        {
+          english: "never mind",
+          espanyol: "olvídalo",
         },
       ],
     },

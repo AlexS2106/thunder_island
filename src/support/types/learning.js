@@ -45,7 +45,11 @@ export const learningGroups = [
     level: "Primary",
     link: "spanish/",
     lessons: [],
-    exercises: ["exercise-word-match-1", "exercise-letter-arranging-1"],
+    exercises: [
+      "exercise-word-match-1",
+      "exercise-letter-arranging-1",
+      "exercise-balloon-pop-1",
+    ],
     subcategory: ["spanish"],
     mustKnow: [],
     next: [],

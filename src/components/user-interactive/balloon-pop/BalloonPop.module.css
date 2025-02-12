@@ -1,0 +1,45 @@
+.container {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.target {
+  margin-bottom: 2rem;
+}
+
+.gameArea {
+  width: 100%;
+  height: 65vh;
+  position: relative;
+  clip-path: inset(0);
+}
+
+/* Balloon Base Styles */
+.balloon {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--color-light);
+  padding: 1.5rem 3rem;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 35vh; /* Where the balloons start */
+  animation: floatUp linear infinite;
+}
+
+/* Keyframe Animation */
+@keyframes floatUp {
+  from {
+    transform: translateY(60vh);
+  }
+  to {
+    transform: translateY(-50vh);
+  }
+}
+.scoring {
+  font-weight: bold;
+}
