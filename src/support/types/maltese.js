@@ -17,7 +17,7 @@ export const taran_word_groups = {
   name: "tarans words",
   subWordGroups: [
     {
-      name: "group one",
+      name: "l-ewwel grupp",
       list: [
         {
           english: "broom",
@@ -42,7 +42,7 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "group two",
+      name: "it-tieni grupp",
       list: [
         {
           english: "peach",
@@ -67,7 +67,7 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "group three",
+      name: "grupp tlieta",
       list: [
         {
           english: "power",
@@ -92,7 +92,24 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "the bees",
+      name: "grupp erbgħa",
+      list: [
+        {
+          english: "rain",
+          malti: "xita",
+        },
+        {
+          english: "wind",
+          malti: "riħ",
+        },
+        {
+          english: "sweater",
+          malti: "għaraq",
+        },
+      ],
+    },
+    {
+      name: "in-naħal",
       list: [
         {
           english: "bee",
@@ -121,7 +138,7 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "about myself",
+      name: "dwari nnifsi",
       list: [
         {
           english: "name",
@@ -146,7 +163,7 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "christmas",
+      name: "milied",
       list: [
         {
           english: "christmas",
@@ -171,7 +188,7 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "months",
+      name: "xhur",
       list: [
         {
           english: "january",
@@ -224,7 +241,7 @@ export const taran_word_groups = {
       ],
     },
     {
-      name: "my family",
+      name: "il-familja tiegħi",
       list: [
         {
           english: "my mother",
@@ -263,10 +280,10 @@ export const taran_word_groups = {
   ],
 };
 export const numbers = {
-  name: "numbers",
+  name: "numri",
   subWordGroups: [
     {
-      name: "1 to 5",
+      name: "1 sa 5",
       list: [
         {
           english: "one",
@@ -291,7 +308,7 @@ export const numbers = {
       ],
     },
     {
-      name: "6 to 10",
+      name: "6 sa 10",
       list: [
         {
           english: "six",
@@ -316,7 +333,7 @@ export const numbers = {
       ],
     },
     {
-      name: "11 to 15",
+      name: "11 sa 15",
       list: [
         {
           english: "eleven",
@@ -341,7 +358,7 @@ export const numbers = {
       ],
     },
     {
-      name: "16 to 20",
+      name: "16 sa 20",
       list: [
         {
           english: "sixteen",
@@ -421,10 +438,10 @@ export const numbers = {
   ],
 };
 export const about_me = {
-  name: "me",
+  name: "jien",
   subWordGroups: [
     {
-      name: "family",
+      name: "familja",
       list: [
         {
           english: "the family",
@@ -475,10 +492,10 @@ export const about_me = {
   ],
 };
 export const maltese_animals = {
-  name: "animals",
+  name: "annimali",
   subWordGroups: [
     {
-      name: "domestic animals",
+      name: "domestiċi",
       list: [
         {
           english: "dog",
@@ -539,7 +556,7 @@ export const maltese_animals = {
       ],
     },
     {
-      name: "wildlife",
+      name: "selvaġġi",
       list: [
         {
           english: "bird",
@@ -604,7 +621,7 @@ export const maltese_animals = {
       ],
     },
     {
-      name: "wild animals",
+      name: "ferjali",
       list: [
         {
           english: "tiger",
@@ -652,10 +669,10 @@ export const maltese_animals = {
 };
 
 export const word_group_1 = {
-  name: "home",
+  name: "dar",
   subWordGroups: [
     {
-      name: "structure",
+      name: "struttura",
       list: [
         {
           english: "window",
@@ -700,7 +717,7 @@ export const word_group_1 = {
       ],
     },
     {
-      name: "fittings",
+      name: "oġġetti",
       list: [
         {
           english: "bath",
@@ -725,7 +742,7 @@ export const word_group_1 = {
       ],
     },
     {
-      name: "furniture",
+      name: "għamara",
       list: [
         {
           english: "sodda",

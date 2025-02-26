@@ -250,7 +250,7 @@ export const pocoyo_arriba_y_abajo = {
       ],
     },
     {
-      name: "grupo duo",
+      name: "grupo dos",
       list: [
         {
           english: "martian",
