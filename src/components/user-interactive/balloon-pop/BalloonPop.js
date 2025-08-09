@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
-import { v4 as uuid } from "uuid";
 
 import { container, gameArea, balloon, scoring } from "./BalloonPop.module.css";
 

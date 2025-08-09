@@ -120,6 +120,7 @@ export const recipeTags = [
   "vinaigrette",
   "seasoning",
   "marinade",
+  "dipping-sauce",
 ];
 
 //Types
